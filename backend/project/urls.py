@@ -14,8 +14,33 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework_simplejwt import views as jwt_views
+import os
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Voucher Wallet API",
+        default_version='v1',
+        description="Description of your Django App...",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="info.voucherwallet@gmail.com"),
+        license=openapi.License(name="Voucher Wallet License"),
+    ),
+    public=True,  # Set to False restrict access to protected endpoints
+    permission_classes=[permissions.AllowAny],  # Permissions for docs access
+    url=os.environ.get('BACKEND_URL'),
+)
+
+real_paths = [
+    path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+]
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("backend/admin/", admin.site.urls),
+    path("backend/api/", include(real_paths)),
+
 ]
