@@ -49,9 +49,6 @@ INSTALLED_APPS = [
     "corsheaders",
 
     # own apps
-    "users",
-    "registration_profiles",
-    "password_reset",
 
 ]
 
