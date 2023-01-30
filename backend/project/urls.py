@@ -18,8 +18,7 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-# mot used yet
-# from rest_framework_simplejwt import views as jwt_views
+from rest_framework_simplejwt import views as jwt_views
 import os
 
 schema_view = get_schema_view(
@@ -37,7 +36,14 @@ schema_view = get_schema_view(
 )
 
 real_paths = [
+    path('auth/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('auth/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    path('auth/token/verify/', jwt_views.TokenVerifyView.as_view(), name='token_refresh'),
+    path('auth/registration/', include('registration_profiles.urls')),
+    path('auth/password-reset/', include('password_reset.urls')),
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path('me/', include('users.urls_me')),
+    path('users/', include('users.urls')),
 ]
 
 urlpatterns = [
