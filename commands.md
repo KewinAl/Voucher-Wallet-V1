@@ -57,7 +57,7 @@
 # remote Docker
 
 - ssh root@167.71.62.11
-- cd /home/gitlab-runner/builds/xxxxxx/
+- cd /home/gitlab-runner/builds/Nr4y8HHg/0/full-stack/batch-22-nov-2022/personal-projects/voucher-wallet
 - docker-compose -f docker-compose.deploy.yml pull
 - docker-compose -f docker-compose.deploy.yml down --remove-orphans
 - docker-compose -f docker-compose.deploy.yml up -d
