@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  backend:
+    image: registry.gitlab.propulsion-home.ch/full-stack/batch-22-nov-2022/personal-projects/voucher-wallet:latest
+    volumes:
+      - ./backend:/backend
+    ports:
+      - 8000:8000
+    env_file:
+      - ./envs/dev.env
+    command: "sh /scripts/dev.sh"
+    #command: "tail -f /dev/null" # Command line to prevent the container from stopping (for now)
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    env_file:
+      - ./envs/dev.env
+    ports:
+      - 5555:5432
+    volumes:
+      - postgres_db:/var/lib/postgresql/data
+
+volumes:
+  postgres_db:

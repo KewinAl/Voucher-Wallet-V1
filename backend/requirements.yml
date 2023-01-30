@@ -1,0 +1,14 @@
+name: voucher-wallet
+dependencies:
+  - python
+  - pip
+  - psycopg2
+  - pip:
+      - django
+      - djangorestframework
+      - djangorestframework-simplejwt
+      - pillow
+      - drf-yasg
+      - flake8
+      - gunicorn
+      - django-cors-headers
