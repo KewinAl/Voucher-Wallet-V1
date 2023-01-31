@@ -42,6 +42,7 @@ real_paths = [
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('me/', include('users.urls_me')),
     path('users/', include('users.urls')),
+    path('shop/', include('shopProfile.urls')),
 ]
 
 urlpatterns = [

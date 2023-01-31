@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from shopProfile.models import ShopProfile
+
 
 class User(AbstractUser):
     # Field used for authentication
@@ -12,6 +14,9 @@ class User(AbstractUser):
     email = models.EmailField(unique=True)
 
     profile_picture = models.ImageField(max_length=255, blank=True)
+
+    shop_profile = models.OneToOneField(to=ShopProfile, on_delete=models.CASCADE, related_name="user", null=True,
+                                        blank=True)
 
     def __str__(self):
         return self.username
