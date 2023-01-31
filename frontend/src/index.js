@@ -6,6 +6,7 @@ import {Provider} from "react-redux";
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 import Registration from "./Pages/Registration";
 import Login from "./Components/Login/Login";
+import Congratulations from "./Pages/Congratulations";
 
 const getAuthFromLocalStorage = () => {
     let authData = {}
@@ -27,8 +28,8 @@ const router = createBrowserRouter(
             https://reactrouter.com/en/main/routers/create-browser-router */}
             <Route path='/registration' element={<Registration/>}/>
             <Route path='/login' element={<Login/>}/>
-            <Route path='/registration' element ={<Registration/>}/>
-            <Route path='/Congratulations' element ={<Congratulations/>}/>
+            <Route path='/registration' element={<Registration/>}/>
+            <Route path='/Congratulations' element={<Congratulations/>}/>
         </>
     )
 );
