@@ -1,11 +1,15 @@
 
 import './App.css';
+import {Route, Routes} from "react-router-dom";
+import Registration from "./Pages/Registration";
 
 function App() {
   return (
     <div className="App">
-        Front end files are clean
-      Now we can start with components
+        <Routes>
+          <Route path='/registration' element ={<Registration/>}/>
+
+        </Routes>
     </div>
   );
 }
