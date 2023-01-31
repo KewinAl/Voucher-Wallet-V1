@@ -16,7 +16,7 @@
 - docker image ls
 - cd /home/gitlab-runner/builds/xxxxxx/s
 - python manage.py createsuperuser
-- -find . -name "000*.py" -delete  
+- -find . -name "000*.py" -delete
 
 # Droplet
 
@@ -67,7 +67,7 @@
 - cd script
 - scriptbuilder.sh
 
-
 # Database
--DROP SCHEMA public CASCADE;
--CREATE SCHEMA public;
+
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
