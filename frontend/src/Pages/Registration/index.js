@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 import axios from "axios";
 import {setEmail} from "../../Store/authSlice";
 import {useNavigate} from "react-router-dom";
-import {RegistrationForm,RegistrationPage} from "./Registration.styles";
+import {RegistrationForm, RegistrationPage} from "./Registration.styles";
 
 
 const Registration = () => {
@@ -26,7 +26,7 @@ const Registration = () => {
         axios.post("http://localhost:8000/backend/api/registration", data).then(res => {
             console.log(res);
             dispatch(setEmail(newEmail));
-            navigate("/Congratulations");
+            navigate('/Congratulations');
         }).catch(error => {
             console.log(error);
             setNewWarning(error.message);
