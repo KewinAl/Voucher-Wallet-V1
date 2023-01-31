@@ -49,8 +49,8 @@ INSTALLED_APPS = [
     "corsheaders",
 
     # own apps
-
-
+    "users",
+    "shopProfile"
 ]
 
 MIDDLEWARE = [
@@ -143,7 +143,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media-files') if DEBUG else '/media-files/'
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# AUTH_USER_MODEL = "users.User"  # nameOfYourApp.nameOfYourModel
+AUTH_USER_MODEL = "users.User"  # nameOfYourApp.nameOfYourModel
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
