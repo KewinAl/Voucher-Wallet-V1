@@ -27,6 +27,8 @@ const router = createBrowserRouter(
             https://reactrouter.com/en/main/routers/create-browser-router */}
             <Route path='/registration' element={<Registration/>}/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/registration' element ={<Registration/>}/>
+            <Route path='/Congratulations' element ={<Congratulations/>}/>
         </>
     )
 );

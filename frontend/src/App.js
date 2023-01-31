@@ -5,7 +5,8 @@ import Registration from "./Pages/Registration";
 function App() {
     return (
         <div className="App">
-            This is empty but should stay for React Magic reasons
+            {/*This is empty but should stay for React Magic reasons*/}
+            {/*Routes are now in Index file*/}
         </div>
     );
 }
