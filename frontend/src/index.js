@@ -26,10 +26,13 @@ const router = createBrowserRouter(
         <>
             {/* TODO  Add new Routes here instead, this API allows to do some nice extra things more infos:
             https://reactrouter.com/en/main/routers/create-browser-router */}
-            <Route path='/registration' element={<Registration/>}/>
-            <Route path='/login' element={<Login/>}/>
-            <Route path='/registration' element={<Registration/>}/>
-            <Route path='/Congratulations' element={<Congratulations/>}/>
+            <Route path={'/'} element={<>LandingPage Placeholder</>}>
+                <Route path='registration' element={<Registration/>}/>
+                <Route path='login' element={<Login/>}/>
+                <Route path='registration' element={<Registration/>}/>
+                <Route path='congratulations' element={<Congratulations/>}/>
+            </Route>
+
         </>
     )
 );
