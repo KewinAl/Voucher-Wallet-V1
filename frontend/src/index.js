@@ -7,6 +7,7 @@ import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} fr
 import Registration from "./Pages/Registration";
 import Login from "./Components/Login/Login";
 import Congratulations from "./Pages/Congratulations";
+import App from "./App";
 
 const getAuthFromLocalStorage = () => {
     let authData = {}
@@ -26,7 +27,7 @@ const router = createBrowserRouter(
         <>
             {/* TODO  Add new Routes here instead, this API allows to do some nice extra things more infos:
             https://reactrouter.com/en/main/routers/create-browser-router */}
-            <Route path={'/'} element={<>LandingPage Placeholder</>}>
+            <Route path='/'>
                 <Route path='registration' element={<Registration/>}/>
                 <Route path='login' element={<Login/>}/>
                 <Route path='registration' element={<Registration/>}/>
@@ -43,7 +44,6 @@ root.render(
         <Provider store={rootStore}>
             <RouterProvider router={router}/>
         </Provider>
-
     </>
 );
 
