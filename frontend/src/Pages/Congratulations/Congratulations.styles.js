@@ -8,7 +8,8 @@ export const ConfirmationContainer = styled.div`
   align-items: center;
 
   h2 {
-    height: 47px;
+    height: 10px;
+    margin-top: 120px;
     font-style: normal;
     font-size: 24px;
     text-align: center;
