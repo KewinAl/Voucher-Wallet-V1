@@ -1,6 +1,8 @@
 from enum import Enum
 from django.db import models
 
+from users.models import User
+
 
 class Gender(Enum):
     MALE = 'Male'
@@ -15,3 +17,4 @@ class CustomerProfile(models.Model):
         choices=[(tag.name, tag.value) for tag in Gender],
         default=Gender.OTHER,
     )
+    user = models.OneToOneField(to=User, on_delete=models.CASCADE, related_name="customer_profile")
