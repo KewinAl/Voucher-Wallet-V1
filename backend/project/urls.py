@@ -43,6 +43,7 @@ real_paths = [
     path('me/', include('users.urls_me')),
     path('users/', include('users.urls')),
     path('shop/', include('shopProfile.urls')),
+    path('customer/', include('customerProfile.urls')),
 ]
 
 urlpatterns = [
