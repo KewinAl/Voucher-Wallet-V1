@@ -45,6 +45,7 @@ real_paths = [
     path('shop/', include('shopProfile.urls')),
     path('customer/', include('customerProfile.urls')),
     path('coupon/', include('coupon.urls')),
+    path('tag/',include('tag.urls')),
 ]
 
 urlpatterns = [
