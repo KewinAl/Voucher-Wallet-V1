@@ -12,9 +12,9 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('shopProfile', '0001_initial'),
         ('auth', '0012_alter_user_first_name_max_length'),
         ('customerProfile', '0001_initial'),
-        ('shopProfile', '0001_initial'),
     ]
 
     operations = [
