@@ -3,11 +3,7 @@ import ReactDOM from 'react-dom/client';
 import rootStore from "./Store/rootStore";
 import {setAuth} from "./Store/authSlice";
 import {Provider} from "react-redux";
-import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
-import Registration from "./Pages/Registration";
-import Login from "./Components/Login/Login";
-import Congratulations from "./Pages/Congratulations";
-import App from "./App";
+import Routes from "./Routes";
 
 const getAuthFromLocalStorage = () => {
     let authData = {}
@@ -22,27 +18,12 @@ const getAuthFromLocalStorage = () => {
 //change the state
 rootStore.dispatch(setAuth(getAuthFromLocalStorage()))
 
-const router = createBrowserRouter(
-    createRoutesFromElements(
-        <>
-            {/* TODO  Add new Routes here instead, this API allows to do some nice extra things more infos:
-            https://reactrouter.com/en/main/routers/create-browser-router */}
-            <Route path='/'>
-                <Route path='registration' element={<Registration/>}/>
-                <Route path='login' element={<Login/>}/>
-                <Route path='registration' element={<Registration/>}/>
-                <Route path='congratulations' element={<Congratulations/>}/>
-            </Route>
-
-        </>
-    )
-);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>
         <Provider store={rootStore}>
-            <RouterProvider router={router}/>
+            <Routes/>
         </Provider>
     </>
 );
