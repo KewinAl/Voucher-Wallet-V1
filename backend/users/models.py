@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from customerProfile.models import CustomerProfile
 from shopProfile.models import ShopProfile
 
 
@@ -17,6 +18,10 @@ class User(AbstractUser):
 
     shop_profile = models.OneToOneField(to=ShopProfile, on_delete=models.CASCADE, related_name="user", null=True,
                                         blank=True)
+
+    customer_profile = models.OneToOneField(to=CustomerProfile, on_delete=models.CASCADE, related_name="user",
+                                            null=True,
+                                            blank=True)
 
     def __str__(self):
         return self.username
