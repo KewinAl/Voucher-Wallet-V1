@@ -12,11 +12,11 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='ShopProfile',
+            name='CustomerProfile',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('description', models.CharField(blank=True, max_length=100, null=True)),
-                ('link', models.URLField(blank=True, null=True)),
+                ('age', models.IntegerField(blank=True, null=True)),
+                ('gender', models.CharField(blank=True, max_length=10, null=True)),
             ],
         ),
     ]

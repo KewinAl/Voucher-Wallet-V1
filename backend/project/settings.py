@@ -50,7 +50,8 @@ INSTALLED_APPS = [
 
     # own apps
     "users",
-    "shopProfile"
+    "shopProfile",
+    "customerProfile",
 ]
 
 MIDDLEWARE = [
