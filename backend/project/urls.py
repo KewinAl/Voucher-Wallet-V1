@@ -50,6 +50,6 @@ real_paths = [
 
 urlpatterns = [
     path("backend/admin/", admin.site.urls),
-    path("backend/api/", include(real_paths)),
+    path("backend/api/", include(real_paths))
 
 ]
