@@ -5,10 +5,10 @@ import {ConfirmationContainer, CongratulationsPage} from "./Congratulations.styl
 const Congratulations = () =>{
     const navigate = useNavigate()
     useEffect(() => {
-        setTimeout(() => {
-          navigate('/verification');
-        },3000)
-    },[]);
+    setTimeout(() => {
+      navigate('/verification');
+    }, 30000);
+  }, []);
 
      return (
         <>
@@ -17,7 +17,7 @@ const Congratulations = () =>{
             <h2>REGISTRATION</h2>
                 <hr></hr>
             <p>Thanks for your registration at Voucher Wallet.
-            You will receive the confirmation mail shortly.</p>
+            You will receive the confirmation Email shortly.</p>
             </ConfirmationContainer>
         </CongratulationsPage>
         </>

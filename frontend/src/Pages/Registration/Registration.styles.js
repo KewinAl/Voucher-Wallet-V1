@@ -4,8 +4,8 @@ export const RegistrationPage = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: flex-start;
-height: 98vh;
-width: 100vw;
+height: 100%;
+width: 100%;
 `
 
 export const RegistrationForm = styled.div`
