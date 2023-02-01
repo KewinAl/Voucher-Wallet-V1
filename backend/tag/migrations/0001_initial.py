@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -18,8 +17,10 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('description', models.TextField(blank=True, max_length=50, null=True)),
-                ('customers_tagging', models.ManyToManyField(blank=True, null=True, related_name='customers_tagged', to='customerProfile.customerprofile')),
-                ('shops_tagged', models.ManyToManyField(blank=True, null=True, related_name='shops_tagged', to='shopProfile.shopprofile')),
+                ('customers_tagging', models.ManyToManyField(blank=True, null=True, related_name='customers_tagged',
+                                                             to='customerProfile.customerprofile')),
+                ('shops_tagged', models.ManyToManyField(blank=True, null=True, related_name='shops_tagged',
+                                                        to='shopProfile.shopprofile')),
             ],
         ),
     ]
