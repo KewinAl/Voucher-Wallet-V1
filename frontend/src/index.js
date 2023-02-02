@@ -22,9 +22,11 @@ rootStore.dispatch(setAuth(getAuthFromLocalStorage()))
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>
-        <Provider store={rootStore}>
-            <AppRoutes/>
-        </Provider>
+        <React.StrictMode>
+            <Provider store={rootStore}>
+                <AppRoutes/>
+            </Provider>
+        </React.StrictMode>
     </>
 );
 
