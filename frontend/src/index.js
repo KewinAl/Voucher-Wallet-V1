@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import rootStore from "./Store/rootStore";
 import {setAuth} from "./Store/authSlice";
 import {Provider} from "react-redux";
-import Routes from "./Routes";
+import AppRoutes from "./AppRoutes";
 
 const getAuthFromLocalStorage = () => {
     let authData = {}
@@ -23,7 +23,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>
         <Provider store={rootStore}>
-            <Routes/>
+            <AppRoutes/>
         </Provider>
     </>
 );
