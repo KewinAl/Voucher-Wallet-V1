@@ -1,4 +1,4 @@
-import {NavLink, Outlet, useNavigate} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import {clearAuth} from "../../Store/authSlice";
@@ -46,7 +46,6 @@ const Header = () => {
                     </Buttons>
                 </HeaderRight>
             </MainHeader>
-            <Outlet/>
         </>
     );
 };
