@@ -3,7 +3,7 @@ import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import {clearAuth} from "../../Store/authSlice";
 import {Buttons, CouponContainer, HeaderRight, MainHeader, Navbar} from "./Header.styles";
-import profileLogo from "../../Assets/profileLogo.png"
+// import profileLogo from "../../Assets/profileLogo.png"
 
 const Header = () => {
     const navigate = useNavigate();
@@ -28,7 +28,7 @@ const Header = () => {
         <>
             <MainHeader>
                 <CouponContainer>
-                    <img src={profileLogo} alt="logo"/>
+                    {/*<img src={profileLogo} alt="logo"/>*/}
                     <h3>Voucher Wallet</h3>
                 </CouponContainer>
                 <HeaderRight>
