@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "coupon",
     "tag",
     "registration_profiles",
+    'password_reset',
 ]
 
 MIDDLEWARE = [
