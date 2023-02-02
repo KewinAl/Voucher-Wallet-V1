@@ -18,7 +18,7 @@ class UserAdmin(UserAdmin):
     )
     fieldsets = (
         (None, {"fields": ("email", "username", "password")}),
-        ("Personal info", {"fields": ("first_name", "last_name")}),
+
         (
             "Permissions",
             {
@@ -33,4 +33,4 @@ class UserAdmin(UserAdmin):
         ),
         ("Important dates", {"fields": ("last_login", "date_joined")}),
     )
-    list_display = ("username", "email", "first_name", "last_name", "is_staff", "is_superuser")
+    list_display = ("username", "email", "is_staff", "is_superuser")
