@@ -26,7 +26,7 @@ const Registration = () => {
         axios.post("https://luna-group2.propulsion-learn.ch/backend/api/registration/", data).then(res => {
             console.log(res);
             dispatch(setEmail(newEmail));
-            navigate('/Congratulations');
+            navigate('/congratulations');
         }).catch(error => {
             console.log(error);
             setNewWarning(error.message);
