@@ -1,5 +1,6 @@
-from django.db import models
 import random
+
+from django.db import models
 
 
 def code_generator(length=5):
