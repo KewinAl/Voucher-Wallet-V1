@@ -9,4 +9,5 @@ class ShopProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ShopProfile
-        fields = ['id', 'name', 'description', 'link', 'coupons_created']
+        fields = '__all__'
+        read_only_fields = ['coupons_created', ]
