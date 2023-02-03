@@ -1,17 +1,15 @@
-const ShopProfileCard = ({ shopProfile }) => {
-  console.log("props", shopProfile);
-
+const ShopProfileCard = ({ shopProfileProps }) => {
   return (
     <>
       {/*TODO: 2.Add Next Comp.*/}
       <div className="ShopProfile">
         <></>
         <div className="ShopName">
-          <h3>{shopProfile.name}</h3>
+          <h3>{shopProfileProps.name}</h3>
         </div>
-        <div className="ShopDescription">{shopProfile.description}</div>
+        <div className="ShopDescription">{shopProfileProps.description}</div>
         <div className="ShopLink">
-          <a href={shopProfile.link}>{shopProfile.link}</a>
+          <a href={shopProfileProps.link}>{shopProfileProps.link}</a>
         </div>
       </div>
     </>
