@@ -11,10 +11,14 @@ class Gender(Enum):
 
 
 class CustomerProfile(models.Model):
-    age = models.IntegerField(null=True, blank=True)
+    age = models.IntegerField()
     gender = models.CharField(
         max_length=6,
         choices=[(tag.name, tag.value) for tag in Gender],
         default=Gender.OTHER,
     )
     user = models.OneToOneField(to=User, on_delete=models.CASCADE, related_name="customer_profile")
+    firstname = models.CharField(max_length=100)
+    lastname = models.CharField(max_length=100)
+
+    REQUIRED_FIELDS = ['__all__']

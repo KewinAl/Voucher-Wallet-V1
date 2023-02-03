@@ -3,7 +3,25 @@ import {useDispatch} from "react-redux";
 import {Form, useNavigate} from "react-router-dom";
 import {getAuthToken} from '../../API/lib/auth';
 import {clearAuth, setAuth, setEmail} from "../../Store/authSlice";
+import styled from "styled-components";
 
+const ButtonLink = styled.button`
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: blue;
+  }
+;
+
+  &:active {
+    color: red;
+  }
+;
+`
 
 function Login() {
 
@@ -17,7 +35,7 @@ function Login() {
     const navigate = useNavigate();
 
     const handleChange = e => {
-        setUser({ ...user, [e.target.id]: e.target.value });
+        setUser({...user, [e.target.id]: e.target.value});
     };
 
     const loginUser = async (e) => {
@@ -30,8 +48,8 @@ function Login() {
             console.log("res.data =", response.data);
             localStorage.setItem("auth", JSON.stringify(response.data));
             localStorage.setItem("email", JSON.stringify(user.email));
-            navigate("/");
-        }catch (error) {
+            navigate("/congratulations");
+        } catch (error) {
             setError(error.response.data);
         }
     }
@@ -55,23 +73,27 @@ function Login() {
     }
 
     const reset_password = () => {
+        // TODO: reset password function
         navigate("/");
-      };
+    };
 
 
     return (
         <>
-        <Form>
-            <h1>Login</h1>
-            <div id="divider"></div>
-            <p style={{color: 'red'}}>{error.detail}</p>
-            <input id="email" placeholder={error.email || 'Email'} name="email" type="text" value={user.email} onChange={handleChange} style={{marginTop: "6rem"}}/>
-            <input id="password" placeholder={error.password || 'Password'} type="password" name="password" value={user.password} onChange={handleChange} style={{marginTop: "1rem"}}/>
-            <button type="submit" className="custom_button" onClick={loginUser}>Login</button>
-            <a href='#' onClick={reset_password} id="forgot_password">Forgot your password?</a>
-            <a href='#' onClick={handleLogout} id="forgot_password">Logout</a>
-        </Form>
-
+            <div className={'LoginContainer'}>
+                <Form>
+                    <h1>Login</h1>
+                    <div id="divider"></div>
+                    <p style={{color: 'red'}}>{error.detail}</p>
+                    <input id="email" placeholder={error.email || 'Email'} name="email" type="text" value={user.email}
+                           onChange={handleChange} style={{marginTop: "6rem"}}/>
+                    <input id="password" placeholder={error.password || 'Password'} type="password" name="password"
+                           value={user.password} onChange={handleChange} style={{marginTop: "1rem"}}/>
+                    <button type="submit" className="custom_button" onClick={loginUser}>Login</button>
+                    <ButtonLink onClick={reset_password} id="forgot_password">Forgot your password?</ButtonLink>
+                    <ButtonLink onClick={handleLogout} id={'logout'}>Logout</ButtonLink>
+                </Form>
+            </div>
         </>
 
     );
