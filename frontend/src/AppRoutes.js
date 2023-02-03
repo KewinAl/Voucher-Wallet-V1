@@ -23,6 +23,7 @@ function AppRoutes() {
           <Route path="congratulations" element={<Congratulations />} />
           <Route path="verification" element={<Verification />} />
           <Route path="shopProfile/:shopId" element={<ShopProfile />} />
+          <Route path="myShop" element={<ShopProfile />} />
         </Route>
       </>
     )
