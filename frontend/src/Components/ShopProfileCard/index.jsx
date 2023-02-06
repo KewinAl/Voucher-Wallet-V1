@@ -1,17 +1,16 @@
-const ShopProfileCard = (props) => {
-  console.log('props', props)
+const ShopProfileCard = ({shopProfileProps}) => {
+
 
   return (
       <>
-        {/*TODO: 1.Refractor Component 2.Add Next Comp.*/}
         <div className="ShopProfile">
-          <>test</>
+          <></>
           <div className="ShopName">
-            <h3>{props.name}</h3>
+            <h3>{shopProfileProps.name}</h3>
           </div>
-          <div className="ShopDescription">{props.description}</div>
+          <div className="ShopDescription">{shopProfileProps.description}</div>
           <div className="ShopLink">
-            <a href={props.link}>{props.link}</a>
+            <a href={shopProfileProps.link}>{shopProfileProps.link}</a>
           </div>
         </div>
       </>

@@ -2,8 +2,9 @@ import {NavLink, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {useEffect, useState} from "react";
 import {clearAuth} from "../../Store/authSlice";
-import {Buttons, CouponContainer, HeaderRight, MainHeader, Navbar} from "./Header.styles";
+import {Buttons, Coupon, HeaderRight, MainHeader, Navbar} from "./Header.styles";
 // import profileLogo from "../../Assets/profileLogo.png"
+import coupon from "../../Assets/coupon.png"
 
 const Header = () => {
     const navigate = useNavigate();
@@ -27,15 +28,18 @@ const Header = () => {
     return (
         <>
             <MainHeader>
-                <CouponContainer>
-                    {/*<img src={profileLogo} alt="logo"/>*/}
+
+                <Coupon>
+                    <img src={coupon}/>
                     <h3>Voucher Wallet</h3>
-                </CouponContainer>
+                </Coupon>
+                {/*<img src={profileLogo} alt="logo"/>*/}
                 <HeaderRight>
+                    <input type="text" className="Search" placeholder="Search"/>
                     <Navbar>
                         <ul>
                             <NavLink to="/">Home</NavLink>
-                            <NavLink to="/search">Search</NavLink>
+                            <NavLink to="">Category</NavLink>
                             <NavLink to="/user">Profile</NavLink>
                         </ul>
                     </Navbar>
