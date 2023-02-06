@@ -7,10 +7,9 @@ export const MainHeader = styled.div`
   width: 100%;
   height: 60px;
   padding-inline: 2rem;
-  background-color: #FFFFFF;
   position: relative;
   padding: 0 0;
-
+  background-color: green;
 
   h1 {
     font-family: 'Roboto';
@@ -23,35 +22,54 @@ export const MainHeader = styled.div`
   }
 `
 
+export const Coupon = styled.div`
+  width: 300px;
+  height: 60px;
+  display: flex;
 
+  h3 {
+    width: 100%;
+    height: 40px;
+    font-size: 25px;
+    font-weight: 300;
+    font-family: "Rage Italic";
+  }
 
-export const CouponContainer = styled.div`
-
-  
-h3{
-  font-family: italic;
-  
-}
+  img {
+    padding: 10px;
+    height: 40px;
+    width: 40px;
+    align-content: center;
+  }
 
 `
 export const HeaderRight = styled.div`
-  display: flex;
   align-items: center;
+  display: flex;
+  justify-content: space-between;
+
+  .Search {
+    height: 30px;
+    width: 400px;
+    border: 1px solid grey;
+    border-radius: 20px;
+    margin-right: 20px;
+
+  }
+
 
 `
-
-
 export const Navbar = styled.nav`
   ul {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 50px;
-  position: relative;
-  right: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+    position: relative;
+    right: 50px;
 
 
-}
+  }
 
   a {
     text-decoration: none;
@@ -69,7 +87,7 @@ export const Navbar = styled.nav`
   a.active {
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 20px;
     line-height: 23px;
     text-align: center;
@@ -82,6 +100,7 @@ export const Navbar = styled.nav`
 export const Buttons = styled.div`
   display: flex;
   gap: 2px;
+  justify-content: center;
 
   #signup {
     border-top-left-radius: 20px;
@@ -112,4 +131,4 @@ export const Buttons = styled.div`
   }
 
 
-` ;
+`;
