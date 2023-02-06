@@ -1,0 +1,78 @@
+import axios from 'axios'
+import React, {useState} from 'react'
+
+
+const NewCoupon = () => {
+    /*
+    TODO:  Add the access directly rather than hardcore token when someone logs in :
+     */
+    const access = localStorage.getItem("access")
+    const [formData, setFormData] = useState({
+        shop_profile: '',
+        description: '',
+        amount: '', // The amount of coupons which is available (e.g. 20 coupons for first 20 users to redeem)
+        expiration_date: ''
+    });
+    const config = {
+        method: 'POST',
+        url: 'http://localhost:8000/backend/api/coupon/new/',
+        headers: {
+            "Authorization": `Bearer ${access}`,
+            'Content-Type': 'application/json'
+        },
+        data: formData
+    }
+
+
+    const handleChange = e => {
+        setFormData(prevState => {
+            return {
+                ...prevState, [e.target.name]: e.target.value
+            }
+        });
+        /* console.log("formData ==", formData) */
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        axios.post(config.url, formData, {
+            headers: config.headers
+        })
+            .then(response => {
+                console.log(response);
+                if (response.status === 201)
+                    console.log("Data created:");
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+    return (
+        <>
+            <h2>Create New Coupon</h2>
+            <form onSubmit={handleSubmit}>
+                <label>Shop_Profile</label>
+                <input name={'shop_profile'}
+                       value={formData.shop_profile}
+                       onChange={handleChange}/>
+                <label>Description </label>
+                <input name={'description'}
+                       value={formData.description}
+                       onChange={handleChange}/>
+                <label>Coupon Amount </label>
+                <input name={'amount'}
+                       value={formData.amount}
+                       onChange={handleChange}/>
+                <label>Expiration Date </label>
+                <input type={'date'}
+                       name={'expiration_date'}
+                       value={formData.expiration_date}
+                       onChange={handleChange}/>
+                <button type="submit" onClick={handleSubmit}>Create</button>
+            </form>
+
+        </>
+    )
+}
+
+export default NewCoupon
