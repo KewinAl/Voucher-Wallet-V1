@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getShopProfile } from "../../API/lib/shopProfile";
+import { getMyShopProfile, getShopProfile } from "../../API/lib/shopProfile";
 import ShopProfileCard from "../../Components/ShopProfileCard";
 import CouponCard from "../../Components/CouponCard/CouponCard";
 
@@ -19,8 +19,19 @@ const ShopProfile = () => {
     }
   };
 
+  const handleGetMyShopProfile = async () => {
+    try {
+      const response = await getMyShopProfile();
+      //console.log("fullShopData:", response.data);
+      setShopProfile(response.data[0]);
+    } catch (e) {
+      console.log("error->", e);
+    }
+  };
+  console.log(shopProfile);
+
   useEffect(() => {
-    handleGetShopProfile();
+    shopId ? handleGetShopProfile() : handleGetMyShopProfile();
   }, []);
 
   return (

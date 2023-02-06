@@ -10,8 +10,8 @@ import Verification from "./Pages/Verification";
 import Login from "./Components/Login/Login";
 import Layout from "./Components/Layout";
 import ShopProfile from "./Pages/ShopProfile";
+import CustomerProfile from "./Pages/CustomerProfile";
 import NewCoupon from "./Components/CreateNewCoupon";
-
 
 function AppRoutes() {
     const router = createBrowserRouter(
@@ -26,7 +26,12 @@ function AppRoutes() {
                     <Route path="verification" element={<Verification/>}/>
                     <Route path="shopProfile/:shopId" element={<ShopProfile/>}/>
                     <Route path="newCoupon" element={<NewCoupon/>}/>
-
+                    <Route
+                        path="customerProfile/:customerId"
+                        element={<CustomerProfile/>}
+                    />
+                    <Route path="myShop" element={<ShopProfile/>}/>
+                    <Route path="me" element={<CustomerProfile/>}/>
                 </Route>
             </>
         )
