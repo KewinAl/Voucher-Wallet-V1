@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Form, useNavigate } from "react-router-dom";
-import { getAuthToken } from "../../API/lib/auth";
+import { fetchProfile, getAuthToken } from "../../API/lib/auth";
 import { clearAuth, setAuth, setEmail } from "../../Store/authSlice";
 import styled from "styled-components";
 
@@ -15,6 +15,7 @@ const ButtonLink = styled.button`
     text-decoration: underline;
     color: blue;
   }
+
   &:active {
     color: red;
   }
@@ -44,8 +45,25 @@ function Login() {
       console.log("res.data =", response.data);
       localStorage.setItem("auth", JSON.stringify(response.data));
       localStorage.setItem("email", JSON.stringify(user.email));
-      navigate("/myShop");
+
+      // Fetch user profile
+      const profileResponse = await fetchProfile();
+      //dispatch(setProfile(profileResponse.data));
+      console.log("profile =", profileResponse.data);
+      if (profileResponse.data) {
+        navigate(
+          profileResponse.data.customer_profile
+            ? "/me"
+            : profileResponse.data.shop_profile
+            ? "/myShop"
+            : "/"
+        );
+      } else {
+        // handle error or show message to the user
+        console.log(response.data);
+      }
     } catch (error) {
+      console.log("error", error);
       setError(error.response.data);
     }
   };
