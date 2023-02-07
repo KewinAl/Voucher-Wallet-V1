@@ -5,7 +5,7 @@ from shopProfile.models import ShopProfile
 
 
 class ShopProfileSerializer(serializers.ModelSerializer):
-    coupons_created = CouponSerializer(many=True)
+    coupons_created = CouponSerializer(many=True, read_only=True)
 
     class Meta:
         model = ShopProfile

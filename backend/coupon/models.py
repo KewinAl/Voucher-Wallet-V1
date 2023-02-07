@@ -29,8 +29,25 @@ class CouponCode(models.Model):
     class Meta:
         unique_together = ('coupon', 'customer_profile')
 
-    def generate_code(self, code_length=20):
-        code = ''.join(random.choices(string.ascii_letters + string.digits, k=code_length))
-        self.redeemed_code = code
-        self.save()
+    def redeem_code(self, customer_id, coupon_id):
+        customer = CustomerProfile.objects.get(id=customer_id)
+        coupon = Coupon.objects.get(id=coupon_id)
 
+        if coupon.times_used >= coupon.amount:
+            return "The coupon has already been used the maximum amount of times"
+        elif self.objects.filter(coupon=coupon, customer_profile=customer).exists():
+            return "This coupon has already been redeemed by this customer"
+        else:
+            coupon.times_used += 1
+            coupon.save()
+            self.coupon = coupon
+            self.customer_profile = customer
+            self.redeemed_code = self.generate_code()
+            self.save()
+            return "Coupon redeemed successfully"
+
+    def generate_code(self):
+        code = ''.join(random.choices(string.ascii_uppercase + string.digits, k=10))
+        if self.objects.filter(redeemed_code=code).exists():
+            return self.generate_code()
+        return code

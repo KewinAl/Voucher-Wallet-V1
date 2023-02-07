@@ -11,7 +11,7 @@ class CouponCodeSerializer(serializers.ModelSerializer):
 
 
 class CouponSerializer(serializers.ModelSerializer):
-    customer_profiles = CustomerProfileSerializer(many=True)
+    customer_profiles = CustomerProfileSerializer(many=True, read_only=True)
     coupon_codes = CouponCodeSerializer(many=True, read_only=True)
 
     class Meta:
