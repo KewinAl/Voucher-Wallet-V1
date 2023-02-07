@@ -5,9 +5,9 @@ from shopProfile.models import ShopProfile
 
 
 class ShopProfileSerializer(serializers.ModelSerializer):
-    coupons_created = CouponSerializer(many=True)
+    coupons_created = CouponSerializer(many=True, read_only=True)
 
     class Meta:
         model = ShopProfile
-        fields = '__all__'
+        fields = ['name', 'description', 'link', 'coupons_created']
         read_only_fields = ['coupons_created', ]
