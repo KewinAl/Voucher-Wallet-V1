@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getAllCoupons } from "../../API/lib/coupons";
 import CouponFilter from "./CouponFilter";
 
@@ -9,7 +9,7 @@ const ViewAllCoupons = () => {
   const [selectedShop, setSelectedShop] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
-  const history = useHistory();
+  const history = useNavigate();
 
   useEffect(() => {
     const handleGetAllCoupons = async () => {
@@ -68,7 +68,7 @@ const ViewAllCoupons = () => {
               <div>Description: {coupon.description}</div>
               <div>Expiration Date: {coupon.expiration_date}</div>
               <div>
-                if {coupon.amount} != 0 Amount:
+                if {coupon.amount} != 0 Amount left:
                 {coupon.amount - coupon.redeemed_codes}
               </div>
             </div>

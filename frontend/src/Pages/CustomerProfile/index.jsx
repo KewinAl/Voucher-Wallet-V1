@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   getCustomerProfile,
   getMyCustomerProfile,
@@ -12,7 +12,7 @@ const CustomerProfile = () => {
   });
 
   const { customerId } = useParams();
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleGetCustomerProfile = async () => {
     try {
