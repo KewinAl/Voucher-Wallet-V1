@@ -1,6 +1,12 @@
-from rest_framework.generics import RetrieveUpdateDestroyAPIView, CreateAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, CreateAPIView, ListAPIView
+
 from .models import Coupon
 from .serializers import CouponSerializer
+
+
+class CouponListView(ListAPIView):
+    queryset = Coupon.objects.all()
+    serializer_class = CouponSerializer
 
 
 class CouponView(RetrieveUpdateDestroyAPIView):
