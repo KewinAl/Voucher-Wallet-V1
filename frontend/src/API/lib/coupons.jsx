@@ -1,12 +1,5 @@
-import axios from "axios";
+import axiosInstance from "../axiosInstance";
 
-const getAllCoupons = async () => {
-  try {
-    const response = await axios.get(`coupon/`);
-    return response;
-  } catch (error) {
-    throw new Error(error);
-  }
-};
-
-export { getAllCoupons };
+export function getAllCoupons() {
+  return axiosInstance.get(`coupon/`);
+}

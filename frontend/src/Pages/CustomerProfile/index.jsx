@@ -12,7 +12,7 @@ const CustomerProfile = () => {
   });
 
   const { customerId } = useParams();
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const handleGetCustomerProfile = async () => {
     try {
@@ -37,7 +37,7 @@ const CustomerProfile = () => {
   }, []);
 
   const handleViewAllCoupons = () => {
-    history.push("/allCoupons");
+    navigate("/allCoupons");
   };
 
   return (
