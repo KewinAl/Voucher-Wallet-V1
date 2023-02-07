@@ -1,7 +1,7 @@
+from registration_profiles.models import RegistrationProfile
 from rest_framework import serializers
 from rest_framework.serializers import ValidationError
 from users.models import User
-from registration_profiles.models import RegistrationProfile
 
 
 def email_does_not_exist(email):

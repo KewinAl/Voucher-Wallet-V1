@@ -1,9 +1,4 @@
-import {
-    createBrowserRouter,
-    createRoutesFromElements,
-    Route,
-    RouterProvider,
-} from "react-router-dom";
+import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider,} from "react-router-dom";
 import Registration from "./Pages/Registration";
 import Congratulations from "./Pages/Congratulations";
 import Verification from "./Pages/Verification";
@@ -26,10 +21,8 @@ function AppRoutes() {
                     <Route path="verification" element={<Verification/>}/>
                     <Route path="shopProfile/:shopId" element={<ShopProfile/>}/>
                     <Route path="newCoupon" element={<NewCoupon/>}/>
-                    <Route
-                        path="customerProfile/:customerId"
-                        element={<CustomerProfile/>}
-                    />
+                    <Route path="customerProfile/:customerId"
+                           element={<CustomerProfile/>}/>
                     <Route path="myShop" element={<ShopProfile/>}/>
                     <Route path="me" element={<CustomerProfile/>}/>
                 </Route>
