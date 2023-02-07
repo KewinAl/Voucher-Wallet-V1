@@ -44,9 +44,9 @@ const Header = () => {
                         </ul>
                     </Navbar>
                     <Buttons>
-                        <button type="button" id="signup" onClick={() => navigate("/sign-up")}>SIGNUP</button>
+                        <button type="button" id="signup" onClick={() => navigate("/registration")}>SIGNUP</button>
                         {isLoggedIn ? <button type="button" id="logout" onClick={handleLogout}>LOGOUT</button> :
-                            <button type="button" id="login" onClick={() => navigate("/sign-in")}>LOGIN</button>}
+                            <button type="button" id="login" onClick={() => navigate("/login")}>LOGIN</button>}
                     </Buttons>
                 </HeaderRight>
             </MainHeader>
