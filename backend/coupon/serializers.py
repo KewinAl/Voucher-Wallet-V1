@@ -5,10 +5,6 @@ from customerProfile.serializers import CustomerProfileSerializer
 from shopProfile.models import ShopProfile
 
 
-# from shopProfile.models import ShopProfile
-# from shopProfile.serializers import ShopProfileSerializer
-
-
 class CouponCodeSerializer(serializers.ModelSerializer):
     class Meta:
         model = CouponCode
@@ -31,9 +27,3 @@ class CouponSerializer(serializers.ModelSerializer):
         fields = ['shop_profile', 'expiration_date', 'description', 'times_used', 'amount', 'customer_profiles',
                   'coupon_codes']
         read_only_fields = ['customer_profiles', 'coupon_codes']
-
-    # def to_representation(self, instance):
-    #     representation = super().to_representation(instance)
-    #     shop_queryset = ShopProfile.objects.filter(id__in=representation['name'])
-    #     representation['name'] = ShopProfileSerializer(shop_queryset).data
-    #     return representation
