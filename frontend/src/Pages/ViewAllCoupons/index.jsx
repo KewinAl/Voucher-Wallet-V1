@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { getAllCoupons } from "../../API/lib/coupons";
 import CouponFilter from "./CouponFilter";
 
@@ -9,7 +8,6 @@ const ViewAllCoupons = () => {
   const [selectedShop, setSelectedShop] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
-  const history = useNavigate();
 
   useEffect(() => {
     const handleGetAllCoupons = async () => {
@@ -41,10 +39,10 @@ const ViewAllCoupons = () => {
     }
     setFilterCoupons(filteredCoupons);
   };
-
-  const handleBack = () => {
-    history.push("/");
-  };
+  // not used
+  // const handleBack = () => {
+  //   history.push("/allCoupons");
+  // };
 
   return (
     <>

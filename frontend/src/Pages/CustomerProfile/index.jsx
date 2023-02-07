@@ -37,7 +37,7 @@ const CustomerProfile = () => {
   }, []);
 
   const handleViewAllCoupons = () => {
-    history.push("/viewallcoupons");
+    history.push("/allCoupons");
   };
 
   return (

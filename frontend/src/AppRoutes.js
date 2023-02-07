@@ -12,6 +12,7 @@ import Layout from "./Components/Layout";
 import ShopProfile from "./Pages/ShopProfile";
 import CustomerProfile from "./Pages/CustomerProfile";
 import NewCoupon from "./Pages/CreateNewCoupon";
+import ViewAllCoupons from "./Pages/ViewAllCoupons";
 
 function AppRoutes() {
   const router = createBrowserRouter(
@@ -26,6 +27,7 @@ function AppRoutes() {
           <Route path="verification" element={<Verification />} />
           <Route path="shopProfile/:shopId" element={<ShopProfile />} />
           <Route path="newCoupon" element={<NewCoupon />} />
+          <Route path="allCoupons" element={<ViewAllCoupons />} />
           <Route
             path="customerProfile/:customerId"
             element={<CustomerProfile />}
