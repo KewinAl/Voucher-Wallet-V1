@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import {
   getCustomerProfile,
   getMyCustomerProfile,
@@ -13,6 +13,7 @@ const CustomerProfile = () => {
   });
 
   const { customerId } = useParams();
+  const history = useHistory();
 
   const handleGetCustomerProfile = async () => {
     try {
@@ -40,6 +41,10 @@ const CustomerProfile = () => {
     customerId ? handleGetCustomerProfile() : handleGetMyCustomerProfile();
   }, []);
 
+  const handleViewAllCoupons = () => {
+    history.push("/viewallcoupons");
+  };
+
   return (
     <>
       <div>
@@ -50,6 +55,9 @@ const CustomerProfile = () => {
         customerProfileProps={customerProfile}
       ></CustomerProfileCard>
       <div>
+        <button onClick={handleViewAllCoupons}>View All Coupons</button>
+        <br />
+        <br />
         {customerProfile && customerProfile.coupons_owned
           ? customerProfile.coupons_owned.map((coupon) => {
               return <CouponCard key={coupon.id} couponProps={coupon} />;

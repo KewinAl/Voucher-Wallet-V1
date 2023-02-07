@@ -6,4 +6,4 @@ from customerProfile.models import CustomerProfile
 class CustomerProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomerProfile
-        fields = '__all__'
+        fields = ['age', 'gender', 'firstname', 'lastname']
