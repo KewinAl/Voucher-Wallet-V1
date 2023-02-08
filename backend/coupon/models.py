@@ -8,14 +8,38 @@ from shopProfile.models import ShopProfile
 
 
 class Coupon(models.Model):
+    DISCOUNT_TYPE_CHOICES = [
+        ('value', 'Value'),
+        ('percentage', 'Percentage'),
+    ]
+
+    CURRENCY_CHOICES = [
+        ('USD', 'US Dollar'),
+        ('EUR', 'Euro'),
+        ('GBP', 'British Pound'),
+    ]
+
     shop_profile = models.ForeignKey(
         to=ShopProfile, on_delete=models.CASCADE, related_name='coupons_created')
     customer_profiles = models.ManyToManyField(to=CustomerProfile, related_name='coupons_owned', blank=True)
     expiration_date = models.DateTimeField(null=True, blank=True)
-    description = models.CharField(max_length=255, null=True, blank=True)
+    title = models.CharField(max_length=50)
+    description = models.CharField(max_length=200, null=True, blank=True)
     times_used = models.IntegerField(default=0)
     times_redeemed = models.IntegerField(default=0)
-    amount = models.IntegerField(default=0)
+    redeem_limit = models.IntegerField(default=0)
+    discount_type = models.CharField(
+        max_length=10, choices=DISCOUNT_TYPE_CHOICES, default='percentage')
+    discount = models.FloatField(default=0)
+    currency = models.CharField(
+        max_length=3, choices=CURRENCY_CHOICES, default='EUR',
+        blank=True, null=True
+    )
+
+    def save(self, *args, **kwargs):
+        if self.discount_type == 'percentage':
+            self.currency = None
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f'coupon_type: {self.description}'
@@ -34,8 +58,8 @@ class CouponCode(models.Model):
         customer = CustomerProfile.objects.get(id=customer_id)
         coupon = Coupon.objects.get(id=coupon_id)
 
-        if coupon.times_redeemed >= coupon.amount:
-            return "The coupon has already been redeemed the maximum amount of times"
+        if coupon.times_redeemed >= coupon.redeem_limit:
+            return "The coupon has already been redeemed the maximum redeem_limit of times"
         elif self.objects.filter(coupon=coupon, customer_profile=customer).exists():
             return "This coupon has already been redeemed by this customer"
         else:

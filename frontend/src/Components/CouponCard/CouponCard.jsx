@@ -1,7 +1,7 @@
 import React from "react";
 
 const CouponCard = ({ couponProps }) => {
-  const { id, expiration_date, description, times_redeemed, amount } =
+  const { id, expiration_date, description, times_redeemed, redeem_limit } =
     couponProps;
 
   return (
@@ -15,10 +15,10 @@ const CouponCard = ({ couponProps }) => {
       <div className="CouponDescription">
         <p>Description: {description}</p>
       </div>
-      {amount != 0 ? (
+      {redeem_limit != 0 ? (
         <div className="CouponTimesRedeemed">
           <p>
-            Codes available: {amount - times_redeemed} of {amount}
+            Codes available: {redeem_limit - times_redeemed} of {redeem_limit}
           </p>
         </div>
       ) : (
