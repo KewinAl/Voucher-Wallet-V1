@@ -8,23 +8,18 @@ export const FooterUp = styled.div`
   border-bottom: 1px solid #ebebeb;
   width: 100%;
   height: 56px;
-
 `;
 
 
 export const Navbar = styled.div`
 
-  ul {
+  div {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 50px;
-    position: relative;
-    left: 50px;
-
+    padding-left: 50px;
   }
-
-
   a {
     font-family: 'Roboto';
     font-style: normal;
@@ -34,7 +29,6 @@ export const Navbar = styled.div`
     text-align: center;
     text-decoration: none;
     color: #646363;
-
   }
 
   a:hover {
@@ -66,13 +60,11 @@ export const MainFooter = styled.div`
 
 
   p {
-    position: relative;
-    top: 6px;
+    margin: 0px;  
     padding-left: 40px;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    line-height: 14px;
     color: #646363;
   }
 `;
