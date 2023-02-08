@@ -15,7 +15,7 @@ class CouponAdmin(admin.ModelAdmin):
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "shop_profile":
-            kwargs["queryset"] = ShopProfile.objects.order_by("name").values_list("name", flat=True)
+            kwargs["queryset"] = ShopProfile.objects.order_by("name")
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
 
