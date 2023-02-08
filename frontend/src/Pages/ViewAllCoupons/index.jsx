@@ -32,11 +32,12 @@ const ViewAllCoupons = () => {
               <div>
                 <p>Expiration Date: {coupon.expiration_date}</p>
               </div>
-              {coupon.amount != 0 ? (
+              {coupon.redeem_limit != 0 ? (
                 <div className="CouponTimesRedeemed">
                   <p>
-                    Codes available: {coupon.amount - coupon.times_redeemed} of{" "}
-                    {coupon.amount}
+                    Codes available:{" "}
+                    {coupon.redeem_limit - coupon.times_redeemed} of{" "}
+                    {coupon.redeem_limit}
                   </p>
                 </div>
               ) : (

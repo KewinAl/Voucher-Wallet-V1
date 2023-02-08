@@ -6,10 +6,10 @@ from .models import Coupon
 from .serializers import CouponSerializer
 
 
-# Filter List All Coupons to only show Coupons that are not expired AND where (amount = 0 OR amount > times_redeemed)
+# Filter List All Coupons to only show Coupons that are not expired AND where (redeem_limit = 0 OR redeem_limit > times_redeemed)
 class CouponListView(ListAPIView):
     queryset = Coupon.objects.filter(
-        Q(amount=0) | Q(amount__gt=F('times_redeemed')),
+        Q(redeem_limit=0) | Q(redeem_limit__gt=F('times_redeemed')),
         expiration_date__gt=timezone.now()
     )
     serializer_class = CouponSerializer
