@@ -14,6 +14,7 @@ class Coupon(models.Model):
     expiration_date = models.DateTimeField(null=True, blank=True)
     description = models.CharField(max_length=255, null=True, blank=True)
     times_used = models.IntegerField(default=0)
+    times_redeemed = models.IntegerField(default=0)
     amount = models.IntegerField(default=0)
 
     def __str__(self):
@@ -33,12 +34,12 @@ class CouponCode(models.Model):
         customer = CustomerProfile.objects.get(id=customer_id)
         coupon = Coupon.objects.get(id=coupon_id)
 
-        if coupon.times_used >= coupon.amount:
-            return "The coupon has already been used the maximum amount of times"
+        if coupon.times_redeemed >= coupon.amount:
+            return "The coupon has already been redeemed the maximum amount of times"
         elif self.objects.filter(coupon=coupon, customer_profile=customer).exists():
             return "This coupon has already been redeemed by this customer"
         else:
-            coupon.times_used += 1
+            coupon.times_redeemed += 1
             coupon.save()
             self.coupon = coupon
             self.customer_profile = customer
