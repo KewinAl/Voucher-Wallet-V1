@@ -1,7 +1,8 @@
 import React from "react";
 
 const CouponCard = ({ couponProps }) => {
-  const { id, expiration_date, description, times_used } = couponProps;
+  const { id, expiration_date, description, times_redeemed, redeem_limit } =
+    couponProps;
 
   return (
     <div className="CouponCard" key={id}>
@@ -14,9 +15,15 @@ const CouponCard = ({ couponProps }) => {
       <div className="CouponDescription">
         <p>Description: {description}</p>
       </div>
-      <div className="CouponTimesUsed">
-        <p>Times Used: {times_used}</p>
-      </div>
+      {redeem_limit != 0 ? (
+        <div className="CouponTimesRedeemed">
+          <p>
+            Codes available: {redeem_limit - times_redeemed} of {redeem_limit}
+          </p>
+        </div>
+      ) : (
+        <p>Codes available: unlimited</p>
+      )}
     </div>
   );
 };

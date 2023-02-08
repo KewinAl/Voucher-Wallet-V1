@@ -3,13 +3,13 @@ import React, { useState } from "react";
 
 const NewCoupon = () => {
   /*
-        TODO:  Add the access directly rather than hardcore token when someone logs in :
-         */
+            TODO:  Add the access directly rather than hardcore token when someone logs in :
+             */
   const access = localStorage.getItem("access");
   const [formData, setFormData] = useState({
     shop_profile: "",
     description: "",
-    amount: 0, // The amount of coupons which is available (e.g. 20 coupons for first 20 users to redeem)
+    redeem_limit: 0, // The redeem_limit of coupons which is available (e.g. 20 coupons for first 20 users to redeem)
     expiration_date: "",
   });
   const config = {
@@ -65,11 +65,11 @@ const NewCoupon = () => {
           value={formData.description}
           onChange={handleChange}
         />
-        <label>Coupon Amount </label>
+        <label>Coupon Redeem Limit </label>
         <input
           type={"number"}
-          name={"amount"}
-          value={formData.amount}
+          name={"redeem_limit"}
+          value={formData.redeem_limit}
           onChange={handleChange}
         />
         <label>Expiration Date </label>

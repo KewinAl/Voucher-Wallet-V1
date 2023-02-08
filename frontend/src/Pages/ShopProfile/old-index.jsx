@@ -5,7 +5,7 @@ import ShopProfileCard from "../../Components/ShopProfileCard";
 import CouponCard from "../../Components/CouponCard/CouponCard";
 
 const ShopProfile = () => {
-  const [shopProfile, setShopProfile] = useState({});
+  const [shopProfile, setShopProfile] = useState([]);
 
   const { shopId } = useParams();
 
@@ -22,8 +22,8 @@ const ShopProfile = () => {
   const handleGetMyShopProfile = async () => {
     try {
       const response = await getMyShopProfile();
-      console.log("fullShopData:", response.data);
-      setShopProfile(response.data);
+      //console.log("fullShopData:", response.data);
+      setShopProfile(response.data[0]);
     } catch (e) {
       console.log("error->", e);
     }
@@ -40,7 +40,6 @@ const ShopProfile = () => {
         <h1>Your Shop Profile:</h1>
       </div>
       {/*TODO: */}
-      {/*{console.log(shopProfile)}*/}
       <ShopProfileCard shopProfileProps={shopProfile}></ShopProfileCard>
       <div>
         {shopProfile && shopProfile.coupons_created
