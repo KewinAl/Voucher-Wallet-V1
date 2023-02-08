@@ -4,6 +4,7 @@ import rootStore from "./Store/rootStore";
 import { setAuth } from "./Store/authSlice";
 import { Provider } from "react-redux";
 import AppRoutes from "./AppRoutes";
+import './index.css'
 
 const getAuthFromLocalStorage = () => {
   let authData = {};
