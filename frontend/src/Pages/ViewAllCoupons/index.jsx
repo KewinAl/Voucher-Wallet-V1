@@ -23,18 +23,24 @@ const ViewAllCoupons = () => {
         {coupons.map((coupon) => {
           return (
             <div key={coupon.id}>
-              <div>Shop Name: {coupon.shop_profile.name}</div>
-              <div>Coupon Description: {coupon.description}</div>
-              <div>Expiration Date: {coupon.expiration_date}</div>
-
+              <div>
+                <h3>Shop Name: {coupon.shop_profile.name}</h3>
+              </div>
+              <div>
+                <p>Coupon Description: {coupon.description}</p>
+              </div>
+              <div>
+                <p>Expiration Date: {coupon.expiration_date}</p>
+              </div>
               {coupon.amount != 0 ? (
-                <div>
-                  {" "}
-                  Coupons left to redeem: {coupon.amount -
-                    coupon.times_used}{" "}
+                <div className="CouponTimesRedeemed">
+                  <p>
+                    Codes available: {coupon.amount - coupon.times_redeemed} of{" "}
+                    {coupon.amount}
+                  </p>
                 </div>
               ) : (
-                ""
+                <p>Codes available: unlimited</p>
               )}
             </div>
           );
