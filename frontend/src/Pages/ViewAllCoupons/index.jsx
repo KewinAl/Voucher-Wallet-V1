@@ -24,6 +24,12 @@ const ViewAllCoupons = () => {
           return (
             <div key={coupon.id}>
               <div>
+                <img
+                  src={coupon.shop_profile.logo}
+                  alt={coupon.shop_profile.name + " logo"}
+                />
+              </div>
+              <div>
                 <h3>Shop Name: {coupon.shop_profile.name}</h3>
               </div>
               <div>
