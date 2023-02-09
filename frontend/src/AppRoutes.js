@@ -11,10 +11,26 @@ import Login from "./Components/Login/Login";
 import Layout from "./Components/Layout";
 import ShopProfile from "./Pages/ShopProfile";
 import CustomerProfile from "./Pages/CustomerProfile";
-import NewCoupon from "./Pages/CreateNewCoupon";
+import NewCoupon from "./Pages/CreateNewCoupon/old-index";
 import ViewAllCoupons from "./Pages/ViewAllCoupons";
+import { useEffect } from "react";
+import { getTags } from "./API/lib/tags";
 
 function AppRoutes() {
+
+  const fetchTags = async () => {
+    try {
+      const response = await getTags();
+      console.log(response.data);
+    } catch (e) {
+      console.log("error->", e);
+    }
+  };
+
+  useEffect(() => {
+    //fetchTags()
+  }, [])
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
