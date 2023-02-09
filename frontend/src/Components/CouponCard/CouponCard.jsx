@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const CouponCard = ({ couponProps, logo }) => {
   const { id, expiration_date, description, times_redeemed, redeem_limit } =
     couponProps;

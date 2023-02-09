@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { getAllCoupons } from "../../API/lib/coupons";
-import CustomerCouponCard from "../../Components/CouponCard/CustomerCouponCard";
-import { AllCouponsMenuDiv, CouponContainer, CategoryFilterButton } from './ViewAllCoupons.styles'
+import Coupon from "../../Components/CouponCard/Coupon";
+// import CustomerCouponCard from "../../Components/CouponCard/CustomerCouponCard";
+import { AllCouponsMenuDiv, CategoryFilterButton, CouponList } from './ViewAllCoupons.styles'
 
 const ViewAllCoupons = () => {
   const [coupons, setCoupons] = useState([]);
@@ -30,52 +31,11 @@ const ViewAllCoupons = () => {
             <option value="">Walaldaba-dub-dub</option>
         </select>
         </CategoryFilterButton>
-      <CouponContainer>
+      <CouponList>
         <div>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
-          <CustomerCouponCard width={'27%'}/>
+          <Coupon width={'27%'}/>
         </div>
-        </CouponContainer>
+        </CouponList>
       </AllCouponsMenuDiv>
   );
 };

@@ -1,5 +1,6 @@
-const ShopProfileCard = ({shopProfileProps}) => {
 
+
+const ShopProfileCard = ({shopProfileProps}) => {
 
   return (
       <>
