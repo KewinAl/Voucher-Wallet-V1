@@ -22,14 +22,3 @@ class LoggedInUserShopProfileView(RetrieveUpdateDestroyAPIView):
         queryset = ShopProfile.objects.filter(user=input_user_id)
         shop_profile = queryset.get()
         return shop_profile
-
-# class LoggedInUserShopProfileView(ListAPIView):
-#     serializer_class = ShopProfileSerializer
-#
-#     # permission_classes = [IsAuthenticated]
-#
-#     def get_queryset(self):
-#         input_user_id = self.request.user.id
-#         queryset = ShopProfile.objects.filter(user=input_user_id)
-#
-#         return queryset
