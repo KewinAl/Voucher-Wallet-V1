@@ -1,8 +1,8 @@
 import { CustomerCouponDiv, CustomerCouponHeader, RedeemButton, CustomerCouponDescription } from './CustomerCouponCard.styles'
 
-const CustomerCouponCard = () => {
+const CustomerCouponCard = (props) => {
     return (
-        <CustomerCouponDiv>
+        <CustomerCouponDiv width={props.width} >
             <CustomerCouponHeader>
                 <p>Shop Name</p>
                 <p>Expiration</p>
