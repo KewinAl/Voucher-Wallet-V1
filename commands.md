@@ -67,10 +67,20 @@
 - cd script
 - scriptbuilder.sh
 
-# Database
+# drop Database
 
-DROP SCHEMA public CASCADE;
-CREATE SCHEMA public;
+- local:
+  DROP SCHEMA public CASCADE;
+  CREATE SCHEMA public;
+
+- remote:
+  ssh root to server
+  cd /home/gitlab-runner/builds/Nr4y8HHg/0/full-stack/batch-22-nov-2022/personal-projects/voucher-wallet
+  docker-compose -f docker-compose.deploy.yml down --remove-orphans
+  docker volume list
+  copy postgres name
+  docker volume rm postgresvolumename
+  docker-compose -f docker-compose.deploy.yml up -d
 
 # delete Migration Files
 

@@ -26,7 +26,7 @@ export const CategoryFilterButton = styled.div`
 `
 
 
-export const CouponContainer = styled.div`
+export const CouponList = styled.div`
     width: 80%;
     height: 80%;
     border-radius: 0px 30px 30px;
