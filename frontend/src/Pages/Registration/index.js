@@ -23,7 +23,7 @@ const Registration = () => {
         const data = {
             email: newEmail,
         };
-        axios.post("https://luna-group2.propulsion-learn.ch/backend/api/registration/", data).then(res => {
+        axios.post("http://localhost:8000/backend/api/registration/", data).then(res => {
             console.log(res);
             dispatch(setEmail(newEmail));
             navigate('/congratulations');

@@ -10,20 +10,24 @@ const Header = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const authData = localStorage.getItem('access')
+    const authData = localStorage.getItem('auth')
+
 
     useEffect(() => {
-        if (authData) setIsLoggedIn(true);
-        else setIsLoggedIn(false);
+        if (authData) setIsLoggedIn(true)
+        else setIsLoggedIn(false)
+
     }, [authData]);
+    console.log(authData)
+
 
     const handleLogout = () => {
-        localStorage.removeItem('access');
+        localStorage.removeItem('auth');
         localStorage.removeItem('email')
         dispatch(clearAuth());
         setIsLoggedIn(false)
         navigate('/login')
-    }
+    };
 
     return (
         <>
@@ -47,6 +51,8 @@ const Header = () => {
                         <button type="button" id="signup" onClick={() => navigate("/registration")}>SIGNUP</button>
                         {isLoggedIn ? <button type="button" id="logout" onClick={handleLogout}>LOGOUT</button> :
                             <button type="button" id="login" onClick={() => navigate("/login")}>LOGIN</button>}
+
+
                     </Buttons>
                 </HeaderRight>
             </MainHeader>
