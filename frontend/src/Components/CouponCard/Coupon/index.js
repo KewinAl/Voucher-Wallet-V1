@@ -2,6 +2,7 @@ import React from "react"
 import {
     Amount,
     CodeSection,
+    CompanyName,
     CouponContainer,
     CouponTitle,
     Description,
@@ -17,7 +18,11 @@ const Coupon = () => {
         <CouponContainer>
             <LeftContainer>
                 <Amount>35%<br/>OFF</Amount>
-                <Expiration>Expiration:<br/>12/2023</Expiration>
+                <Expiration>
+                    Expiration:
+                    <code>12/2023</code>
+                </Expiration>
+                <CompanyName>Bags Company, LLC</CompanyName>
                 <OurLogo src={logo} />
             </LeftContainer>
             <RightContainer>

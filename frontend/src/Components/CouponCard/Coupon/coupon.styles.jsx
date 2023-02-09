@@ -52,13 +52,28 @@ export const Amount =styled.h2`
     border-radius: 60%;
 `
 
-export const Expiration = styled.p`
+export const CompanyName = styled.h3`
     position: absolute;
     bottom: 10px;
-    right: 10px;
+    left: 20px;
+    font-size: ${p=>p.theme.fontSizeXL};
     color: white;
-    font-weight: bold;
-    font-size: ${p=>p.theme.fontSizeL};
+    font-weight: bold;  
+    font-family: 'Oswald', sans-serif;
+`
+
+export const Expiration = styled.p`
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+    color: white;
+    font-size: ${p=>p.theme.fontSizeM};
+
+    code {
+        font-weight: bold;
+        font-size: ${p=>p.theme.fontSizeXL};
+        margin-left: 6px;
+    }
 `
 
 export const RightContainer = styled.div`
@@ -121,14 +136,15 @@ export const Description = styled.p`
     align-items: center;
     font-weight: bold;
     width: 80%;
-    height: 35%;
+    height: 40%;
 
     small {
         font-size: ${p=>p.theme.fontSizeXS};
     }
 
     p {
-        font-size: ${p=>p.theme.fontSizeS};
+        font-size: ${p=>p.theme.fontSizeL};
         color: orange;
+        font-weight: bold;
     }
 `
