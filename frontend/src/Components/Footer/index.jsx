@@ -11,13 +11,13 @@ const Footer = () => {
             <MainFooter>
                 <FooterUp>
                     <Navbar>
-                        <ul>
+                        <div>
                             <Link to="/">About Us</Link>
                             <Link to="/">Press</Link>
                             <Link to="/">Blog</Link>
                             <Link to="/">iOS</Link>
                             <Link to="/">Android</Link>
-                        </ul>
+                        </div>
                     </Navbar>
                     <SocialMedia>
                         <img src={Facebook}/>

@@ -1,4 +1,11 @@
 from django.contrib import admin
-from customerProfile.models import CustomerProfile
 
-admin.site.register(CustomerProfile)
+from .models import CustomerProfile
+
+
+class CustomerProfileAdmin(admin.ModelAdmin):
+    list_display = ('lastname', 'firstname')
+    ordering = ('lastname',)
+
+
+admin.site.register(CustomerProfile, CustomerProfileAdmin)
