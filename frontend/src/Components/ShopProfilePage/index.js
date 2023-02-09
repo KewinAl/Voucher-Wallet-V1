@@ -1,3 +1,5 @@
+import { useState } from "react"
+import NewCouponOverlay from "../../Pages/CreateNewCoupon"
 import CouponCard_Profile from "./CouponCard/index"
 import { PageDiv, Menu, MenuLeft, MenuRight } from "./ShopProfile.styles"
 
@@ -10,12 +12,15 @@ const ShopProfileDiv = () => {
         times_used: 15.000,
     }
 
+    const [overlayVisibility, setOverlayVisibility] = useState(false)
+
     return (
         <PageDiv>
+            <NewCouponOverlay visible={overlayVisibility} exitFunction={setOverlayVisibility} />
             <p>Shop Owner Profile (possibly name)</p>
             <Menu>
                 <MenuLeft>
-                    <button>Create New Coupon</button>
+                    <button onClick={() => setOverlayVisibility(!overlayVisibility)}>Create New Coupon</button>
                     <button>Edit Profile</button>
                     <button>Delete Account</button>
                 </MenuLeft>
