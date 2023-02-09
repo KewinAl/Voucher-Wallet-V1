@@ -1,62 +1,49 @@
 import styled from "styled-components";
 
-
-export const PageDiv = styled.div`
-    max-height: 85%;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: start;
-    >p {
-        font-size: xx-large;
-        padding: 10px 0px;
-    }
-`;
-
-export const CustomerMenuDiv = styled.div`
-    width: 90%;
+export const AllCouponsMenuDiv = styled.div`
     height: 80%;
     display: flex;
-    justify-content: space-between;
-`
-export const CustomerMenuLeft = styled.div`
-    width: 33%;
-    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px;
+`
+export const CategoryFilterButton = styled.div`
+    display: flex;
+    width: 80%;
+    box-sizing: border-box;
 
-    >p {
-        font-size: xx-large;
-    }
-
-    >button {
-        width: 70%;
+    >select {
+        width: 30%;
+        border: 2px solid #cccccc;
+        background-color: #e6e6e6;
         padding: 15px;
-        border-radius: 10px;
-        font-size: x-large;
+        border-radius: 30px 30px 0px 0px;
+        font-size: large;
+
+        :focus{
+            outline: none;
+        }
     }
 `
 
-export const CustomerMenuRight = styled.div`
-    width: 66%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 0px 30px 30px;
 
+export const CouponContainer = styled.div`
+    width: 80%;
+    height: 80%;
+    border-radius: 0px 30px 30px;
+    overflow:hidden;
+    
     >div{
     width: 100%;
     height: 100%;
-    padding: 10px;
-    padding-bottom: 40px;
     border: 2px solid #cccccc;
+    padding: 15px;
     box-sizing: border-box;
+    padding-bottom:25px;
     background-color: #e6e6e6;
     box-shadow: inset 7px 5px 16px -5px rgba(0,0,0,0.44);
     display: flex;
-    flex-direction: column;
-    gap: 40px;
+    flex-wrap: wrap;
+    gap: 30px;
     overflow-y: auto;
 
     ::-webkit-scrollbar {
@@ -79,5 +66,4 @@ export const CustomerMenuRight = styled.div`
     height: 3%;
     }
     }
-
 `

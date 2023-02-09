@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 
 export const CustomerCouponDiv = styled.div`
-    background-color: white;
+    background-color: white;;
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: ${props => props.width ? props.width : '90%'};
     height: 12rem;
     padding: 10px 30px;
     border: solid 2px #cccccc;

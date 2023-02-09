@@ -20,6 +20,7 @@ const ShopProfileDiv = () => {
                     <button>Delete Account</button>
                 </MenuLeft>
                 <MenuRight>
+                    <div>
                     <CouponCard_Profile />
                     <CouponCard_Profile />
                     <CouponCard_Profile />
@@ -27,7 +28,17 @@ const ShopProfileDiv = () => {
                     <CouponCard_Profile />
                     <CouponCard_Profile />
                     <CouponCard_Profile />
-
+                    <CouponCard_Profile />
+                    <CouponCard_Profile />
+                    <CouponCard_Profile />
+                    <CouponCard_Profile />
+                    <CouponCard_Profile />
+                    <CouponCard_Profile />
+                    <CouponCard_Profile />
+                    <CouponCard_Profile />
+                    <CouponCard_Profile />
+                    <CouponCard_Profile />
+                    </div>
                 </MenuRight>
             </Menu>
             
