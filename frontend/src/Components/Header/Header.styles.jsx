@@ -3,7 +3,6 @@ import styled from "styled-components"
 
 
 export const HeaderContainer = styled.div`
-    border: solid purple;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,7 +13,6 @@ export const HeaderContainer = styled.div`
 `
 
 export const LogoContainer = styled.img`
-    border: solid red;
     height: 25px;    
 `
 
@@ -31,7 +29,7 @@ export const MenuContainer = styled.div`
 export const MenuItem = styled(NavLink)`
     color: white;
     text-decoration: none;
-    font-size: ;
+    font-size: ${p=>p.theme.fontSizeM};
 
 `
 

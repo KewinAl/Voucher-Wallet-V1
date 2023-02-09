@@ -23,6 +23,7 @@ export const theme = {
     backgroundBlack: "#212121",
     backgroundBlackLight: "#333333",
     backgroundLight: "#f0f0f0",
+    
     // border Radius
     borderRadiusS: "2px",
     borderRadiusM: "4px",
