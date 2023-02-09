@@ -3,12 +3,14 @@ import { useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { clearAuth } from "../../Store/authSlice"
 import {
-    AuthButton,
     AuthenticationContainer,
     HeaderContainer,
+    LoginButton,
     LogoContainer,
+    LogoutButton,
     MenuContainer,
     MenuItem,
+    SignupButton,
 } from "./Header.styles"
 import logo from "../../Assets/voucherwallet-transparent.png"
 
@@ -44,15 +46,19 @@ const Header = () => {
 
             <AuthenticationContainer>
                 {isLoggedIn ? (
-                    <AuthButton onClick={handleLogout} logout>Logout</AuthButton>
-                ) : (<>
-                    <AuthButton onClick={() => navigate("/login")} login>
-                        Login
-                    </AuthButton>
-                    <AuthButton onClick={() => navigate("/registration")}>
-                        Signup
-                    </AuthButton>
-                </>)}
+                    <LogoutButton onClick={handleLogout} logout>
+                        Logout
+                    </LogoutButton>
+                ) : (
+                    <>
+                        <LoginButton onClick={() => navigate("/login")} login>
+                            Login
+                        </LoginButton>
+                        <SignupButton onClick={() => navigate("/registration")}>
+                            Signup
+                        </SignupButton>
+                    </>
+                )}
             </AuthenticationContainer>
         </HeaderContainer>
     )

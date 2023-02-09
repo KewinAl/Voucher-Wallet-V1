@@ -7,9 +7,9 @@ export const HeaderContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 70px;
+    height: 65px;
     padding: 0 5%;
-    background: #5836be;
+    background: ${p=>p.theme.backgroundPurpleLight};
 `
 
 export const LogoContainer = styled.img`
@@ -17,10 +17,11 @@ export const LogoContainer = styled.img`
 `
 
 export const MenuContainer = styled.div`
-    border: solid green;
     align-items: center;
     display: flex;
+    align-items: center;
     justify-content: space-between;
+    height: 100%;
     width: 30%;
     gap: 5%;
 
@@ -30,59 +31,53 @@ export const MenuItem = styled(NavLink)`
     color: white;
     text-decoration: none;
     font-size: ${p=>p.theme.fontSizeM};
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid transparent;
+
+    :hover {
+        font-weight: bold;
+        border-bottom: 3px solid ${p=>p.theme.green};
+    }
 
 `
 
 export const AuthenticationContainer = styled.div`
-    border: solid blue;
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 5px;
-
+    width: 12%;
 `
 
-export const AuthButton = styled.button`
-    background: ${p => p.login ? "none" : "orange"};
-    border: ${p => p.login ? "none" : "orange"};
-    
-`
-
-
-
-export const Buttons = styled.div`
-  display: flex;
-  gap: 2px;
-  justify-content: center;
-
-  #signup {
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
-  }
-
-  #login {
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-  }
-
-  button {
-    display: flex;
-    width: 100px;
-    height: 40.57px;
+export const AuthButtonBase = styled.button`
+    color: white;
     border: none;
-    font-size: 16px;
-    background-color: #e47d31;
-    line-height: 18.75px;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
+    border-radius: 4px;
+    height: 35px;
+    width: 70px;
+    font-size: ${p=>p.theme.fontSizeM};
 
-  }
+    :hover {
+        cursor: pointer;
+        font-weight: bold;
+    }
+`
 
-  button:hover {
-    cursor: pointer;
-  }
+export const LoginButton = styled(AuthButtonBase)`
+    background: none;
 
+`
 
-`;
+export const LogoutButton = styled(AuthButtonBase)`
+    background: #ba0b0b;
+
+`
+
+export const SignupButton = styled(AuthButtonBase)`
+    background: #06C076;
+
+`

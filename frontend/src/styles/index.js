@@ -12,6 +12,8 @@ export const GlobalStyle = createGlobalStyle`
 
 export const theme = {
     // colors:
+    backgroundPurpleLight: "#522fbc", 
+    green: "#06C076",
     red: "#df3434",
     black: "#171717",
     purpleLight: "#ad3dea",
@@ -44,7 +46,7 @@ export const theme = {
     fontSizeXXL: "28px",
     fontSizeXL: "24px",
     fontSizeL: "20px",
-    fontSizeM: "15px",
+    fontSizeM: "14px",
     fontSizeS: "12px",
     fontSizeXS: "10px",
     fontSizeXXS: "8px",
