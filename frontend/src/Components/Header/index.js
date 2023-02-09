@@ -1,56 +1,60 @@
-import {NavLink, useNavigate} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {useEffect, useState} from "react";
-import {clearAuth} from "../../Store/authSlice";
-import {Buttons, Coupon, HeaderRight, MainHeader, Navbar} from "./Header.styles";
-// import profileLogo from "../../Assets/profileLogo.png"
-import coupon from "../../Assets/coupon.png"
+import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { useEffect, useState } from "react"
+import { clearAuth } from "../../Store/authSlice"
+import {
+    AuthButton,
+    AuthenticationContainer,
+    HeaderContainer,
+    LogoContainer,
+    MenuContainer,
+    MenuItem,
+} from "./Header.styles"
+import logo from "../../Assets/voucherwallet-transparent.png"
 
 const Header = () => {
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const authData = localStorage.getItem('access')
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const authData = localStorage.getItem("access")
 
     useEffect(() => {
-        if (authData) setIsLoggedIn(true);
-        else setIsLoggedIn(false);
-    }, [authData]);
+        if (authData) setIsLoggedIn(true)
+        else setIsLoggedIn(false)
+    }, [authData])
 
     const handleLogout = () => {
-        localStorage.removeItem('access');
-        localStorage.removeItem('email')
-        dispatch(clearAuth());
+        localStorage.removeItem("access")
+        localStorage.removeItem("email")
+        dispatch(clearAuth())
         setIsLoggedIn(false)
-        navigate('/login')
+        navigate("/login")
     }
 
     return (
-        <>
-            <MainHeader>
+        <HeaderContainer>
+            <LogoContainer src={logo} />
 
-                <Coupon>
-                    <img src={coupon}/>
-                    <h3>Voucher Wallet</h3>
-                </Coupon>
-                {/*<img src={profileLogo} alt="logo"/>*/}
-                <HeaderRight>
-                    <input type="text" className="Search" placeholder="Search"/>
-                    <Navbar>
-                        <ul>
-                            <NavLink to="/">Home</NavLink>
-                            <NavLink to="">Category</NavLink>
-                            <NavLink to="/user">Profile</NavLink>
-                        </ul>
-                    </Navbar>
-                    <Buttons>
-                        <button type="button" id="signup" onClick={() => navigate("/registration")}>SIGNUP</button>
-                        {isLoggedIn ? <button type="button" id="logout" onClick={handleLogout}>LOGOUT</button> :
-                            <button type="button" id="login" onClick={() => navigate("/login")}>LOGIN</button>}
-                    </Buttons>
-                </HeaderRight>
-            </MainHeader>
-        </>
-    );
-};
-export default Header;
+            <MenuContainer>
+                <MenuItem to="/home">Home</MenuItem>
+                <MenuItem to="/redeem">Redeem</MenuItem>
+                <MenuItem to="/create-coupon">Create</MenuItem>
+                <MenuItem to="/user">Profile</MenuItem>
+            </MenuContainer>
+
+            <AuthenticationContainer>
+                {isLoggedIn ? (
+                    <AuthButton onClick={handleLogout} logout>Logout</AuthButton>
+                ) : (<>
+                    <AuthButton onClick={() => navigate("/login")} login>
+                        Login
+                    </AuthButton>
+                    <AuthButton onClick={() => navigate("/registration")}>
+                        Signup
+                    </AuthButton>
+                </>)}
+            </AuthenticationContainer>
+        </HeaderContainer>
+    )
+}
+export default Header
