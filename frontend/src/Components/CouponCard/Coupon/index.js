@@ -1,5 +1,6 @@
 import React from "react"
 import {
+    Amount,
     CouponContainer,
     LeftContainer,
     RightContainer,
@@ -9,7 +10,7 @@ const Coupon = () => {
     return (
         <CouponContainer>
             <LeftContainer>
-                <h1>30% OFF</h1>
+                <Amount>30% OFF</Amount>
                 
             </LeftContainer>
             <RightContainer>

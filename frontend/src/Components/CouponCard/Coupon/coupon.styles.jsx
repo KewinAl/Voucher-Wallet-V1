@@ -7,7 +7,6 @@ export const CouponContainer = styled.div`
     flex-direction: column;
     height: 250px;
     width: 100%;
-    font-family: 'Oswald', sans-serif;
     padding: 10px;
 `
 
@@ -23,8 +22,9 @@ export const LeftContainer = styled.div`
 
 export const Amount =styled.div`
     font-size: 30px;
-    font-family: ;
+    font-family: 'Oswald', sans-serif;
     color: white;
+    font-weight: bold;
 `
 
 
