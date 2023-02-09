@@ -1,5 +1,5 @@
 import { OverlayDiv, OverlayMenu, CouponCreationMenu, CouponPreview, CouponCreationLeft, CouponCreationRight, NewCouponButtonsDiv, NewCouponButton } from "./NewCouponOverlay.stlyes"
-import CustomerCouponCard from "../../Components/CouponCard/CustomerCouponCard";
+import Coupon from "../../Components/CouponCard/Coupon";
 
 const NewCouponOverlay = (props) => {
     const safeCoupon = () => {
@@ -31,7 +31,7 @@ const NewCouponOverlay = (props) => {
                 </CouponCreationMenu>
                 <CouponPreview>
                     <h1>Preview</h1>
-                    <CustomerCouponCard/>
+                    <Coupon />
                 </CouponPreview>
                 <NewCouponButtonsDiv>
                     <NewCouponButton color='lightgreen' onClick={() => safeCoupon()} >Save</NewCouponButton>                    
