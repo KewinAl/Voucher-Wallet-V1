@@ -40,6 +40,7 @@ const Header = () => {
             <MenuContainer>
                 <MenuItem to="/home">Home</MenuItem>
                 <MenuItem to="/redeem">Redeem</MenuItem>
+                <MenuItem to="/allCoupons">Coupons</MenuItem>
                 <MenuItem to="/create-coupon">Create</MenuItem>
                 <MenuItem to="/user">Profile</MenuItem>
             </MenuContainer>

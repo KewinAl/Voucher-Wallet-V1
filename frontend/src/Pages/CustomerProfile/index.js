@@ -1,5 +1,5 @@
 import { PageDiv, CustomerMenuDiv, CustomerMenuLeft, CustomerMenuRight } from "./CustomerProfile.styles";
-import CustomerCouponCard from '../../Components/CouponCard/CustomerCouponCard/index'
+import Coupon from "../../Components/CouponCard/Coupon";
 
 const CustomerProfile = () => {
     return (
@@ -16,17 +16,7 @@ const CustomerProfile = () => {
                 </CustomerMenuLeft>
                 <CustomerMenuRight>
                     <div>
-                        <CustomerCouponCard />
-                        <CustomerCouponCard />
-                        <CustomerCouponCard />
-                        <CustomerCouponCard />
-                        <CustomerCouponCard />
-                        <CustomerCouponCard />
-                        <CustomerCouponCard />
-                        <CustomerCouponCard />
-                        <CustomerCouponCard />
-                        <CustomerCouponCard />
-                        <CustomerCouponCard />
+                        <Coupon/>
                     </div>
                 </CustomerMenuRight>
             </CustomerMenuDiv>
