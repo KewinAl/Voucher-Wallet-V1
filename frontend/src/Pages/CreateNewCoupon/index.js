@@ -5,6 +5,7 @@ const NewCouponOverlay = (props) => {
     const safeCoupon = () => {
         props.exitFunction(!props.visible)
     }
+    
     const checkIfExit = (e) => {
         if (e.target.id == "overlay") {
             props.exitFunction(!props.visible)

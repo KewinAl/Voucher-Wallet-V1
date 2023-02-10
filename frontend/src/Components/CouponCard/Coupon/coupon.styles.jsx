@@ -52,7 +52,7 @@ export const CompanyLogo = styled.img`
     background: white;
 `
 
-export const Amount =styled.h2`
+export const Amount =styled.h4`
     font-size: ${p=>p.theme.fontSizeXXXXL};
     font-family: 'Oswald', sans-serif;
     line-height: 50px;
@@ -62,6 +62,7 @@ export const Amount =styled.h2`
     background: #1cc0f6;
     padding: 5%;
     border-radius: 60%;
+    width: auto;
 `
 
 export const CompanyName = styled.h3`
@@ -105,7 +106,6 @@ export const CouponTitle = styled.h1`
     font-size: ${p=>p.theme.fontSizeXXL};
     font-weight: bold;
     color: black;
-
 `
 
 export const CodeSection = styled.section`
@@ -136,7 +136,6 @@ export const CodeSection = styled.section`
         font-family: 'Miriam Libre', sans-serif;
         font-size: ${p=>p.theme.fontSizeXXL};
         font-weight: bold;
-
     }   
 `
 

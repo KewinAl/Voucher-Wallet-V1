@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 
-
-
 export const CustomerProfileContainerPage = styled.div`
     height: calc(100vh - 65px);
     display: flex;
     justify-content: start;
     border: solid red;
     align-items: center;
+    padding: 20px;
 `
 
 export const CustomerNavigation = styled.div`
@@ -19,7 +18,11 @@ export const CustomerNavigation = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 25px;
-    
+
+    h1 {
+        font-size: ${p => p.theme.fontSizeXXL};
+        font-weight: bold;
+    }
 `
 
 export const NavigationContent = styled.div`
@@ -38,10 +41,9 @@ export const CouponList = styled.section`
     padding: 0 3%;
     overflow: scroll;
 
-    h1 {
-        font-size: ${p => p.theme.fontSizeXXXL};
+    h2 {
+        font-size: ${p => p.theme.fontSizeXL};
         text-align: start;
         width: 100%;
-        font-weight: bold;
     }
 `

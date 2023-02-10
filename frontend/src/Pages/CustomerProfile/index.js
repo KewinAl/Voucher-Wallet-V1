@@ -6,15 +6,13 @@ const CustomerProfile = () => {
     return (
         <CustomerProfileContainerPage>
             <CustomerNavigation>
-                <p>Profile Infos (unedited)</p>
-                <button>Preferences</button>
+                <h1>Your Profile</h1>
                 <button>Notifications Coupons</button>
                 <button>Edit Profile</button>
-                <button>Seach All Coupons</button>
             </CustomerNavigation>
             <NavigationContent>
                 <CouponList>
-                    <h1>My Coupons</h1>
+                    <h2>My Coupons</h2>
                     <Coupon/>
                     <Coupon/>
                     <Coupon/>
