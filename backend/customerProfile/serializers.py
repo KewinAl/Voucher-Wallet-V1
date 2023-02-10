@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from tag.models import Tag
 from tag.serializers import TagSerializer
 from customerProfile.models import CustomerProfile
 
