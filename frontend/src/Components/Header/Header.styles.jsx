@@ -44,7 +44,6 @@ export const MenuItem = styled(NavLink)`
     }
 
 `
-
 export const AuthenticationContainer = styled.div`
     height: 100%;
     display: flex;

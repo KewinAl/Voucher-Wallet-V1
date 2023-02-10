@@ -1,132 +1,87 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Form, useNavigate } from "react-router-dom";
-import { fetchProfile, getAuthToken } from "../../API/lib/auth";
-import { clearAuth, setAuth, setEmail } from "../../Store/authSlice";
-import styled from "styled-components";
-
-const ButtonLink = styled.button`
-  background: none !important;
-  border: none;
-  padding: 0 !important;
-
-  &:hover,
-  &:focus {
-    text-decoration: underline;
-    color: blue;
-  }
-
-  &:active {
-    color: red;
-  }
-`;
+import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { useNavigate } from "react-router-dom"
+import { fetchProfile, getAuthToken } from "../../API/lib/auth"
+import { setAuth, setEmail } from "../../Store/authSlice"
+import { ForgotLink, LoginButton, LoginForm } from "./login.style"
 
 function Login() {
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
+    const [user, setUser] = useState({
+        email: "",
+        password: "",
+    })
 
-  const [error, setError] = useState({}); //initial state = empty object {} TODO: why have this in store here?
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+    const [error, setError] = useState({}) //initial state = empty object {} TODO: why have this in store here?
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
-  const handleChange = (e) => {
-    setUser({ ...user, [e.target.id]: e.target.value });
-  };
-
-  const loginUser = async (e) => {
-    e.preventDefault();
-    console.log(user);
-    try {
-      const response = await getAuthToken(user); //user = email+password
-      dispatch(setAuth(response.data));
-      dispatch(setEmail(user.email));
-      console.log("res.data =", response.data);
-      localStorage.setItem("auth", JSON.stringify(response.data));
-      localStorage.setItem("email", JSON.stringify(user.email));
-
-      // Fetch user profile
-      const profileResponse = await fetchProfile();
-      //dispatch(setProfile(profileResponse.data));
-      console.log("profile =", profileResponse.data);
-      if (profileResponse.data) {
-        navigate(
-          profileResponse.data.customer_profile
-            ? "/me"
-            : profileResponse.data.shop_profile
-            ? "/myShop"
-            : "/"
-        );
-      } else {
-        // handle error or show message to the user
-        console.log(response.data);
-      }
-    } catch (error) {
-      console.log("error", error);
-      setError(error.response.data);
+    const handleChange = e => {
+        setUser({ ...user, [e.target.id]: e.target.value })
     }
-  };
 
-  const handleLogout = () => {
-    // reset redux auth slice
-    dispatch(clearAuth());
+    const loginUser = async e => {
+        e.preventDefault()
+        try {
+            const response = await getAuthToken(user) //user = email+password
+            dispatch(setAuth(response.data))
+            dispatch(setEmail(user.email))
+            localStorage.setItem("auth", JSON.stringify(response.data))
+            localStorage.setItem("email", JSON.stringify(user.email))
 
-    // remove localstorage auth string data
-    localStorage.removeItem("auth");
-    localStorage.removeItem("email");
+            // Fetch user profile
+            const profileResponse = await fetchProfile()
+            //dispatch(setProfile(profileResponse.data));
+            if (profileResponse.data) {
+                navigate(
+                    profileResponse.data.customer_profile
+                        ? "/me"
+                        : profileResponse.data.shop_profile
+                        ? "/myShop"
+                        : "/"
+                )
+            } else {
+                // handle error or show message to the user
+            }
+        } catch (error) {
+            setError(error.response.data)
+        }
+    }
 
-    // Reset Form
-    setUser({
-      email: "",
-      password: "",
-    });
-    navigate("/login");
-  };
+    const reset_password = () => {
+        // TODO: reset password function
+        navigate("/")
+    }
 
-  const reset_password = () => {
-    // TODO: reset password function
-    navigate("/");
-  };
+    return (
+        <LoginForm>
+            <h1>Hello, Again</h1>
+            <h2>Let's redeem or create coupons!</h2>
+            <input
+                id="email"
+                placeholder="Enter your email ..."
+                name="email"
+                type="text"
+                value={user.email}
+                onChange={handleChange}
+            />
+            <input
+                id="password"
+                placeholder="Enter your password ..."
+                type="password"
+                name="password"
+                value={user.password}
+                onChange={handleChange}
+            />
+            <LoginButton type="submit" className="custom_button" onClick={loginUser}>
+                Login
+            </LoginButton>
+            <ForgotLink onClick={reset_password} id="forgot_password">
+                Forgot your password?
+            </ForgotLink>
 
-  return (
-    <>
-      <div className={"LoginContainer"}>
-        <Form>
-          <h1>Login</h1>
-          <div id="divider"></div>
-          <p style={{ color: "red" }}>{error.detail}</p>
-          <input
-            id="email"
-            placeholder={error.email || "Email"}
-            name="email"
-            type="text"
-            value={user.email}
-            onChange={handleChange}
-            style={{ marginTop: "6rem" }}
-          />
-          <input
-            id="password"
-            placeholder={error.password || "Password"}
-            type="password"
-            name="password"
-            value={user.password}
-            onChange={handleChange}
-            style={{ marginTop: "1rem" }}
-          />
-          <button type="submit" className="custom_button" onClick={loginUser}>
-            Login
-          </button>
-          <ButtonLink onClick={reset_password} id="forgot_password">
-            Forgot your password?
-          </ButtonLink>
-          <ButtonLink onClick={handleLogout} id={"logout"}>
-            Logout
-          </ButtonLink>
-        </Form>
-      </div>
-    </>
-  );
+            <p style={{ color: "red" }}>{error.detail}</p>
+        </LoginForm>
+    )
 }
 
-export default Login;
+export default Login
