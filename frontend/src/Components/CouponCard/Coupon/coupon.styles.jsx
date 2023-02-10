@@ -4,6 +4,7 @@ import tropical from "../../../Assets/tropical.jpg"
 export const CouponContainer = styled.div`
     display: flex;
     height: 250px;
+    min-height: 220px;
     width: 100%;
 `
 
@@ -19,6 +20,7 @@ export const LeftContainer = styled.div`
     align-items: center;
     border-radius: ${p=>p.theme.borderRadiusXL};
     position: relative;
+    box-shadow: -30px 10px 89px -36px rgba(0, 0, 0, 0.409);
 
     ::after {
         content: "";
@@ -26,7 +28,7 @@ export const LeftContainer = styled.div`
         right: -3px;
         top: 10px;
         bottom: 10px;
-        border-right: dotted white 6px;
+        border-right: dotted #ffffff 6px;
         width: 6px;
     }
 `
@@ -58,7 +60,7 @@ export const Amount =styled.h2`
     color: white;
     font-weight: bold;
     background: #1cc0f6;
-    padding: 6%;
+    padding: 5%;
     border-radius: 60%;
 `
 
@@ -96,6 +98,7 @@ export const RightContainer = styled.div`
     width: 30%;
     padding: 10px;
     border-radius: ${p=>p.theme.borderRadiusXL};
+    box-shadow: 10px 10px 89px -36px rgba(0,0,0,0.78);
 `
 
 export const CouponTitle = styled.h1`

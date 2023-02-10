@@ -19,6 +19,7 @@ export const CustomerNavigation = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 25px;
+    
 `
 
 export const NavigationContent = styled.div`
