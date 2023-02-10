@@ -24,7 +24,7 @@ function AppRoutes() {
                     <Route path="shopProfile/:shopId" element={<ShopProfile/>}/>
                     <Route path="newCoupon" element={<NewCoupon/>}/>
                     <Route path="allCoupons" element={<ViewAllCoupons/>}/>
-                    <Route path="me" element={<EditCustomerProfile/>}/>
+                    <Route path="editCustomer" element={<EditCustomerProfile/>}/>
                     <Route
                         path="customerProfile/:customerId"
                         element={<CustomerProfile/>}
