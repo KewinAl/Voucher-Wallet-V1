@@ -40,13 +40,13 @@ export const OurLogo = styled.img`
 `
 
 export const CompanyLogo = styled.img`
-    min-height: 50px;
-    max-height: 70px;
+    min-height: 40px;
+    max-height: 60px;
     position: absolute;
-    width: 100px;
     padding: 0 20px;
     top: 10px;
     right: 20px;
+    border-radius: 6px;
     background: white;
 `
 
