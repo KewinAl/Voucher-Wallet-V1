@@ -3,6 +3,9 @@ import Coupon from "../../Components/CouponCard/Coupon";
 
 
 const CustomerProfile = () => {
+
+
+    
     return (
         <CustomerProfileContainerPage>
             <CustomerNavigation>
@@ -13,10 +16,10 @@ const CustomerProfile = () => {
             <NavigationContent>
                 <CouponList>
                     <h2>My Coupons</h2>
+                    {/* <Coupon />
                     <Coupon/>
                     <Coupon/>
-                    <Coupon/>
-                    <Coupon/>
+                    <Coupon/> */}
                 </CouponList>
             </NavigationContent>
         </CustomerProfileContainerPage>

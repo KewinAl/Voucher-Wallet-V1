@@ -22,7 +22,7 @@ const Coupon = ({details}) => {
                 <Amount>35%<br/>OFF</Amount>
                 <Expiration>
                     Expiration:
-                    <code>{ details.expiration}</code>
+                    <code>{details.expiration}</code>
                 </Expiration>
                 <CompanyName>{details.company}</CompanyName>
                 <OurLogo src={logo} />
