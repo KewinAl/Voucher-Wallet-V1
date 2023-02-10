@@ -13,28 +13,28 @@ import {
 } from "./coupon.styles"
 import logo from "../../../Assets/voucherwallet-transparent.png"
 
-const Coupon = () => {
+const Coupon = ({details}) => {
     return (
         <CouponContainer>
             <LeftContainer>
                 <Amount>35%<br/>OFF</Amount>
                 <Expiration>
                     Expiration:
-                    <code>12/2023</code>
+                    <code>{ details.expiration}</code>
                 </Expiration>
-                <CompanyName>Bags Company, LLC</CompanyName>
+                <CompanyName>{details.company}</CompanyName>
                 <OurLogo src={logo} />
             </LeftContainer>
             <RightContainer>
-                <CouponTitle>Summer Sale!</CouponTitle>
+                <CouponTitle>{details.title}</CouponTitle>
                 <CodeSection>
                     <label>Voucher Code</label>
                     <code>XKTN-452</code>
                 </CodeSection>
                 <Description>
-                    Enjoy 35% off your next purchase!
+                    {details.description}
                     <small>*Terms and Conditions apply.</small>
-                    <p>company.com/redeem</p>
+                    <a href={details.link}>{details.link}</a>
                 </Description>
             </RightContainer>
         </CouponContainer>

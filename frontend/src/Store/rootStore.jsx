@@ -5,8 +5,8 @@ import tagReducer from "./tagSlice";
 const rootStore = configureStore({
     reducer: {
         auth: authReducer, //exporting directly as reducer
-        tags: tagReducer
-    }
+        tags: tagReducer //exporting directly as reducer
+        }
 })
 
 export default rootStore
