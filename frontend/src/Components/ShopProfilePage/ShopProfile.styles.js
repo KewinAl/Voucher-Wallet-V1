@@ -39,6 +39,7 @@ export const MenuRight = styled.div`
     >div{
     width: 100%;
     height: 100%;
+    min-height: 800px;
     border: 2px solid #cccccc;
     padding: 15px;
     box-sizing: border-box;
