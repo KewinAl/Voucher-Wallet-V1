@@ -1,7 +1,8 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import axios from "axios";
 import {GapLines} from "../Verification/Verification.styles";
+import {getMyCustomerProfile} from "../../API/lib/customerProfile";
+import axios from "axios";
 
 
 const EditCustomerProfile = () => {
@@ -11,13 +12,11 @@ const EditCustomerProfile = () => {
         LastName: "",
         Age: "",
         Gender: "",
-        Address: "",
-        Location: "",
 
     })
-    const [newWarning, SetNewWarning] = useState('');
+    const [newWarning, setNewWarning] = useState('');
     const navigate = useNavigate();
-
+    const [profile, setProfile] = useState([])
 
     const handleChange = e => {
         const changed = {};
@@ -27,15 +26,29 @@ const EditCustomerProfile = () => {
             ...changed,
         }))
     }
-    const handleEdit = e => {
-        e.preventDefault();
-        axios.patch("http://localhost:8000/backend/api/me", newData).then(res => {
-            navigate("/customerProfile/:customerId");
+    const handleGetMyCustomerProfile = async () => {
+        try {
+            const response = await getMyCustomerProfile();
+            setProfile(response.data);
+        } catch (e) {
+            console.log("error->", e);
+        }
+    };
+
+    useEffect(() => {
+        handleGetMyCustomerProfile();
+    }, []);
+
+    const handleUpdateEdit = event => {
+        event.preventDefault();
+        axios.patch("http://localhost:8000/backend/api/me/", newData).then(res => {
+            navigate("/me/");
         }).catch(error => {
             console.log(error);
-            SetNewWarning(error.message);
+            setNewWarning(error.message);
         });
-    }
+    };
+
     return (
         <>
             <div>
@@ -43,7 +56,7 @@ const EditCustomerProfile = () => {
                     <h2>Edit Your Profile</h2>
                     <hr></hr>
                     <p>{newWarning}</p>
-                    <form onSubmit={handleEdit}>
+                    <form onSubmit={handleUpdateEdit}>
                         <GapLines>
                             <input name="FirstName" type="text" placeholder="FirstName" value={newData.FirstName}
                                    onChange={handleChange}></input>
@@ -56,13 +69,7 @@ const EditCustomerProfile = () => {
                             <input name="Age" type="text" placeholder="Age" value={newData.Age}
                                    onChange={handleChange}></input>
                         </GapLines>
-                        <GapLines>
-                            <input name="Address" type="text" placeholder="Address" value={newData.Address}
-                                   onChange={handleChange}></input>
-                            <input name="location" type="text" placeholder="location"
-                                   value={newData.location} onChange={handleChange}></input>
-                        </GapLines>
-                        <button type="submit" onClick={handleChange}>Finish</button>
+                        <button type="submit" onClick={handleChange}>Save</button>
 
                     </form>
                 </div>

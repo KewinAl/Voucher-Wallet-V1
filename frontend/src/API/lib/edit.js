@@ -1,5 +1,5 @@
 import axiosInstance from "../axiosInstance";
 
-export function getMyCustomerProfile() {
+export function UpdateEditCustomerProfile() {
     return axiosInstance.patch(`me/`);
 }
