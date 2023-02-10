@@ -6,7 +6,7 @@ const rootStore = configureStore({
     reducer: {
         auth: authReducer, //exporting directly as reducer
         tags: tagReducer //exporting directly as reducer
-    }
+        }
 })
 
 export default rootStore

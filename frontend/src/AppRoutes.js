@@ -11,7 +11,7 @@ import Login from "./Components/Login/Login";
 import Layout from "./Components/Layout";
 import ShopProfile from "./Pages/ShopProfile";
 import CustomerProfile from "./Pages/CustomerProfile";
-import NewCoupon from "./Pages/CreateNewCoupon";
+import NewCoupon from "./Pages/CreateNewCoupon/old-index";
 import ViewAllCoupons from "./Pages/ViewAllCoupons";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";

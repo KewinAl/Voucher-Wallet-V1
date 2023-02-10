@@ -1,5 +1,5 @@
 import axiosInstance from "../axiosInstance";
 
-export function fetchTags(config) {
-    return axiosInstance.get("me/", config);
+export function getTags(data) {
+    return axiosInstance.get("tag/tags/", data);
 }
