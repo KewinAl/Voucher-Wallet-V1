@@ -1,6 +1,16 @@
 import styled from "styled-components";
 
 
+export const CouponList = styled.section`
+    border: solid green;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+`
+
+
 export const PageDiv = styled.div`
     max-height: 85%;
     display: flex;
@@ -13,6 +23,7 @@ export const PageDiv = styled.div`
         padding: 10px 0px;
     }
 `;
+
 
 export const CustomerMenuDiv = styled.div`
     width: 90%;
@@ -60,10 +71,10 @@ export const CustomerMenuRight = styled.div`
     overflow-y: auto;
 
     ::-webkit-scrollbar {
-	-webkit-box-shadow: none;
-	border-radius: 10px;
-	background-color: none;
-    width: 10px;
+        -webkit-box-shadow: none;
+        border-radius: 10px;
+        background-color: none;
+        width: 10px;
     }
 
     ::-webkit-scrollbar-thumb{

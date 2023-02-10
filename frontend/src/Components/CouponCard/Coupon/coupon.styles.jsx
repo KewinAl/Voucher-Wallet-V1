@@ -37,7 +37,17 @@ export const OurLogo = styled.img`
     top: 10px;
     left: 10px;
     background: radial-gradient(black, transparent);
+`
 
+export const CompanyLogo = styled.img`
+    min-height: 50px;
+    max-height: 70px;
+    position: absolute;
+    width: 100px;
+    padding: 0 20px;
+    top: 10px;
+    right: 20px;
+    background: white;
 `
 
 export const Amount =styled.h2`
