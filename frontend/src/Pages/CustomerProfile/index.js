@@ -16,8 +16,6 @@ const CustomerProfile = () => {
     const gender = useSelector((store) => store.customer.gender)
     const coupons = useSelector((store) => store.customer.coupons)
 
-
-
     useEffect(() => {
         fetchProfile();
     }, [])
@@ -44,24 +42,22 @@ const CustomerProfile = () => {
     }
 
     return (
-        <PageDiv>
-            <h1>Customer Profile</h1>
-            <CustomerMenuDiv>
-                <CustomerMenuLeft>
+        <CustomerProfileContainerPage>
+                <CustomerNavigation>
+                <h1>Customer Profile</h1>
                     <p>{first_name} {last_name}</p>
                     <button>Preferences</button>
                     <button>Notifications Coupons</button>
                     <button>Edit Profile</button>
                     <button>Edit Profile</button>
                     <button>Seach All Coupons</button>
-                </CustomerMenuLeft>
-                <CustomerMenuRight>
-                    <div>
+                </CustomerNavigation>
+                <NavigationContent>
+                    <CouponList>
                         {coupons.map((coupon) => <Coupon coupon={coupon} />)}
-                    </div>
-                </CustomerMenuRight>
-            </CustomerMenuDiv>
-        </PageDiv>
+                    </CouponList>
+                </NavigationContent>
+        </CustomerProfileContainerPage>
     )
 }
 
