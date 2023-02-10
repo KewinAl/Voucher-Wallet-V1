@@ -36,7 +36,7 @@ const ViewAllCoupons = () => {
       </CategoryFilterButton>
       <CouponList>
         <div>
-          <Coupon width={"27%"} />
+          {/* <Coupon width={"27%"} /> */}
         </div>
       </CouponList>
     </AllCouponsMenuDiv>
