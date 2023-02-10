@@ -34,7 +34,7 @@ const Coupon = ({details}) => {
                 <Description>
                     {details.description}
                     <small>*Terms and Conditions apply.</small>
-                    <p>{details.link}</p>
+                    <a href={details.link}>{details.link}</a>
                 </Description>
             </RightContainer>
         </CouponContainer>

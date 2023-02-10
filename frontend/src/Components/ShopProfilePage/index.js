@@ -1,15 +1,39 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { getMyShopProfile } from "../../API/lib/shopProfile"
 import NewCouponOverlay from "../../Pages/CreateNewCoupon"
 import CouponCard_Profile from "./CouponCard/index"
 import { PageDiv, Menu, MenuLeft, MenuRight } from "./ShopProfile.styles"
 
 
 const ShopProfileDiv = () => {
-    let couponData = {
-        id: 1,
-        expiration_date: "01.01.2023",
-        description: 'Gucci Gucci Myam myam myam',
-        times_used: 15.000,
+    const [name, setName] = useState('')
+    const [description, setDescription] = useState('')
+    const [link, setLink] = useState('')
+    const [logo, setLogo] = useState('')
+    const [coupons, setCoupons] = useState([])
+
+    const token = useSelector((store) => store.auth.access)
+
+    useEffect(() => {
+        getShopDetails()
+    },[])   
+
+    const getShopDetails = async () => {
+        var config = {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        };
+
+        const response = await getMyShopProfile(config); //user = email+password
+        console.log(response)
+        setCoupons(response.data.coupons_created)
+        setDescription(response.data.description)
+        setLink(response.data.link)
+        setName(response.data.name)
+        setLogo(response.data.shop_logo)
+
     }
 
     const [overlayVisibility, setOverlayVisibility] = useState(false)
@@ -17,7 +41,7 @@ const ShopProfileDiv = () => {
     return (
         <PageDiv>
             <NewCouponOverlay visible={overlayVisibility} exitFunction={setOverlayVisibility} />
-            <p>Shop Owner Profile (possibly name)</p>
+            <p>{name}</p>
             <Menu>
                 <MenuLeft>
                     <button onClick={() => setOverlayVisibility(!overlayVisibility)}>Create New Coupon</button>
@@ -26,23 +50,7 @@ const ShopProfileDiv = () => {
                 </MenuLeft>
                 <MenuRight>
                     <div>
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
-                    <CouponCard_Profile />
+                        {coupons.map((coupon => <CouponCard_Profile coupon={coupon} />))}
                     </div>
                 </MenuRight>
             </Menu>

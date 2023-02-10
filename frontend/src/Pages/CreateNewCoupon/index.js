@@ -4,9 +4,9 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 
 const NewCouponOverlay = (props) => {
-    const [title, setTitle] = useState(null)
+    const [title, setTitle] = useState('')
     const [description, setdescription] = useState('')
-    const [number, setNumber] = useState(null)
+    const [number, setNumber] = useState('')
     const [tag, setTag] = useState('')
     const [link, setLink] = useState('')
     const [image, setImage] = useState('')

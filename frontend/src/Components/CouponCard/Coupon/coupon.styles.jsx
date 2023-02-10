@@ -142,7 +142,7 @@ export const Description = styled.p`
         font-size: ${p=>p.theme.fontSizeXS};
     }
 
-    p {
+    a {
         font-size: ${p=>p.theme.fontSizeL};
         color: orange;
         font-weight: bold;
