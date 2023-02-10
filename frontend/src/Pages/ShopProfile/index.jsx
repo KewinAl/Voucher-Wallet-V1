@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getMyShopProfile, getShopProfile } from "../../API/lib/shopProfile";
 import ShopProfileCard from "../../Components/ShopProfileCard";
 import CouponCard from "../../Components/CouponCard/CouponCard";
+import DistributeCouponOverlay from "../../Components/DistributeCouponOverlay";
 
 const ShopProfile = () => {
   const [shopProfile, setShopProfile] = useState({});
