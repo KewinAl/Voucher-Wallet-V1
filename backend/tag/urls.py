@@ -1,7 +1,7 @@
 from django.urls import path
 
-from tag.views import ListTagView
+from tag.views import TagView
 
 urlpatterns = [
-    path("tags/", ListTagView.as_view()),
+    path("<int:tag_id>/", TagView.as_view()),
 ]

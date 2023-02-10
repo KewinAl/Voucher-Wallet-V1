@@ -9,7 +9,7 @@ from tag.serializers import TagSerializer
 class CouponCodeSerializer(serializers.ModelSerializer):
     class Meta:
         model = CouponCode
-        fields = ['redeemed_code', 'has_been_used']
+        fields = ['redeemed_code']
 
 
 class ShopNameSerializer(serializers.ModelSerializer):
@@ -22,11 +22,10 @@ class CouponSerializer(serializers.ModelSerializer):
     customer_profiles = CustomerProfileSerializer(many=True, read_only=True)
     coupon_codes = CouponCodeSerializer(many=True, read_only=True)
     shop_profile = ShopNameSerializer(read_only=True)
-    tags = TagSerializer(many=True)
+    tag = TagSerializer()
 
     class Meta:
         model = Coupon
-        fields = ['shop_profile', 'expiration_date', 'description', 'times_redeemed', 'redeem_limit',
-                  'customer_profiles',
-                  'coupon_codes', 'tags']
+        fields = ['shop_profile', 'customer_profiles', 'expiration_date', 'title', 'description', 'times_used',
+                  'times_redeemed', 'redeem_limit', 'discount_type', 'discount', 'currency', 'tag', 'coupon_codes']
         read_only_fields = ['customer_profiles', 'coupon_codes']
