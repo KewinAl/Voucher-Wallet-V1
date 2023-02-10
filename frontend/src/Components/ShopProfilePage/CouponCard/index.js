@@ -1,8 +1,10 @@
-import {CouponDiv, CouponActionButton, CouponButtonDiv, DetailsDiv  } from './CouponCard.styles'
+import { CouponDiv, CouponActionButton, CouponButtonDiv, DetailsDiv } from './CouponCard.styles'
+import { useSelector } from "react-redux";
  
 
 
 const CouponCard_Profile = () => {
+
     return (
         <CouponDiv>
             <h1>Coupon Title</h1>

@@ -34,6 +34,8 @@ function AppRoutes() {
           />
           <Route path="myShop" element={<ShopProfile />} />
           <Route path="me" element={<CustomerProfile />} />
+          {/* <Route path="*" element={<LandingPage />} /> */}
+
         </Route>
       </>
     )
