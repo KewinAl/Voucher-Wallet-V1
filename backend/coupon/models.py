@@ -5,6 +5,7 @@ from django.db import models
 
 from customerProfile.models import CustomerProfile
 from shopProfile.models import ShopProfile
+from tag.models import Tag
 
 
 class Coupon(models.Model):
@@ -35,6 +36,8 @@ class Coupon(models.Model):
         max_length=3, choices=CURRENCY_CHOICES, default='EUR',
         blank=True, null=True
     )
+    tag = models.ForeignKey(
+        to=Tag, on_delete=models.SET_NULL, related_name='coupon_tag', null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if self.discount_type == 'percentage':
