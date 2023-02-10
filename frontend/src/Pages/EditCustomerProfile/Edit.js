@@ -1,22 +1,23 @@
-import {useState} from "react";
-import {getCustomerProfile} from "../../API/lib/edit";
-import {useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {getMyCustomerProfile} from "../../API/lib/customerProfile";
 
 
 const EditCustomer = () => {
     const [Profile, SetProfile] = useState([])
-    const {customerId} = useParams()
 
 
-    const handleGetEditProfile = async () => {
+    const handleGetMyCustomerProfile = async () => {
         try {
-            const response = await getCustomerProfile(customerId);
-            console.log("fullData:", response.data);
+            const response = await getMyCustomerProfile();
             SetProfile(response.data);
         } catch (e) {
             console.log("error->", e);
         }
     };
+
+    useEffect(() => {
+        handleGetMyCustomerProfile();
+    }, []);
     return (
         <>
             <div>

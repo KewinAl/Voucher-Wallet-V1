@@ -1,7 +1,8 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {GapLines} from "../Verification/Verification.styles";
+import {getMyCustomerProfile} from "../../API/lib/customerProfile";
 
 
 const EditCustomerProfile = () => {
@@ -10,15 +11,27 @@ const EditCustomerProfile = () => {
         FirstName: "",
         LastName: "",
         Age: "",
-        Gender: "",
         Address: "",
-        Location: "",
+        Location: ""
+
 
     })
     const [newWarning, SetNewWarning] = useState('');
     const navigate = useNavigate();
+    const [Profile, SetProfile] = useState([])
+    const handleGetMyCustomerProfile = async () => {
+        try {
+            const response = await getMyCustomerProfile();
+            SetProfile(response.data);
+            console.log(response.data)
+        } catch (e) {
+            console.log("error->", e);
+        }
+    };
 
-
+    useEffect(() => {
+        handleGetMyCustomerProfile();
+    }, []);
     const handleChange = e => {
         const changed = {};
         changed[e.target.name] = e.target.value;
