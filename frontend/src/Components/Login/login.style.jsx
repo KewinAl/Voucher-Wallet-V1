@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 
 export const LoginForm = styled.form`
-    border: solid red;
     height: 100%;
     display: flex;
     flex-direction: column;
