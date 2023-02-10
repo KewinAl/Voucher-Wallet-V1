@@ -6,6 +6,7 @@ from customerProfile.models import CustomerProfile
 
 class CustomerProfileSerializer(serializers.ModelSerializer):
     coupon_codes = serializers.StringRelatedField(many=True, read_only=True)
+    # adding the preferences tags from TAGS models
     preferences = TagSerializer(many=True)
 
     class Meta:

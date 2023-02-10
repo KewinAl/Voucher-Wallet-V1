@@ -2,7 +2,6 @@ import random
 import string
 
 from django.db import models
-
 from customerProfile.models import CustomerProfile
 from shopProfile.models import ShopProfile
 
