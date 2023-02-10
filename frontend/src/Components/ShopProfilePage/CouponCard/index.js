@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 
 
 const CouponCard_Profile = () => {
-
     return (
         <CouponDiv>
             <h1>Coupon Title</h1>
