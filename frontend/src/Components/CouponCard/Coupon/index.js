@@ -2,6 +2,7 @@ import React from "react"
 import {
     Amount,
     CodeSection,
+    CompanyLogo,
     CompanyName,
     CouponContainer,
     CouponTitle,
@@ -12,6 +13,7 @@ import {
     RightContainer,
 } from "./coupon.styles"
 import logo from "../../../Assets/voucherwallet-transparent.png"
+import companyLogo from "../../../Assets/companyLogo.png"
 
 const Coupon = ({details}) => {
     return (
@@ -20,10 +22,11 @@ const Coupon = ({details}) => {
                 <Amount>35%<br/>OFF</Amount>
                 <Expiration>
                     Expiration:
-                    <code>{ details.expiration}</code>
+                    <code>{details.expiration}</code>
                 </Expiration>
                 <CompanyName>{details.company}</CompanyName>
                 <OurLogo src={logo} />
+                <CompanyLogo src={companyLogo} />
             </LeftContainer>
             <RightContainer>
                 <CouponTitle>{details.title}</CouponTitle>

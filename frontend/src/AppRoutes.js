@@ -56,13 +56,14 @@ function AppRoutes() {
           <Route path="registration" element={<Registration />} />
           <Route path="congratulations" element={<Congratulations />} />
           <Route path="verification" element={<Verification />} />
-          <Route path="shopProfile/:shopId" element={<ShopProfile />} />
-          <Route path="newCoupon" element={<NewCoupon />} />
+
+          {/* <Route path="shopProfile/:shopId" element={<ShopProfile />} /> */}
+
           <Route path="allCoupons" element={<ViewAllCoupons />} />
-          <Route
+          {/* <Route
             path="customerProfile/:customerId"
             element={<CustomerProfile />}
-          />
+          /> */}
           <Route path="myShop" element={<ShopProfile />} />
           <Route path="me" element={<CustomerProfile />} />
           {/* <Route path="*" element={<LandingPage />} /> */}

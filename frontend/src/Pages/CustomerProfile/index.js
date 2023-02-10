@@ -1,10 +1,11 @@
-import { PageDiv, CustomerMenuDiv, CustomerMenuLeft, CustomerMenuRight } from "./CustomerProfile.styles";
+import { CouponList, CustomerProfileContainerPage, CustomerNavigation, NavigationContent } from "./CustomerProfile.styles";
 import Coupon from "../../Components/CouponCard/Coupon";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setCustomerDetails } from "../../Store/customerSlice";
+
 
 const CustomerProfile = () => {
     const dispatch = useDispatch()
@@ -14,8 +15,6 @@ const CustomerProfile = () => {
     const last_name = useSelector((store) => store.customer.lastname)
     const gender = useSelector((store) => store.customer.gender)
     const coupons = useSelector((store) => store.customer.coupons)
-
-
 
     useEffect(() => {
         fetchProfile();
@@ -43,24 +42,22 @@ const CustomerProfile = () => {
     }
 
     return (
-        <PageDiv>
-            <h1>Customer Profile</h1>
-            <CustomerMenuDiv>
-                <CustomerMenuLeft>
+        <CustomerProfileContainerPage>
+                <CustomerNavigation>
+                <h1>Customer Profile</h1>
                     <p>{first_name} {last_name}</p>
                     <button>Preferences</button>
                     <button>Notifications Coupons</button>
                     <button>Edit Profile</button>
                     <button>Edit Profile</button>
                     <button>Seach All Coupons</button>
-                </CustomerMenuLeft>
-                <CustomerMenuRight>
-                    <div>
+                </CustomerNavigation>
+                <NavigationContent>
+                    <CouponList>
                         {coupons.map((coupon) => <Coupon coupon={coupon} />)}
-                    </div>
-                </CustomerMenuRight>
-            </CustomerMenuDiv>
-        </PageDiv>
+                    </CouponList>
+                </NavigationContent>
+        </CustomerProfileContainerPage>
     )
 }
 

@@ -18,16 +18,14 @@ const Header = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [isLoggedIn, setIsLoggedIn] = useState(false)
-    const authData = localStorage.getItem("access")
+    const authData = localStorage.getItem("auth")
 
     useEffect(() => {
         if (authData) setIsLoggedIn(true)
-        else setIsLoggedIn(false)
     }, [authData])
 
     const handleLogout = () => {
-        localStorage.removeItem("access")
-        localStorage.removeItem("email")
+        localStorage.clear()
         dispatch(clearAuth())
         setIsLoggedIn(false)
         navigate("/login")
@@ -39,10 +37,10 @@ const Header = () => {
 
             <MenuContainer>
                 <MenuItem to="/home">Home</MenuItem>
-                <MenuItem to="/redeem">Redeem</MenuItem>
                 <MenuItem to="/allCoupons">Coupons</MenuItem>
+                <MenuItem to="/redeem">Redeem</MenuItem>
                 <MenuItem to="/create-coupon">Create</MenuItem>
-                <MenuItem to="/user">Profile</MenuItem>
+                <MenuItem to="/me">Profile</MenuItem>
             </MenuContainer>
 
             <AuthenticationContainer>

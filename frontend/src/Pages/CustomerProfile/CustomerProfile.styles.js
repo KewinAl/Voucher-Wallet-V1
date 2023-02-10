@@ -1,83 +1,49 @@
 import styled from "styled-components";
 
 
-export const PageDiv = styled.div`
-    max-height: 85%;
+export const CustomerProfileContainerPage = styled.div`
+    height: calc(100vh - 65px);
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    align-items: center;
     justify-content: start;
-    >p {
-        font-size: xx-large;
-        padding: 10px 0px;
-    }
-`;
-
-export const CustomerMenuDiv = styled.div`
-    width: 90%;
-    height: 80%;
-    display: flex;
-    justify-content: space-between;
+    border: solid red;
+    align-items: center;
+    padding: 20px;
 `
-export const CustomerMenuLeft = styled.div`
-    width: 33%;
+
+export const CustomerNavigation = styled.div`
+    height: 100%;
+    width: 30%;
     display: flex;
+    border: solid yellow;
     flex-direction: column;
     align-items: center;
     gap: 25px;
 
-    >p {
-        font-size: xx-large;
-    }
-
-    >button {
-        width: 70%;
-        padding: 15px;
-        border-radius: 10px;
-        font-size: x-large;
+    h1 {
+        font-size: ${p => p.theme.fontSizeXXL};
+        font-weight: bold;
     }
 `
 
-export const CustomerMenuRight = styled.div`
-    width: 66%;
+export const NavigationContent = styled.div`
+    width: 70%;
     height: 100%;
-    overflow: hidden;
-    border-radius: 0px 30px 30px;
+    border: solid blue;
+`
 
-    >div{
-    width: 100%;
+export const CouponList = styled.section`
+    border: solid green;
     height: 100%;
-    padding: 10px;
-    padding-bottom: 40px;
-    border: 2px solid #cccccc;
-    box-sizing: border-box;
-    background-color: #e6e6e6;
-    box-shadow: inset 7px 5px 16px -5px rgba(0,0,0,0.44);
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    overflow-y: auto;
+    align-items: center;
+    gap: 3%;
+    padding: 0 3%;
+    overflow: scroll;
 
-    ::-webkit-scrollbar {
-	-webkit-box-shadow: none;
-	border-radius: 10px;
-	background-color: none;
-    width: 10px;
+    h2 {
+        font-size: ${p => p.theme.fontSizeXL};
+        text-align: start;
+        width: 100%;
     }
-
-    ::-webkit-scrollbar-thumb{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #cccccc;
-    }
-
-    ::-webkit-scrollbar-button:end:increment {
-    height: 3%;
-    }
-    ::-webkit-scrollbar-button:start:decrement {
-    height: 3%;
-    }
-    }
-
 `
