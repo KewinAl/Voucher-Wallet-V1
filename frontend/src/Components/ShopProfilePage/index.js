@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { getMyShopProfile } from "../../API/lib/shopProfile"
 import NewCouponOverlay from "../../Pages/CreateNewCoupon"
+import DistributeCouponOverlay from "../DistributeCouponOverlay"
 import CouponCard_Profile from "./CouponCard/index"
 import { PageDiv, Menu, MenuLeft, MenuRight } from "./ShopProfile.styles"
 
@@ -41,6 +42,7 @@ const ShopProfileDiv = () => {
     return (
         <PageDiv>
             <NewCouponOverlay visible={overlayVisibility} exitFunction={setOverlayVisibility} />
+            <DistributeCouponOverlay visible={true} />
             <p>{name}</p>
             <Menu>
                 <MenuLeft>
