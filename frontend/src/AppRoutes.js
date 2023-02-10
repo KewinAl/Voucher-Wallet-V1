@@ -13,8 +13,38 @@ import ShopProfile from "./Pages/ShopProfile";
 import CustomerProfile from "./Pages/CustomerProfile";
 import NewCoupon from "./Pages/CreateNewCoupon";
 import ViewAllCoupons from "./Pages/ViewAllCoupons";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchTags } from './API/lib/tags';
+import { setTags } from "./Store/tagSlice";
 
 function AppRoutes() {
+
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.access)
+
+  useEffect(() => {
+    if (token) {
+      getTags(token)
+    }
+
+  }, [token])
+
+  const getTags = async (token) => {
+    var config = {
+      method: 'get',
+      maxBodyLength: Infinity,
+      url: 'https://voucher-wallet.propulsion-learn.ch/backend/api/tag/tags/',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    };
+
+    const response = await fetchTags(config); //user = email+password
+    dispatch(setTags(response.data))
+  }
+
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
