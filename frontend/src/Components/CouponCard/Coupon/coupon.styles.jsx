@@ -4,6 +4,7 @@ import tropical from "../../../Assets/tropical.jpg"
 export const CouponContainer = styled.div`
     display: flex;
     height: 250px;
+    min-height: 220px;
     width: 100%;
 `
 
@@ -19,6 +20,7 @@ export const LeftContainer = styled.div`
     align-items: center;
     border-radius: ${p=>p.theme.borderRadiusXL};
     position: relative;
+    box-shadow: -30px 10px 89px -36px rgba(0, 0, 0, 0.409);
 
     ::after {
         content: "";
@@ -26,7 +28,7 @@ export const LeftContainer = styled.div`
         right: -3px;
         top: 10px;
         bottom: 10px;
-        border-right: dotted white 6px;
+        border-right: dotted #ffffff 6px;
         width: 6px;
     }
 `
@@ -37,10 +39,20 @@ export const OurLogo = styled.img`
     top: 10px;
     left: 10px;
     background: radial-gradient(black, transparent);
-
 `
 
-export const Amount =styled.h2`
+export const CompanyLogo = styled.img`
+    min-height: 40px;
+    max-height: 60px;
+    position: absolute;
+    padding: 0 20px;
+    top: 10px;
+    right: 20px;
+    border-radius: 6px;
+    background: white;
+`
+
+export const Amount =styled.h4`
     font-size: ${p=>p.theme.fontSizeXXXXL};
     font-family: 'Oswald', sans-serif;
     line-height: 50px;
@@ -48,8 +60,9 @@ export const Amount =styled.h2`
     color: white;
     font-weight: bold;
     background: #1cc0f6;
-    padding: 6%;
+    padding: 5%;
     border-radius: 60%;
+    width: auto;
 `
 
 export const CompanyName = styled.h3`
@@ -86,13 +99,13 @@ export const RightContainer = styled.div`
     width: 30%;
     padding: 10px;
     border-radius: ${p=>p.theme.borderRadiusXL};
+    box-shadow: 10px 10px 89px -36px rgba(0,0,0,0.78);
 `
 
 export const CouponTitle = styled.h1`
     font-size: ${p=>p.theme.fontSizeXXL};
     font-weight: bold;
     color: black;
-
 `
 
 export const CodeSection = styled.section`
@@ -123,7 +136,6 @@ export const CodeSection = styled.section`
         font-family: 'Miriam Libre', sans-serif;
         font-size: ${p=>p.theme.fontSizeXXL};
         font-weight: bold;
-
     }   
 `
 
@@ -142,7 +154,7 @@ export const Description = styled.p`
         font-size: ${p=>p.theme.fontSizeXS};
     }
 
-    p {
+    a {
         font-size: ${p=>p.theme.fontSizeL};
         color: orange;
         font-weight: bold;

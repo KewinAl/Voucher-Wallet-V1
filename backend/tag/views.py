@@ -1,19 +1,12 @@
-from django.contrib.auth import get_user_model
-from rest_framework.generics import ListAPIView
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.generics import RetrieveUpdateDestroyAPIView
 
 from tag.models import Tag
 from tag.serializers import TagSerializer
 
-User = get_user_model()
 
-
-class ListTagView(ListAPIView):
-    """
-    get:
-    Lists all Tags.
-    """
-
-    serializer_class = TagSerializer
+class TagView(RetrieveUpdateDestroyAPIView):
     queryset = Tag.objects.all()
-    permission_classes = [IsAuthenticated]
+    serializer_class = TagSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'tag_id'  # field in the request
+    http_method_names = ['get', 'post', 'put', 'delete']

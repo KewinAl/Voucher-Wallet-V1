@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from coupon.serializers import CouponSerializer
 from shopProfile.models import ShopProfile
 

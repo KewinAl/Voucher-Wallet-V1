@@ -8,7 +8,7 @@ export const HeaderContainer = styled.div`
     align-items: center;
     width: 100%;
     height: 65px;
-    padding: 0 5%;
+    padding: 0 3%;
     background: ${p=>p.theme.backgroundPurpleLight};
 `
 
@@ -44,11 +44,10 @@ export const MenuItem = styled(NavLink)`
     }
 
 `
-
 export const AuthenticationContainer = styled.div`
     height: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     width: 12%;
 `
