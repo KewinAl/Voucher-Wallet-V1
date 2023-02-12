@@ -1,14 +1,14 @@
-import axios from 'axios';
-import store from '../Store/rootStore';
+import axios from "axios";
+import store from "../Store/rootStore";
 
-let baseUrl = ''
+let baseUrl = "";
 
 if (process.env.NODE_ENV === 'development') {
-   // baseUrl = 'http://localhost:8000/backend/api/'
+    baseUrl = 'http://localhost:8000/backend/api/'
+    // baseUrl = 'https://voucher-wallet.propulsion-learn.ch/backend/api/'
+} else {
     baseUrl = 'https://voucher-wallet.propulsion-learn.ch/backend/api/'
-  } else {
-    baseUrl = 'https://voucher-wallet.propulsion-learn.ch/backend/api/'
-  }
+}
 
 
 // creating a custom instance of axios make fetches more convenient by giving custom defaults

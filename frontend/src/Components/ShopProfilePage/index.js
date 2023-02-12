@@ -1,63 +1,72 @@
-import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import { getMyShopProfile } from "../../API/lib/shopProfile"
-import NewCouponOverlay from "../../Pages/CreateNewCoupon"
-import DistributeCouponOverlay from "../DistributeCouponOverlay"
-import CouponCard_Profile from "./CouponCard/index"
-import { PageDiv, Menu, MenuLeft, MenuRight } from "./ShopProfile.styles"
-
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { getMyShopProfile } from "../../API/lib/shopProfile";
+import NewCouponOverlay from "../../Pages/CreateNewCoupon";
+import DistributeCouponOverlay from "../DistributeCouponOverlay";
+import CouponCard_Profile from "./CouponCard/index";
+import { Menu, MenuLeft, MenuRight, PageDiv } from "./ShopProfile.styles";
 
 const ShopProfileDiv = () => {
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
-    const [link, setLink] = useState('')
-    const [logo, setLogo] = useState('')
-    const [coupons, setCoupons] = useState([])
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [link, setLink] = useState("");
+  const [logo, setLogo] = useState("");
+  const [coupons, setCoupons] = useState([]);
 
-    const token = useSelector((store) => store.auth.access)
+  const token = useSelector((store) => store.auth.access);
 
-    useEffect(() => {
-        getShopDetails()
-    },[])   
-
-    const getShopDetails = async () => {
-        var config = {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        };
-
-        const response = await getMyShopProfile(config); //user = email+password
-        console.log(response)
-        setCoupons(response.data.coupons_created)
-        setDescription(response.data.description)
-        setLink(response.data.link)
-        setName(response.data.name)
-        setLogo(response.data.shop_logo)
-
+  useEffect(() => {
+    if (token) {
+      getShopDetails(token);
     }
+  }, [token]);
 
-    const [overlayVisibility, setOverlayVisibility] = useState(false)
+  const getShopDetails = async (token) => {
+    var config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: "http://localhost:8000/backend/api/myShop/",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
 
-    return (
-        <PageDiv>
-            <NewCouponOverlay visible={overlayVisibility} exitFunction={setOverlayVisibility} />
-            <DistributeCouponOverlay visible={true} />
-            <p>{name}</p>
-            <Menu>
-                <MenuLeft>
-                    <button onClick={() => setOverlayVisibility(!overlayVisibility)}>Create New Coupon</button>
-                    <button>Edit Profile</button>
-                    <button>Delete Account</button>
-                </MenuLeft>
-                <MenuRight>
-                    <div>
-                        {coupons.map((coupon => <CouponCard_Profile coupon={coupon} />))}
-                    </div>
-                </MenuRight>
-            </Menu>
-            
-        </PageDiv>
-    )
-}
-export default ShopProfileDiv
+    const response = await getMyShopProfile(config); //user = email+password
+    console.log(response);
+    setCoupons(response.data.coupons_created);
+    setDescription(response.data.description);
+    setLink(response.data.link);
+    setName(response.data.name);
+    setLogo(response.data.shop_logo);
+  };
+
+  const [overlayVisibility, setOverlayVisibility] = useState(false);
+
+  return (
+    <PageDiv>
+      <NewCouponOverlay
+        visible={overlayVisibility}
+        exitFunction={setOverlayVisibility}
+      />
+      <DistributeCouponOverlay visible={false} />
+      <p>{name}</p>
+      <Menu>
+        <MenuLeft>
+          <button onClick={() => setOverlayVisibility(!overlayVisibility)}>
+            Create New Coupon
+          </button>
+          <button>Edit Profile</button>
+          <button>Delete Account</button>
+        </MenuLeft>
+        <MenuRight>
+          <div>
+            {coupons.map((coupon) => (
+              <CouponCard_Profile coupon={coupon} />
+            ))}
+          </div>
+        </MenuRight>
+      </Menu>
+    </PageDiv>
+  );
+};
+export default ShopProfileDiv;

@@ -11,40 +11,36 @@ import Login from "./Components/Login/Login";
 import Layout from "./Components/Layout";
 import ShopProfile from "./Pages/ShopProfile";
 import CustomerProfile from "./Pages/CustomerProfile";
-import NewCoupon from "./Pages/CreateNewCoupon/old-index";
 import ViewAllCoupons from "./Pages/ViewAllCoupons";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchTags } from './API/lib/tags';
+import { fetchTags } from "./API/lib/tags";
 import { setTags } from "./Store/tagSlice";
-import { useSelector } from "react-redux";
 
 function AppRoutes() {
-
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.auth.access)
+  const token = useSelector((state) => state.auth.access);
 
   useEffect(() => {
     if (token) {
-      getTags(token)
+      getTags(token);
     }
-
-  }, [token])
+  }, [token]);
 
   const getTags = async (token) => {
     var config = {
-      method: 'get',
+      method: "get",
       maxBodyLength: Infinity,
-      url: 'https://voucher-wallet.propulsion-learn.ch/backend/api/tag/tags/',
+      url: "http://localhost:8000/backend/api/tag/",
       headers: {
-        'Authorization': `Bearer ${token}`
-      }
+        Authorization: `Bearer ${token}`,
+      },
     };
 
     const response = await fetchTags(config); //user = email+password
-    dispatch(setTags(response.data))
-  }
-
+    console.log(response.data);
+    dispatch(setTags(response.data));
+  };
 
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -67,7 +63,6 @@ function AppRoutes() {
           <Route path="myShop" element={<ShopProfile />} />
           <Route path="me" element={<CustomerProfile />} />
           {/* <Route path="*" element={<LandingPage />} /> */}
-
         </Route>
       </>
     )
