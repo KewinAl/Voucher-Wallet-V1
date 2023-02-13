@@ -77,7 +77,7 @@ const [distributionOverlayVisibility, setdistributionOverlayVisibility] = useSta
                     </div>
                 </MenuRight>
             </Menu>
-            
+
         </PageDiv>
     )
 }

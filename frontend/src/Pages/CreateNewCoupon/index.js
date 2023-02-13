@@ -1,7 +1,17 @@
-import { OverlayDiv, OverlayMenu, CouponCreationMenu, CouponPreview, CouponCreationLeft, CouponCreationRight, NewCouponButtonsDiv, NewCouponButton } from "./NewCouponOverlay.stlyes"
+import {
+    OverlayDiv,
+    OverlayMenu,
+    CouponCreationMenu,
+    CouponPreview,
+    CouponCreationLeft,
+    CouponCreationRight,
+    NewCouponButtonsDiv,
+    NewCouponButton
+} from "./NewCouponOverlay.stlyes"
 import Coupon from "../../Components/CouponCard/Coupon";
-import { useSelector } from "react-redux";
-import { useState } from "react";
+import {useSelector} from "react-redux";
+import {useState} from "react";
+import axios from "axios";
 
 const NewCouponOverlay = (props) => {
     const [title, setTitle] = useState('')
@@ -18,6 +28,29 @@ const NewCouponOverlay = (props) => {
     
     
     const availableTags = useSelector((store) => store.tags.tags)
+
+    const access = localStorage.getItem("access");
+    const result = {
+        "title": title,
+        "description": description,
+        "redeem_limit": number,
+        "tag": {
+            id: tag,
+        },
+        "expiration_date": expiration
+    }
+    console.log(result)
+
+    const config = {
+        method: "POST",
+        url: "http://localhost:8000/backend/api/coupon/new/",
+        headers: {
+            'Content-Type': 'application/json',
+            body: JSON.stringify(result),
+            Authorization: `Bearer ${access}`,
+        },
+    };
+
 
     const safeCoupon = () => {
         const coupon = {
@@ -40,14 +73,16 @@ const NewCouponOverlay = (props) => {
             setdescription('')
             setredeem_limit('')
             setTag('')
-            setLink('')
+            //setLink('')
             setImage('')
             setexpiration_date('2024-12-31')
         }
     }
 
-    return ( 
-        <OverlayDiv id="overlay" visible={props.visible} onClick={(e) => {checkIfExit(e)}}>
+    return (
+        <OverlayDiv id="overlay" visible={props.visible} onClick={(e) => {
+            checkIfExit(e)
+        }}>
             <OverlayMenu>
                 <CouponCreationMenu>
                     <CouponCreationLeft>
@@ -63,7 +98,7 @@ const NewCouponOverlay = (props) => {
                         {/* Selection for available tags */}
                         <select value={tag} onChange={(e) => setTag(e.target.value)}>
                             <option value={''}>Select a tag</option>
-                            {availableTags.map((tag) => <option value={tag.id}>{tag.description}</option>)}
+                            {availableTags.map((tag) => <option value={tag.id}>{tag.name}</option>)}
                         </select>
 
                     </CouponCreationLeft>
@@ -80,12 +115,12 @@ const NewCouponOverlay = (props) => {
                     <Coupon details={{ company, title, description, link, image, expiration_date }} />
                 </CouponPreview>
                 <NewCouponButtonsDiv>
-                    <NewCouponButton color='lightgreen' onClick={() => safeCoupon()} >Save</NewCouponButton>                    
+                    <NewCouponButton color='lightgreen' onClick={() => safeCoupon()}>Save</NewCouponButton>
                 </NewCouponButtonsDiv>
             </OverlayMenu>
         </OverlayDiv>
     )
 
-} 
+}
 
 export default NewCouponOverlay;
