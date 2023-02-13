@@ -53,7 +53,7 @@ const ShopProfileDiv = () => {
                 </MenuLeft>
                 <MenuRight>
                     <div>
-                        {coupons.map((coupon => <CouponCard_Profile coupon={coupon} />))}
+                        {coupons.map((coupon => <CouponCard_Profile coupon={coupon} toggleVisibility={setdistributionOverlayVisibility} />))}
                     </div>
                 </MenuRight>
             </Menu>
