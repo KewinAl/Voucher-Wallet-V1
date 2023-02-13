@@ -15,6 +15,8 @@ const ShopProfileDiv = () => {
     const [coupons, setCoupons] = useState([])
 
     const token = useSelector((store) => store.auth.access)
+    const [overlayVisibility, setOverlayVisibility] = useState(false)
+    const [distributionOverlayVisibility, setdistributionOverlayVisibility] = useState(true)
 
     useEffect(() => {
         getShopDetails()
@@ -37,12 +39,11 @@ const ShopProfileDiv = () => {
 
     }
 
-    const [overlayVisibility, setOverlayVisibility] = useState(false)
 
     return (
         <PageDiv>
             <NewCouponOverlay visible={overlayVisibility} exitFunction={setOverlayVisibility} />
-            <DistributeCouponOverlay visible={true} />
+            <DistributeCouponOverlay visible={distributionOverlayVisibility} exitFunction={setdistributionOverlayVisibility} />
             <p>{name}</p>
             <Menu>
                 <MenuLeft>
