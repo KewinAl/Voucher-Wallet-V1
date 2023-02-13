@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const authSlice = createSlice({
     name: "auth",
     initialState: {
-        access: undefined,
+        accesstoken: undefined,
         refreshtoken: undefined,
         email: undefined
     },
@@ -12,15 +12,15 @@ const authSlice = createSlice({
 
             const newState = { ...state };
 
-            newState.access = action.payload.access;
-            newState.refreshtoken = action.payload.refreshtoken;
+            newState.accesstoken = action.payload.access;
+            newState.refreshtoken = action.payload.refresh;
 
             return newState;
         },
         clearAuth: (state) => {
             const newState = { ...state };
 
-            newState.access = undefined;// Set the data to undefined
+            newState.accesstoken = undefined;// Set the data to undefined
             newState.refreshtoken = undefined;// Set the data to
             newState.email = undefined; // Set the data to undefined
 

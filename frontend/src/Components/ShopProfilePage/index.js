@@ -1,41 +1,43 @@
-import { useEffect, useState } from "react"
-import { useSelector } from "react-redux"
-import { getMyShopProfile } from "../../API/lib/shopProfile"
-import NewCouponOverlay from "../../Pages/CreateNewCoupon"
-import DistributeCouponOverlay from "../DistributeCouponOverlay"
-import CouponCard_Profile from "./CouponCard/index"
-import { PageDiv, Menu, MenuLeft, MenuRight } from "./ShopProfile.styles"
-
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { getMyShopProfile } from "../../API/lib/shopProfile";
+import NewCouponOverlay from "../../Pages/CreateNewCoupon";
+import DistributeCouponOverlay from "../DistributeCouponOverlay";
+import CouponCard_Profile from "./CouponCard/index";
+import { Menu, MenuLeft, MenuRight, PageDiv } from "./ShopProfile.styles";
 
 const ShopProfileDiv = () => {
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
-    const [link, setLink] = useState('')
-    const [logo, setLogo] = useState('')
-    const [coupons, setCoupons] = useState([])
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [link, setLink] = useState("");
+  const [logo, setLogo] = useState("");
+  const [coupons, setCoupons] = useState([]);
 
     const token = useSelector((store) => store.auth.access)
     const [overlayVisibility, setOverlayVisibility] = useState(false)
     const [distributionOverlayVisibility, setdistributionOverlayVisibility] = useState(true)
 
-    useEffect(() => {
-        getShopDetails()
-    },[])   
+  useEffect(() => {
+    getShopDetails();
+  }, []);
 
-    const getShopDetails = async () => {
-        var config = {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        };
+  const getShopDetails = async () => {
+    var config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    console.log("token", token);
+    const response = await getMyShopProfile(config); //user = email+password
+    console.log(response);
+    setCoupons(response.data.coupons_created);
+    setDescription(response.data.description);
+    setLink(response.data.link);
+    setName(response.data.name);
+    setLogo(response.data.shop_logo);
+  };
 
-        const response = await getMyShopProfile(config); //user = email+password
-        console.log(response)
-        setCoupons(response.data.coupons_created)
-        setDescription(response.data.description)
-        setLink(response.data.link)
-        setName(response.data.name)
-        setLogo(response.data.shop_logo)
+  const [overlayVisibility, setOverlayVisibility] = useState(false);
 
     }
 
