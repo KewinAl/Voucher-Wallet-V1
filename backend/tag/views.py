@@ -1,7 +1,12 @@
-from rest_framework.generics import RetrieveUpdateDestroyAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListAPIView
 
 from tag.models import Tag
 from tag.serializers import TagSerializer
+
+
+class TagListView(ListAPIView):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
 
 
 class TagView(RetrieveUpdateDestroyAPIView):
