@@ -17,28 +17,22 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchTags } from "./API/lib/tags";
 import { setTags } from "./Store/tagSlice";
+import LandingPage from "./Pages/LandingPage";
 
 function AppRoutes() {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.auth.access);
+  const token = useSelector((state) => state.auth.accesstoken);
 
   useEffect(() => {
     if (token) {
-      getTags(token);
+      getTags();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
-  const getTags = async (token) => {
-    var config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: "https://voucher-wallet.propulsion-learn.ch/backend/api/tag/tags/",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
-    const response = await fetchTags(config); //user = email+password
+  const getTags = async () => {
+    const response = await fetchTags(); //user = email+password
+    console.log("getTagsResponse: ", response.data);
     dispatch(setTags(response.data));
   };
 
@@ -48,6 +42,7 @@ function AppRoutes() {
         {/* TODO:  Add new Routes here instead, this API allows to do some nice extra things more infos:
             https://reactrouter.com/en/main/routers/create-browser-router */}
         <Route path="/" element={<Layout />}>
+          <Route path="landing-page" element={<LandingPage />} />
           <Route path="login" element={<Login />} />
           <Route path="registration" element={<Registration />} />
           <Route path="congratulations" element={<Congratulations />} />
