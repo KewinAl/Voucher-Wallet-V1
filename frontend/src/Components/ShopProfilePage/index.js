@@ -13,7 +13,7 @@ const ShopProfileDiv = () => {
   const [logo, setLogo] = useState("");
   const [coupons, setCoupons] = useState([]);
 
-  const token = useSelector((store) => store.auth.access);
+  const token = useSelector((store) => store.auth.accesstoken);
 
   useEffect(() => {
     getShopDetails();
@@ -25,9 +25,9 @@ const ShopProfileDiv = () => {
         Authorization: `Bearer ${token}`,
       },
     };
-    console.log("token", token);
+    //console.log("token", token);
     const response = await getMyShopProfile(config); //user = email+password
-    console.log(response);
+    console.log("myshopprofile:", response);
     setCoupons(response.data.coupons_created);
     setDescription(response.data.description);
     setLink(response.data.link);
