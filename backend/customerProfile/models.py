@@ -23,6 +23,6 @@ class CustomerProfile(models.Model):
     firstname = models.CharField(max_length=100)
     lastname = models.CharField(max_length=100)
     preferences = models.ManyToManyField(
-        to=Tag, related_name='selected_by', null=True, blank=True)
+        to=Tag, related_name='selected_by')
 
     REQUIRED_FIELDS = ['__all__']
