@@ -6,6 +6,7 @@ export function getAuthToken(data) {
 }
 
 export function fetchProfile() {
+
   return axiosInstance.get("me/");
 }
 
