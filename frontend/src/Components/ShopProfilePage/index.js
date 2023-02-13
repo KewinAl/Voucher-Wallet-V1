@@ -37,11 +37,6 @@ const ShopProfileDiv = () => {
     setLogo(response.data.shop_logo);
   };
 
-  const [overlayVisibility, setOverlayVisibility] = useState(false);
-
-    }
-
-
     return (
         <PageDiv>
             <NewCouponOverlay visible={overlayVisibility} exitFunction={setOverlayVisibility} />
