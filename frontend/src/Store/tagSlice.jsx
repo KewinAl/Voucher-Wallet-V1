@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const tagSlice = createSlice({
-    name: "tags",
-    initialState: {
-        tags: []
+  name: "tags",
+  initialState: {
+    tags: [],
+  },
+  reducers: {
+    setTags: (state, action) => {
+      //console.log("setTags payload received")
+      state.tags = action.payload;
     },
-    reducers: {
-        setTags: (state, action) => {
-            console.log("received")
-            state.tags = action.payload;
-        }
-    }
-})
+  },
+});
 
-export const { setTags } = tagSlice.actions
-export default tagSlice.reducer // as authReducer imported
+export const { setTags } = tagSlice.actions;
+export default tagSlice.reducer; // as authReducer imported
