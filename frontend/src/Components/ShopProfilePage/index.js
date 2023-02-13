@@ -5,6 +5,7 @@ import NewCouponOverlay from "../../Pages/CreateNewCoupon";
 import DistributeCouponOverlay from "../DistributeCouponOverlay";
 import CouponCard_Profile from "./CouponCard/index";
 import { Menu, MenuLeft, MenuRight, PageDiv } from "./ShopProfile.styles";
+import AnalyticsOverlay from '../../Components/AnalyticsOverlay/index';
 
 const ShopProfileDiv = () => {
   const [name, setName] = useState("");
@@ -38,6 +39,7 @@ const coupons = useSelector((store) => store.auth.access)
 const token = useSelector((store) => store.auth.access)
 const [overlayVisibility, setOverlayVisibility] = useState(false)
 const [distributionOverlayVisibility, setdistributionOverlayVisibility] = useState(false)
+    const [analyticsVisibility, setanalyticsVisibility] = useState(false)
 
 //   useEffect(() => {
 //     getShopDetails();
@@ -61,6 +63,7 @@ const [distributionOverlayVisibility, setdistributionOverlayVisibility] = useSta
 
     return (
         <PageDiv>
+            <AnalyticsOverlay visible={analyticsVisibility} exitFunction={setanalyticsVisibility} />
             <NewCouponOverlay visible={overlayVisibility} exitFunction={setOverlayVisibility} />
             <DistributeCouponOverlay visible={distributionOverlayVisibility} exitFunction={setdistributionOverlayVisibility} />
             <p>{name}</p>
@@ -72,7 +75,7 @@ const [distributionOverlayVisibility, setdistributionOverlayVisibility] = useSta
                 </MenuLeft>
                 <MenuRight>
                     <div>
-                        <CouponCard_Profile coupon={exampleCoupons} toggleVisibility={setdistributionOverlayVisibility}/>
+                        <CouponCard_Profile coupon={exampleCoupons} toggleVisibility={setdistributionOverlayVisibility} toggleAnalytics={setanalyticsVisibility} /> 
                         {/* {coupons.map((coupon => <CouponCard_Profile coupon={coupon} toggleVisibility={setdistributionOverlayVisibility} />))} */}
                     </div>
                 </MenuRight>

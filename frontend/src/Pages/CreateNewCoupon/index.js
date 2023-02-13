@@ -29,27 +29,27 @@ const NewCouponOverlay = (props) => {
     
     const availableTags = useSelector((store) => store.tags.tags)
 
-    const access = localStorage.getItem("access");
-    const result = {
-        "title": title,
-        "description": description,
-        "redeem_limit": number,
-        "tag": {
-            id: tag,
-        },
-        "expiration_date": expiration
-    }
-    console.log(result)
+    // const access = localStorage.getItem("access");
+    // const result = {
+    //     "title": title,
+    //     "description": description,
+    //     "redeem_limit": number,
+    //     "tag": {
+    //         id: tag,
+    //     },
+    //     "expiration_date": expiration
+    // }
+    // console.log(result)
 
-    const config = {
-        method: "POST",
-        url: "http://localhost:8000/backend/api/coupon/new/",
-        headers: {
-            'Content-Type': 'application/json',
-            body: JSON.stringify(result),
-            Authorization: `Bearer ${access}`,
-        },
-    };
+    // const config = {
+    //     method: "POST",
+    //     url: "http://localhost:8000/backend/api/coupon/new/",
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         body: JSON.stringify(result),
+    //         Authorization: `Bearer ${access}`,
+    //     },
+    // };
 
 
     const safeCoupon = () => {
@@ -98,7 +98,7 @@ const NewCouponOverlay = (props) => {
                         {/* Selection for available tags */}
                         <select value={tag} onChange={(e) => setTag(e.target.value)}>
                             <option value={''}>Select a tag</option>
-                            {availableTags.map((tag) => <option value={tag.id}>{tag.name}</option>)}
+                            {availableTags.map((tag) => <option value={tag}>{tag}</option>)}
                         </select>
 
                     </CouponCreationLeft>
