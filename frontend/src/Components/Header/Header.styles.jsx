@@ -10,6 +10,7 @@ export const HeaderContainer = styled.div`
     width: 100%;
     height: 65px;
     padding: 0 3%;
+    z-index: 1;
     background: ${p=>p.theme.backgroundPurpleLight};
 `
 
