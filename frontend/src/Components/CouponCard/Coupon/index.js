@@ -13,7 +13,6 @@ import {
   RightContainer,
 } from "./coupon.styles";
 import logo from "../../../Assets/voucherwallet-transparent.png";
-import companyLogo from "../../../Assets/companyLogo.png";
 
 const Coupon = ({ details }) => {
   console.log("details:", details);
@@ -27,17 +26,17 @@ const Coupon = ({ details }) => {
         </Amount>
         <Expiration>
           Expiration:
-          <code>{details.expiration}</code>
+          <code>{details.expiration_date}</code>
         </Expiration>
         <CompanyName>{details.company}</CompanyName>
         <OurLogo src={logo} />
-        <CompanyLogo src={companyLogo} />
+        <CompanyLogo src={details.companyLogo} />
       </LeftContainer>
       <RightContainer>
         <CouponTitle>{details.title}</CouponTitle>
         <CodeSection>
           <label>Voucher Code</label>
-          <code>XKTN-452</code>
+          <code>XXX-XXXX</code>
         </CodeSection>
         <Description>
           {details.description}
