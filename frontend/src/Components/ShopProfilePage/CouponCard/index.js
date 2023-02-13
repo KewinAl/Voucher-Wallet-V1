@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
  
 
 
-const CouponCard_Profile = ({coupon}) => {
+const CouponCard_Profile = ({ coupon, toggleVisibility }) => {
     return (
         <CouponDiv>
             <h1>{coupon.title}</h1>
@@ -15,7 +15,7 @@ const CouponCard_Profile = ({coupon}) => {
                 {coupon.description}
             </p>
             <CouponButtonDiv>
-                <CouponActionButton color={'#99e699'}>Distribute</CouponActionButton>
+                <CouponActionButton color={'#99e699'} onClick={() => toggleVisibility(true)}>Distribute</CouponActionButton>
                 <CouponActionButton color={'#ff704d'}>DELETE</CouponActionButton>
             </CouponButtonDiv>
             

@@ -11,6 +11,7 @@ import Login from "./Components/Login/Login";
 import Layout from "./Components/Layout";
 import ShopProfile from "./Pages/ShopProfile";
 import CustomerProfile from "./Pages/CustomerProfile";
+// import NewCoupon from "./Pages/CreateNewCoupon/old-index";
 import ViewAllCoupons from "./Pages/ViewAllCoupons";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -31,14 +32,13 @@ function AppRoutes() {
     var config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: "http://localhost:8000/backend/api/tag/",
+      url: "https://voucher-wallet.propulsion-learn.ch/backend/api/tag/tags/",
       headers: {
         Authorization: `Bearer ${token}`,
       },
     };
 
     const response = await fetchTags(config); //user = email+password
-    console.log(response.data);
     dispatch(setTags(response.data));
   };
 
