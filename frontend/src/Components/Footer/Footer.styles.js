@@ -8,6 +8,7 @@ export const FooterUp = styled.div`
   border-bottom: 1px solid #ebebeb;
   width: 100%;
   height: 56px;
+  background: ${p => p.theme.backgroundPurpleLight};
 `;
 
 
@@ -20,6 +21,7 @@ export const Navbar = styled.div`
     gap: 50px;
     padding-left: 50px;
   }
+
   a {
     font-family: 'Roboto';
     font-style: normal;
@@ -28,7 +30,7 @@ export const Navbar = styled.div`
     line-height: 23px;
     text-align: center;
     text-decoration: none;
-    color: #646363;
+    color: white;
   }
 
   a:hover {
@@ -45,6 +47,7 @@ export const SocialMedia = styled.div`
     padding: 5px;
     width: 40px;
     height: 40px;
+    color: white;
   }
 
   img:hover {
@@ -60,12 +63,12 @@ export const MainFooter = styled.div`
 
 
   p {
-    margin: 0px;  
+    margin: 0px;
     padding-left: 40px;
     font-style: normal;
     font-weight: 400;
     font-size: 12px;
-    color: #646363;
+  
   }
 `;
 
