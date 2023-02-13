@@ -1,4 +1,5 @@
 from rest_framework import serializers
+
 from coupon.serializers import CouponSerializer
 from shopProfile.models import ShopProfile
 
@@ -9,5 +10,5 @@ class ShopProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ShopProfile
-        fields = ['name', 'description', 'link', 'coupons_created', 'shop_logo']
+        fields = ['id', 'name', 'description', 'link', 'coupons_created', 'shop_logo']
         read_only_fields = ['coupons_created', ]

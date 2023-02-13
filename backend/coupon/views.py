@@ -1,7 +1,10 @@
 from django.db.models import Q, F
 from django.utils import timezone
-from rest_framework.generics import RetrieveUpdateDestroyAPIView, CreateAPIView, ListAPIView
+from rest_framework import generics
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListAPIView
+from rest_framework.response import Response
 
+from shopProfile.models import ShopProfile
 from .models import Coupon
 from .serializers import CouponSerializer
 
@@ -23,9 +26,16 @@ class CouponView(RetrieveUpdateDestroyAPIView):
     http_method_names = ['get', 'post', 'put', 'delete']
 
 
-class CreateNewCoupon(CreateAPIView):
+class CreateNewCoupon(generics.CreateAPIView):
     serializer_class = CouponSerializer
-    queryset = Coupon.objects.all()
 
-    def perform_create(self, serializer):
-        serializer.save()
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        shop_profile_data = serializer.validated_data.pop('shop_profile', {})
+        shop_profile_id = shop_profile_data.get('id')
+        if not shop_profile_id:
+            return Response({'error': 'The "id" key is missing from the "shop_profile" data'})
+        shop_profile = ShopProfile.objects.get(id=shop_profile_id)
+        coupon = Coupon.objects.create(shop_profile=shop_profile, **serializer.validated_data)
+        return Response({'message': 'Coupon created successfully', 'coupon_id': coupon.id})
