@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { getMyShopProfile, getShopProfile } from "../../API/lib/shopProfile";
 import ShopProfileCard from "../../Components/ShopProfileCard";
 import CouponCard from "../../Components/CouponCard/CouponCard";
-import DistributeCouponOverlay from "../../Components/DistributeCouponOverlay";
 
 const ShopProfile = () => {
   const [shopProfile, setShopProfile] = useState({});
@@ -22,6 +21,7 @@ const ShopProfile = () => {
 
   const handleGetMyShopProfile = async () => {
     try {
+      console.log("token");
       const response = await getMyShopProfile();
       console.log("fullShopData:", response.data);
       setShopProfile(response.data);
