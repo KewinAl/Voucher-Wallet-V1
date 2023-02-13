@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import microsoftLogo from "../Assets/companyLogo.png";
+import aldiLogo from "../Assets/AldiLogo.png";
 
 const couponSlice = createSlice({
   name: "coupon",
@@ -14,6 +16,7 @@ const couponSlice = createSlice({
         discount_type: "percent",
         discount: 10,
         currency: "USD",
+        companyLogo: microsoftLogo,
         expiration_date: "2023-06-30",
         shop_profile: {
           id: 1,
@@ -34,6 +37,7 @@ const couponSlice = createSlice({
         discount_type: "amount",
         discount: 5,
         currency: "USD",
+        companyLogo: aldiLogo,
         expiration_date: "2023-12-31",
         shop_profile: {
           id: 2,
