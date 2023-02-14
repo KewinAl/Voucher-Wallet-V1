@@ -1,4 +1,3 @@
-import Coupon from "../CouponCard/Coupon";
 import { OverlayDiv } from "./DIstributeCouponOverlay.styles"
 import { useState } from 'react'
 

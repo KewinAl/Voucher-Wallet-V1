@@ -8,26 +8,25 @@ import {
   OverlayDiv,
   OverlayMenu,
 } from "./NewCouponOverlay.stlyes";
-import Coupon from "../../Components/CouponCard/Coupon";
-import { useDispatch, useSelector } from "react-redux";
+import Coupon from "../../CouponCard/Coupon";
+import { useSelector } from "react-redux";
 import { useState } from "react";
-import microsoftLogo from "../../Assets/companyLogo.png";
-import { addCoupon } from "../../Store/couponSlice";
 
-const NewCouponOverlay = (props) => {
-  const dispatch = useDispatch();
+const CreateCouponOverlay = (props) => {
   const [title, setTitle] = useState("");
   const [description, setdescription] = useState("");
   const [tag, setTag] = useState("");
   const [link, setLink] = useState("");
   const [redeem_limit, setredeem_limit] = useState("");
   const [discount_type, setdiscount_type] = useState("");
+  const [discount, setdiscount] = useState("");
+  const [currency, setcurrency] = useState("");
   const [image, setImage] = useState("");
   const [expiration_date, setexpiration_date] = useState("2024-12-31");
   const company = "whatever";
-  const couponStore = useSelector((store) => store.coupons.coupons);
+
   const availableTags = useSelector((store) => store.tags.tags);
-  console.log(couponStore);
+
   // const access = localStorage.getItem("access");
   // const result = {
   //     "title": title,
@@ -50,32 +49,22 @@ const NewCouponOverlay = (props) => {
   //     },
   // };
 
-  function safeCoupon() {
-    const newCoupon = {
-      id: 3,
-      title: "20% Off on all TV's",
-      description: "Get 20% discount on all new TVs",
+  const safeCoupon = () => {
+    const coupon = {
+      title,
+      description,
+      times_used: 0,
       times_redeemed: 0,
-      redeem_limit: 30,
-      discount: 20,
-      discount_type: "percent",
-      companyLogo: microsoftLogo,
-      expiration_date: "2023-07-21",
-      link: "www.tv.ch",
-      shop_profile: {
-        id: 1,
-        name: "Shop A",
-      },
-      tag: {
-        id: 1,
-        name: "Summer Sale",
-      },
+      redeem_limit,
+      discount_type,
+      discount,
+      currency,
+      expiration_date,
     };
-    dispatch(addCoupon(newCoupon));
-  }
+  };
 
   const checkIfExit = (e) => {
-    if (e.target.id === "overlay") {
+    if (e.target.id == "overlay") {
       props.exitFunction(!props.visible);
       setTitle("");
       setdescription("");
@@ -88,13 +77,6 @@ const NewCouponOverlay = (props) => {
   };
 
   return (
-    <OverlayDiv
-      id="overlay"
-      visible={props.visible}
-      onClick={(e) => {
-        checkIfExit(e);
-      }}
-    >
       <OverlayMenu>
         <CouponCreationMenu>
           <CouponCreationLeft>
@@ -169,8 +151,7 @@ const NewCouponOverlay = (props) => {
           </NewCouponButton>
         </NewCouponButtonsDiv>
       </OverlayMenu>
-    </OverlayDiv>
   );
 };
 
-export default NewCouponOverlay;
+export default CreateCouponOverlay;

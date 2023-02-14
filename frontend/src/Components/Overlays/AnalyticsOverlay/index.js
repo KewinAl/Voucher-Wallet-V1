@@ -8,8 +8,7 @@ const AnalyticsOverlay = ({ visible, exitFunction }) => {
         }
     }
     return (
-        <AnalyticsOverlayDiv id='background' visible={visible} onClick={(e) => handleClose(e)}>
-            <div>
+        <AnalyticsOverlayDiv>
                 <h1>Analytics</h1>
                 <AnalyticsDiv>
                     <div className="CouponsRedeemed">
@@ -67,8 +66,7 @@ const AnalyticsOverlay = ({ visible, exitFunction }) => {
                         </div>
                     </div>
                 </AnalyticsDiv>
-            </div>
-        </AnalyticsOverlayDiv>
+            </AnalyticsOverlayDiv>
     )
 }
 
