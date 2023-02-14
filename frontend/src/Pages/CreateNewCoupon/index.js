@@ -58,6 +58,7 @@ const NewCouponOverlay = (props) => {
       times_redeemed: 0,
       redeem_limit: 30,
       discount: 20,
+      discount_type: "percent",
       companyLogo: microsoftLogo,
       expiration_date: "2023-07-21",
       link: "www.tv.ch",
