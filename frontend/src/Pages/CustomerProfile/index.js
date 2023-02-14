@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { RxGear } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import Coupon from "../../Components/CouponCard/Coupon";
+import ProfileButton from '../../Components/Buttons/ProfileButton'
 
 const GearIcon = styled(RxGear)`
   border-left: solid ${(p) => p.theme.green} 1px;
@@ -68,12 +69,13 @@ const CustomerProfile = () => {
         <CustomerNavigation>
           <h1>Your Coupons</h1>
           <section>
+            {/* TODO: change Button */}
             <button>
               Preferred Coupons
               <GearIcon />
             </button>
             <button>All Coupons</button>
-            <img src={/>/} />
+            <ProfileButton/>
           </section>
         </CustomerNavigation>
         <NavigationContent>

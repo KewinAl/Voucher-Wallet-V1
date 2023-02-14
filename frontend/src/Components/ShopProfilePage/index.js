@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import CouponCard_Profile from "./CouponCard/index";
 import { Menu, MenuLeft, MenuRight, PageDiv, NewCouponButton } from "./ShopProfile.styles";
 import CreateCouponOverlay from "../Overlays/CreateCouponOverlay";
@@ -16,26 +17,6 @@ const ShopProfileDiv = () => {
   // const store = useSelector((store) => store);
   console.log("couponsState", couponsState);
   const [name] = useState("Shop A");
-  // const [exampleCoupons, setexampleCoupons] = useState({
-  //   id: 1,
-  //   title: "10% Off on all products",
-  //   description: "Get 10% discount on all products",
-  //   times_used: 0,
-  //   times_redeemed: 0,
-  //   redeem_limit: 5,
-  //   discount_type: "percent",
-  //   discount: 10,
-  //   currency: "USD",
-  //   expiration_date: "2023-06-30",
-  //   shop_profile: {
-  //     id: 1,
-  //     name: "Shop A",
-  //   },
-  //   tag: {
-  //     id: 1,
-  //     name: "Summer Sale",
-  //   },
-  // });
 
   // const coupons = useSelector((store) => store.auth.access)
   // const token = useSelector((store) => store.auth.access)
