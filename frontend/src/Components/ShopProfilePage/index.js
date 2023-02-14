@@ -2,8 +2,8 @@ import { useState } from "react";
 import DistributeCouponOverlay from "../DistributeCouponOverlay";
 import CouponCard_Profile from "./CouponCard/index";
 import { Menu, MenuLeft, MenuRight, PageDiv } from "./ShopProfile.styles";
-import AnalyticsOverlay from "../../Components/AnalyticsOverlay/index";
 import NewCouponOverlay from "../../Pages/CreateNewCoupon";
+import Overlay from "../Overlays/OverlayBase";
 
 const ShopProfileDiv = () => {
   const [name, setName] = useState("");
@@ -60,14 +60,10 @@ const ShopProfileDiv = () => {
 
   return (
     <PageDiv>
-      <AnalyticsOverlay
-        visible={analyticsVisibility}
-        exitFunction={setanalyticsVisibility}
-      />
-      <NewCouponOverlay
+      {/* <NewCouponOverlay
         visible={overlayVisibility}
         exitFunction={setOverlayVisibility}
-      />
+      /> */}
       <DistributeCouponOverlay
         visible={distributionOverlayVisibility}
         exitFunction={setdistributionOverlayVisibility}
