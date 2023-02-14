@@ -25,12 +25,13 @@ function Login() {
       const profileResponse = await fetchProfile();
       //dispatch(setProfile(profileResponse.data));
       if (profileResponse.data) {
+        console.log(profileResponse.data);
         navigate(
           profileResponse.data.customer_profile
             ? "/me"
             : profileResponse.data.shop_profile
             ? "/myShop"
-            : "/login"
+            : "/"
         );
       } else {
         // handle error or show message to the user
