@@ -6,10 +6,10 @@ import AnalyticsOverlay from "../../Components/AnalyticsOverlay/index";
 import NewCouponOverlay from "../../Pages/CreateNewCoupon";
 
 const ShopProfileDiv = () => {
+  // const [description, setDescription] = useState("");
+  // const [link, setLink] = useState("");
+  // const [logo, setLogo] = useState("");
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [link, setLink] = useState("");
-  const [logo, setLogo] = useState("");
   const [exampleCoupons, setexampleCoupons] = useState({
     id: 1,
     title: "10% Off on all products",
