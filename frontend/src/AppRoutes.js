@@ -11,14 +11,12 @@ import Login from "./Components/Login/Login";
 import Layout from "./Components/Layout";
 import ShopProfile from "./Pages/ShopProfile";
 import CustomerProfile from "./Pages/CustomerProfile";
-// import NewCoupon from "./Pages/CreateNewCoupon/old-index";
 import ViewAllCoupons from "./Pages/ViewAllCoupons";
-import { useDispatch, useSelector } from "react-redux";
 import LandingPage from "./Pages/LandingPage";
 
 function AppRoutes() {
-  const dispatch = useDispatch();
-  const token = useSelector((state) => state.auth.accesstoken);
+  // const dispatch = useDispatch();
+  // const token = useSelector((state) => state.auth.accesstoken);
 
   // useEffect(() => {
   // if (token) {
