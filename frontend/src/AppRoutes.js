@@ -55,13 +55,13 @@ function AppRoutes() {
             path="customerProfile/:customerId"
             element={<CustomerProfile />}
           /> */}
-          <Route path="myShop" element={<ShopProfile />} />
-          <Route path="me" element={<CustomerProfile />} />
-          {/* <Route path="*" element={<LandingPage />} /> */}
-        </Route>
-      </>
-    )
-  );
+                    <Route path="myShop" element={<ShopProfile/>}/>
+                    <Route path="me" element={<CustomerProfile/>}/>
+                    {/*<Route path="*" element={<LandingPage/>}/>*/}
+                </Route>
+            </>
+        )
+    );
 
     return (
         <div className="App">
