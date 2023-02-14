@@ -19,7 +19,7 @@ const CustomerProfile = () => {
       const response = await getCustomerProfile(customerId);
       setCustomerProfile(response.data);
     } catch (e) {
-      console.log("error->", e);
+      console.error(e);
     }
   };
 
@@ -28,7 +28,7 @@ const CustomerProfile = () => {
       const response = await getMyCustomerProfile();
       setCustomerProfile(response.data);
     } catch (e) {
-      console.log("error->", e);
+      console.error(e);
     }
   };
 

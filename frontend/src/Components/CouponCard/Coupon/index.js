@@ -15,7 +15,6 @@ import {
 import logo from "../../../Assets/voucherwallet-transparent.png";
 
 const Coupon = ({ details }) => {
-  console.log("details:", details);
   return (
     <CouponContainer>
       <LeftContainer>

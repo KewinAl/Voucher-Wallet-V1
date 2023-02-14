@@ -18,8 +18,6 @@ const CustomerProfile = () => {
   // console.log("COUPONS:", coupons);
   // console.log("COUPONS 0:", coupons.map(coupon));
 
-  console.log("store", store);
-  console.log("couponsOnly", coupons);
   // useEffect(() => {
   //   fetchProfile();
   // }, []);
