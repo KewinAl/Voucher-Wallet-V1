@@ -4,8 +4,26 @@ import {
   CustomerProfileContainerPage,
   NavigationContent,
 } from "./CustomerProfile.styles";
+import styled from "styled-components";
+import { RxGear } from 'react-icons/rx'
 import { useDispatch, useSelector } from "react-redux";
 import Coupon from "../../Components/CouponCard/Coupon";
+import ProfileButton from "../../Components/Buttons/ProfileButton";
+
+
+const GearIcon = styled(RxGear)`
+  border-left: solid ${p=>p.theme.green} 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 30px;
+  padding-left: 10px;
+
+  &:hover {
+    border-left: solid white 1px;
+  }
+`
 
 const CustomerProfile = () => {
   const dispatch = useDispatch();
@@ -50,15 +68,15 @@ const CustomerProfile = () => {
     <>
       <CustomerProfileContainerPage>
         <CustomerNavigation>
-          <h1>Customer Profile</h1>
-          <p>
-            {first_name} {last_name}
-          </p>
-          <button>Preferences</button>
-          <button>Notifications Coupons</button>
-          <button>Edit Profile</button>
-          <button>Edit Profile</button>
-          <button>Search All Coupons</button>
+          <h1>Your Coupons</h1>
+          <section>
+            <button>
+              Preferred Coupons
+              <GearIcon />
+            </button>
+            <button>All Coupons</button>
+            <img src={/>/}/>
+          </section>
         </CustomerNavigation>
         <NavigationContent>
           <CouponList>
