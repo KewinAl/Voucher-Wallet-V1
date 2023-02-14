@@ -23,9 +23,9 @@ function Login() {
     // Fetch user profile
     try {
       const profileResponse = await fetchProfile();
+      console.log("profileResponse", profileResponse.data);
       //dispatch(setProfile(profileResponse.data));
       if (profileResponse.data) {
-        console.log(profileResponse.data);
         navigate(
           profileResponse.data.customer_profile
             ? "/me"
