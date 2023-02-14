@@ -10,8 +10,9 @@ const ShopProfileDiv = () => {
   // const [link, setLink] = useState("");
   // const [logo, setLogo] = useState("");
   const couponsState = useSelector((store) => store.coupons.coupons);
+  // const store = useSelector((store) => store);
   console.log("couponsState", couponsState);
-  const [name, setName] = useState("");
+  const [name] = useState("Shop A");
   // const [exampleCoupons, setexampleCoupons] = useState({
   //   id: 1,
   //   title: "10% Off on all products",
@@ -63,7 +64,7 @@ const ShopProfileDiv = () => {
         visibilityCondition={overlayVisibility}
         exitFunction={setOverlayVisibility}
       >
-        <CreateCouponOverlay />
+        <CreateCouponOverlay exitFunction={setOverlayVisibility} />
       </Overlay>
 
       <p>{name}</p>
@@ -79,6 +80,7 @@ const ShopProfileDiv = () => {
           <div>
             {/*<CouponCard_Profile coupon={exampleCoupons} />*/}
             {couponsState.map((coupon) => (
+              // eslint-disable-next-line react/jsx-pascal-case
               <CouponCard_Profile
                 key={coupon.id}
                 coupon={coupon}
