@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const tagSlice = createSlice({
   name: "tags",
   initialState: {
-    tags: [],
+    tags: ['Sports', 'Food', 'Games'],
   },
   reducers: {
     setTags: (state, action) => {

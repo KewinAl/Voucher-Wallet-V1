@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { useEffect, useState } from "react"
 import { clearAuth } from "../../Store/authSlice"
@@ -15,6 +15,8 @@ import {
 import logo from "../../Assets/voucherwallet-transparent.png"
 
 const Header = () => {
+    const location = useLocation();    
+    console.log(location.pathname)
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [isLoggedIn, setIsLoggedIn] = useState(false)
@@ -32,17 +34,19 @@ const Header = () => {
     }
 
     return (
-        <HeaderContainer>
+        <HeaderContainer landing={location.pathname === "/landing-page"}>
             <LogoContainer src={logo} />
 
-            <MenuContainer>
-                <MenuItem to="/home">Home</MenuItem>
-                <MenuItem to="/allCoupons">Coupons</MenuItem>
-                <MenuItem to="/redeem">Redeem</MenuItem>
-                <MenuItem to="/myShop">Create</MenuItem>
-                <MenuItem to="/me">Profile</MenuItem>
-            </MenuContainer>
-
+            {!location.pathname === "/landing-page" && (
+                <MenuContainer>
+                    <MenuItem to="/home">Home</MenuItem>
+                    <MenuItem to="/allCoupons">Coupons</MenuItem>
+                    <MenuItem to="/redeem">Redeem</MenuItem>
+                    <MenuItem to="/myShop">Create</MenuItem>
+                    <MenuItem to="/me">Profile</MenuItem>
+                </MenuContainer>
+            )}
+            
             <AuthenticationContainer>
                 {isLoggedIn ? (
                     <LogoutButton onClick={handleLogout} logout>

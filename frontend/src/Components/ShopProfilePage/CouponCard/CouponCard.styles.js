@@ -34,9 +34,20 @@ export const DetailsDiv = styled.div`
 export const CouponButtonDiv = styled.div`
     width: 90%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     gap:5px;
     margin: auto 0px 20px;
+    >div {
+        display: flex;
+    }
+`
+
+export const AnalyticsButton = styled.button`
+    background-color: lightblue;
+    width: 100%;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
 `
 
 export const CouponActionButton = styled.div`
