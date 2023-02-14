@@ -12,24 +12,20 @@ const ShopProfile = () => {
   const handleGetShopProfile = async () => {
     try {
       const response = await getShopProfile(shopId);
-      console.log("fullShopData:", response.data);
       setShopProfile(response.data);
     } catch (e) {
-      console.log("error->", e);
+      console.error(e);
     }
   };
 
   const handleGetMyShopProfile = async () => {
     try {
-      console.log("token");
       const response = await getMyShopProfile();
-      console.log("fullShopData:", response.data);
       setShopProfile(response.data);
     } catch (e) {
-      console.log("error->", e);
+      console.error(e);
     }
   };
-  console.log(shopProfile);
 
   useEffect(() => {
     shopId ? handleGetShopProfile() : handleGetMyShopProfile();
@@ -40,8 +36,7 @@ const ShopProfile = () => {
       <div>
         <h1>Your Shop Profile:</h1>
       </div>
-      {/*TODO: */}
-      {/*{console.log(shopProfile)}*/}
+
       <ShopProfileCard shopProfileProps={shopProfile}></ShopProfileCard>
       <div>
         {shopProfile && shopProfile.coupons_created

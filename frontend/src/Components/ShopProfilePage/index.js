@@ -13,9 +13,10 @@ const ShopProfileDiv = () => {
   const [logo, setLogo] = useState("");
   const [coupons, setCoupons] = useState([]);
 
-    const token = useSelector((store) => store.auth.accesstoken)
-    const [overlayVisibility, setOverlayVisibility] = useState(false)
-    const [distributionOverlayVisibility, setdistributionOverlayVisibility] = useState(true)
+  const token = useSelector((store) => store.auth.accesstoken);
+  const [overlayVisibility, setOverlayVisibility] = useState(false);
+  const [distributionOverlayVisibility, setdistributionOverlayVisibility] =
+    useState(true);
 
   useEffect(() => {
     getShopDetails();
@@ -27,9 +28,7 @@ const ShopProfileDiv = () => {
         Authorization: `Bearer ${token}`,
       },
     };
-    console.log("token", token);
     const response = await getMyShopProfile(config); //user = email+password
-    console.log("myshopprofile:", response);
     setCoupons(response.data.coupons_created);
     setDescription(response.data.description);
     setLink(response.data.link);
@@ -37,25 +36,37 @@ const ShopProfileDiv = () => {
     setLogo(response.data.shop_logo);
   };
 
-    return (
-        <PageDiv>
-            <NewCouponOverlay visible={overlayVisibility} exitFunction={setOverlayVisibility} />
-            <DistributeCouponOverlay visible={distributionOverlayVisibility} exitFunction={setdistributionOverlayVisibility} />
-            <p>{name}</p>
-            <Menu>
-                <MenuLeft>
-                    <button onClick={() => setOverlayVisibility(!overlayVisibility)}>Create New Coupon</button>
-                    <button>Edit Profile</button>
-                    <button>Delete Account</button>
-                </MenuLeft>
-                <MenuRight>
-                    <div>
-                        {coupons.map((coupon => <CouponCard_Profile coupon={coupon} toggleVisibility={setdistributionOverlayVisibility} />))}
-                    </div>
-                </MenuRight>
-            </Menu>
-
-        </PageDiv>
-    )
-}
-export default ShopProfileDiv
+  return (
+    <PageDiv>
+      <NewCouponOverlay
+        visible={overlayVisibility}
+        exitFunction={setOverlayVisibility}
+      />
+      <DistributeCouponOverlay
+        visible={distributionOverlayVisibility}
+        exitFunction={setdistributionOverlayVisibility}
+      />
+      <p>{name}</p>
+      <Menu>
+        <MenuLeft>
+          <button onClick={() => setOverlayVisibility(!overlayVisibility)}>
+            Create New Coupon
+          </button>
+          <button>Edit Profile</button>
+          <button>Delete Account</button>
+        </MenuLeft>
+        <MenuRight>
+          <div>
+            {coupons.map((coupon) => (
+              <CouponCard_Profile
+                coupon={coupon}
+                toggleVisibility={setdistributionOverlayVisibility}
+              />
+            ))}
+          </div>
+        </MenuRight>
+      </Menu>
+    </PageDiv>
+  );
+};
+export default ShopProfileDiv;

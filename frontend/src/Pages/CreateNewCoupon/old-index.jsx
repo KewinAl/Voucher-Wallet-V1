@@ -42,11 +42,10 @@ const NewCoupon = () => {
         headers: config.headers,
       })
       .then((response) => {
-        console.log(response);
         if (response.status === 201) console.log("Data created:");
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((e) => {
+        console.error(e);
       });
   };
   return (
