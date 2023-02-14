@@ -67,15 +67,15 @@ const CustomerProfile = () => {
     <>
       <CustomerProfileContainerPage>
         <CustomerNavigation>
-          <h1>Your Coupons</h1>
-          <section>
-            <button>
-              Preferred Coupons
-              <GearIcon />
-            </button>
-            <button>All Coupons</button>
-            <img src={/>/}/>
-          </section>
+          <h1>Customer Profile</h1>
+          <p>
+            {first_name} {last_name}
+          </p>
+          <button>Preferences</button>
+          <button>Notifications Coupons</button>
+          <button>Edit Profile</button>
+          <button>Edit Profile</button>
+          <button>Search All Coupons</button>
         </CustomerNavigation>
         <NavigationContent>
           <CouponList>
