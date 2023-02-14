@@ -1,11 +1,15 @@
+
 import {
     ShopProfileDiv
 } from './ShopProfileOverlay.styles'
 
 const ShopProfileOverlay = () => {
+
+    
+
     return (
         <ShopProfileDiv>
-            
+
         </ShopProfileDiv>
 
     )
