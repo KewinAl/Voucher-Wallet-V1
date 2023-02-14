@@ -1,14 +1,12 @@
 import styled from "styled-components";
-import tropical from "../../../Assets/tropical.jpg";
 
 export const RedeemButton = styled.button`
   background-color: orange;
   color: white;
   border: none;
   border-radius: 5px;
-  //padding: 5px;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem;
   height: 50%;
   width: 60%;
 `;
@@ -21,7 +19,7 @@ export const CouponContainer = styled.div`
 
 export const LeftContainer = styled.div`
   height: 100%;
-  background-image: url(${tropical});
+  background-image: url(${(props) => props.image});
   background-size: cover;
   background-repeat: no-repeat;
   width: 70%;
@@ -31,7 +29,7 @@ export const LeftContainer = styled.div`
   align-items: center;
   border-radius: ${(p) => p.theme.borderRadiusXL};
   position: relative;
-  box-shadow: -30px 10px 89px -36px rgba(0, 0, 0, 0.409);
+  box-shadow: -30px 10px 89px -36px rgba(0, 0, 0, 0.208);
 
   ::after {
     content: "";
@@ -110,11 +108,11 @@ export const RightContainer = styled.div`
   width: 30%;
   padding: 10px;
   border-radius: ${(p) => p.theme.borderRadiusXL};
-  box-shadow: 10px 10px 89px -36px rgba(0, 0, 0, 0.78);
+  box-shadow: 10px 10px 89px -36px rgba(0, 0, 0, 0.276);
 `;
 
 export const CouponTitle = styled.h1`
-  font-size: ${(p) => p.theme.fontSizeXXL};
+  font-size: ${(p) => p.theme.fontSizeXL};
   font-weight: bold;
   color: black;
 `;

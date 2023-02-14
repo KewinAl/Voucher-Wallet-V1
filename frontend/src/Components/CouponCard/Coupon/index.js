@@ -16,24 +16,25 @@ import {
 import logo from "../../../Assets/voucherwallet-transparent.png";
 import RedeemOverlay from "../../../Components/Overlays/RedeemOverlays/overlay";
 import Overlay from "../../../Components/Overlays/OverlayBase";
-import {useLocation} from 'react-router-dom'
-
-
+import { useLocation } from "react-router-dom";
 
 const Coupon = ({ details }) => {
-  const location = useLocation().pathname 
+  const location = useLocation().pathname;
   const [overlayVisibility, setOverlayVisibility] = useState(false);
 
   return (
     <>
       <CouponContainer>
-        <Overlay visibilityCondition={overlayVisibility} exitFunction={setOverlayVisibility}>
+        <Overlay
+          visibilityCondition={overlayVisibility}
+          exitFunction={setOverlayVisibility}
+        >
           <RedeemOverlay
             visible={overlayVisibility}
             exitFunction={setOverlayVisibility}
           />
         </Overlay>
-        <LeftContainer>
+        <LeftContainer image={details.background_image}>
           <Amount>
             {details.discount}
             {details.discount_type === "percent" ? "%" : "$"}
@@ -52,7 +53,15 @@ const Coupon = ({ details }) => {
           <CouponTitle>{details.title}</CouponTitle>
           <CodeSection>
             <label>Voucher Code</label>
-            {location == '/me' ? <RedeemButton onClick={() => setOverlayVisibility(!overlayVisibility)}>Generate code</RedeemButton> : ''}
+            {location == "/me" ? (
+              <RedeemButton
+                onClick={() => setOverlayVisibility(!overlayVisibility)}
+              >
+                Generate code
+              </RedeemButton>
+            ) : (
+              ""
+            )}
           </CodeSection>
           <Description>
             {details.description}
