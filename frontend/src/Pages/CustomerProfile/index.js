@@ -5,14 +5,12 @@ import {
   NavigationContent,
 } from "./CustomerProfile.styles";
 import styled from "styled-components";
-import { RxGear } from 'react-icons/rx'
+import { RxGear } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import Coupon from "../../Components/CouponCard/Coupon";
-import ProfileButton from "../../Components/Buttons/ProfileButton";
-
 
 const GearIcon = styled(RxGear)`
-  border-left: solid ${p=>p.theme.green} 1px;
+  border-left: solid ${(p) => p.theme.green} 1px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +21,7 @@ const GearIcon = styled(RxGear)`
   &:hover {
     border-left: solid white 1px;
   }
-`
+`;
 
 const CustomerProfile = () => {
   const dispatch = useDispatch();
@@ -75,7 +73,7 @@ const CustomerProfile = () => {
               <GearIcon />
             </button>
             <button>All Coupons</button>
-            <img src={/>/}/>
+            <img src={/>/} />
           </section>
         </CustomerNavigation>
         <NavigationContent>
