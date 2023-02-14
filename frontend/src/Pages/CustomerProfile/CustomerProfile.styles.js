@@ -70,19 +70,18 @@ export const CustomerNavigation = styled.div`
 `
 
 export const NavigationContent = styled.div`
-  width: 70%;
+  width: 80%;
   height: 100%;
-  border: solid blue;
 `
 
 export const CouponList = styled.section`
-  border: solid green;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3%;
-  padding: 0 3%;
+  gap: 4%;
+  padding: 2%;
+
   overflow: scroll;
 
   h2 {
