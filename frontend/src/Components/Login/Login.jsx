@@ -23,6 +23,7 @@ function Login() {
     // Fetch user profile
     try {
       const profileResponse = await fetchProfile();
+      console.log("profileResponse", profileResponse.data);
       //dispatch(setProfile(profileResponse.data));
       if (profileResponse.data) {
         navigate(
@@ -30,7 +31,7 @@ function Login() {
             ? "/me"
             : profileResponse.data.shop_profile
             ? "/myShop"
-            : "/login"
+            : "/"
         );
       } else {
         // handle error or show message to the user
