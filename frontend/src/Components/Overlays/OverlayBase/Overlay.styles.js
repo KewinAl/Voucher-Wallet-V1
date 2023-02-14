@@ -12,4 +12,5 @@ export const OverlayDiv = styled.div`
     background-color: rgba(23, 22, 123, 0.5); 
     align-items: center;
     justify-content: center;
+    z-index: 999;
 `

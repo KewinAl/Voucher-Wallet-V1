@@ -5,7 +5,7 @@ import {
   NavigationContent,
 } from "./CustomerProfile.styles";
 import { useDispatch, useSelector } from "react-redux";
-import Coupon from "./ShowCoupon";
+import Coupon from "../../Components/CouponCard/Coupon";
 
 const CustomerProfile = () => {
   const dispatch = useDispatch();

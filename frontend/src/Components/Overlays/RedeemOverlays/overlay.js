@@ -1,7 +1,6 @@
 import React from "react";
 import {
   GenerateQRCodeTitle,
-  OverlayDiv,
   OverlayMenu,
   QRCodeButton,
   QRCodeButtonsDiv,
@@ -17,22 +16,9 @@ const RedeemOverlay = (props) => {
     //TODO: Implement safeCoupon logic
     props.exitFunction(!props.visible);
   };
-  const QRGenerator = ({ value }) => <QRCode value={value} />;
-
-  const checkIfExit = (e) => {
-    if (e.target.id == "overlay") {
-      props.exitFunction(!props.visible);
-    }
-  };
+  // const QRGenerator = ({ value }) => <QRCode value={value} />;
 
   return (
-    <OverlayDiv
-      id="overlay"
-      visible={props.visible}
-      onClick={(e) => {
-        checkIfExit(e);
-      }}
-    >
       <OverlayMenu>
         <QRCodeMenu>
           <QRCodeLeft>
@@ -48,7 +34,6 @@ const RedeemOverlay = (props) => {
           </QRCodeButton>
         </QRCodeButtonsDiv>
       </OverlayMenu>
-    </OverlayDiv>
   );
 };
 

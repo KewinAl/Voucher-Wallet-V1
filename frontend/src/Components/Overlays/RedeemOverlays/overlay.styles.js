@@ -1,20 +1,6 @@
 import styled from "styled-components";
 import QRCode from "qrcode.react";
 
-export const OverlayDiv = styled.div`
-  display: ${(props) => (props.visible ? "flex" : "none")};
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(23, 22, 123, 0.5);
-  align-items: center;
-  justify-content: center;
-  z-index: 999; /* erhöhter z-Index-Wert */
-`;
 export const OverlayMenu = styled.div`
   background-color: white;
   border-radius: 30px;
