@@ -80,6 +80,7 @@ const ShopProfileDiv = () => {
             {/*<CouponCard_Profile coupon={exampleCoupons} />*/}
             {couponsState.map((coupon) => (
               <CouponCard_Profile
+                key={coupon.id}
                 coupon={coupon}
                 // toggleVisibility={setdistributionOverlayVisibility}
               />
