@@ -35,7 +35,8 @@ const Coupon = ({ details }) => {
         </Overlay>
         <LeftContainer>
           <Amount>
-            35%
+            {details.discount}
+            {details.discount_type === "percent" ? "%" : "$"}
             <br />
             OFF
           </Amount>
