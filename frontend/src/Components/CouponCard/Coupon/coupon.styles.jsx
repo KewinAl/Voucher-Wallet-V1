@@ -8,7 +8,7 @@ export const RedeemButton = styled.button`
   border-radius: 5px;
   //padding: 5px;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem;
   height: 50%;
   width: 60%;
 `;

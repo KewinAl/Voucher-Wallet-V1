@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Overlay = styled.div`
   display: ${props => props.visible ? 'flex' : 'none'};
   position: fixed;
@@ -29,12 +30,12 @@ export const CustomerNavigation = styled.div`
   width: 70%;
   display: flex;
   justify-content: space-between;
-  border: solid yellow;
   align-items: center;
 
   h1 {
     font-size: ${p => p.theme.fontSizeXXL};
     font-weight: bold;
+    font-family: Miriam Libre;
   }
 
   section {

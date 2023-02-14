@@ -22,8 +22,6 @@ const GearIcon = styled(RxGear)`
   &:hover {
     border-left: solid white 1px;
   }
-
-
 `
 
 const CustomerProfile = () => {
