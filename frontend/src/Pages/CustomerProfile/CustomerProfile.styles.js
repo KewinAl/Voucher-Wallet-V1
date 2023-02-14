@@ -17,6 +17,7 @@ export const Overlay = styled.div`
 export const CustomerProfileContainerPage = styled.div`
   height: calc(100vh - 65px);
   display: flex;
+  flex-direction: column;
   justify-content: start;
   border: solid red;
   align-items: center;
@@ -24,18 +25,47 @@ export const CustomerProfileContainerPage = styled.div`
 `
 
 export const CustomerNavigation = styled.div`
-  height: 100%;
-  width: 30%;
+  height: 80px;
+  width: 70%;
   display: flex;
+  justify-content: space-between;
   border: solid yellow;
-  flex-direction: column;
   align-items: center;
-  gap: 25px;
 
   h1 {
     font-size: ${p => p.theme.fontSizeXXL};
     font-weight: bold;
   }
+
+  section {
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+
+    button {
+      height: 45px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+      gap: 10px;
+      border: solid 2px ${p => p.theme.green};
+      border-radius: 5px;
+      color: ${p => p.theme.green};
+      background: none;
+      
+      &:hover {
+        border: transparent solid 2px;
+        background: ${p => p.theme.green};
+        cursor: pointer;
+        color: white;
+
+      }
+  }
+}
 `
 
 export const NavigationContent = styled.div`
