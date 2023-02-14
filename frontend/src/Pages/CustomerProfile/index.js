@@ -6,6 +6,7 @@ import {
 } from "./CustomerProfile.styles";
 import { useDispatch, useSelector } from "react-redux";
 import Coupon from "../../Components/CouponCard/Coupon";
+import ProfileButton from "../../Components/Buttons/ProfileButton";
 
 const CustomerProfile = () => {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ const CustomerProfile = () => {
           <p>
             {first_name} {last_name}
           </p>
+        <ProfileButton/>
           <button>Preferences</button>
           <button>Notifications Coupons</button>
           <button>Edit Profile</button>
