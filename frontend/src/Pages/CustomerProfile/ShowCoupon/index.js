@@ -44,16 +44,16 @@ const Coupon = ({ details }) => {
           <CouponTitle>{details.title}</CouponTitle>
           <CodeSection>
             <label>Voucher Code</label>
-            <code>XXX-XXXX</code>
+            <RedeemButton
+              onClick={() => setOverlayVisibility(!overlayVisibility)}
+            >
+              Generate code
+            </RedeemButton>
           </CodeSection>
           <Description>
             {details.description}
             <small>*Terms and Conditions apply.</small>
-            <RedeemButton
-              onClick={() => setOverlayVisibility(!overlayVisibility)}
-            >
-              Redeem
-            </RedeemButton>
+
             <a href={details.link}>{details.link}</a>
           </Description>
         </RightContainer>

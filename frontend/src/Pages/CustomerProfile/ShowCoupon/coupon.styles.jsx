@@ -6,9 +6,11 @@ export const RedeemButton = styled.button`
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px;
+  //padding: 5px;
   cursor: pointer;
   font-size: 1.2rem;
+  height: 50%;
+  width: 60%;
 `;
 export const CouponContainer = styled.div`
   display: flex;
