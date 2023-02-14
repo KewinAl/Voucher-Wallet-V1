@@ -5,7 +5,7 @@ import {
   NavigationContent,
 } from "./CustomerProfile.styles";
 import { useDispatch, useSelector } from "react-redux";
-import Coupon from "../../Components/CouponCard/Coupon";
+import Coupon from "./ShowCoupon";
 
 const CustomerProfile = () => {
   const dispatch = useDispatch();
@@ -58,7 +58,7 @@ const CustomerProfile = () => {
           <button>Notifications Coupons</button>
           <button>Edit Profile</button>
           <button>Edit Profile</button>
-          <button>Seach All Coupons</button>
+          <button>Search All Coupons</button>
         </CustomerNavigation>
         <NavigationContent>
           <CouponList>

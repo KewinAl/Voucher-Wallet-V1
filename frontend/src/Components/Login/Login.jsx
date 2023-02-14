@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchProfile, getAuthToken } from "../../API/lib/auth";
@@ -30,7 +30,7 @@ function Login() {
             ? "/me"
             : profileResponse.data.shop_profile
             ? "/myShop"
-            : "/"
+            : "/login"
         );
       } else {
         // handle error or show message to the user
@@ -50,14 +50,11 @@ function Login() {
       dispatch(setEmail(user.email));
       localStorage.setItem("auth", JSON.stringify(response.data));
       localStorage.setItem("email", JSON.stringify(user.email));
+      checkProfileType();
     } catch (error) {
       setError(error.response.data);
     }
   };
-
-  useEffect(() => {
-    checkProfileType();
-  }, [loginUser()]);
 
   const reset_password = () => {
     // TODO: reset password function

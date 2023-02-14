@@ -6,10 +6,10 @@ import CreateCouponOverlay from "../Overlays/CreateCouponOverlay";
 import Overlay from "../Overlays/OverlayBase";
 
 const ShopProfileDiv = () => {
+  // const [description, setDescription] = useState("");
+  // const [link, setLink] = useState("");
+  // const [logo, setLogo] = useState("");
   const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [link, setLink] = useState("");
-  const [logo, setLogo] = useState("");
   const [exampleCoupons, setexampleCoupons] = useState({
     id: 1,
     title: "10% Off on all products",
