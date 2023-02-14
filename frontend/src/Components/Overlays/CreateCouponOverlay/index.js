@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { addCoupon } from "../../../Store/couponSlice";
 import microsoftLogo from "../../../Assets/companyLogo.png";
+import couponPic2 from "../../../Assets/couponPic2.jpg";
 
 const CreateCouponOverlay = (props) => {
   const [title, setTitle] = useState("20% Off on all TV's");
@@ -67,6 +68,7 @@ const CreateCouponOverlay = (props) => {
       discount: 20,
       discount_type: "percent",
       companyLogo: microsoftLogo,
+      background_image: couponPic2,
       expiration_date: "2023-06-01",
       link: "www.tv.ch",
       shop_profile: {

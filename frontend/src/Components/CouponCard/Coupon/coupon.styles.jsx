@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import tropical from "../../../Assets/tropical.jpg";
 
 export const RedeemButton = styled.button`
   background-color: orange;
@@ -20,7 +19,7 @@ export const CouponContainer = styled.div`
 
 export const LeftContainer = styled.div`
   height: 100%;
-  background-image: url(${tropical});
+  background-image: url(${(props) => props.image});
   background-size: cover;
   background-repeat: no-repeat;
   width: 70%;
