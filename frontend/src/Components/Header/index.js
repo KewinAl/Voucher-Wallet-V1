@@ -24,6 +24,7 @@ const Header = () => {
 
   useEffect(() => {
     if (authData) setIsLoggedIn(true);
+    console.log(location.pathname)
   }, [authData]);
 
   const handleLogout = () => {
@@ -37,7 +38,7 @@ const Header = () => {
     <HeaderContainer landing={location.pathname === "/landing-page"}>
       <LogoContainer src={logo} />
 
-      {!location.pathname === "/landing-page" && (
+      {location.pathname !== "/" && (
         <MenuContainer>
           <MenuItem to="/home">Home</MenuItem>
           <MenuItem to="/allCoupons">Coupons</MenuItem>
