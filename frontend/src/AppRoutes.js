@@ -1,9 +1,4 @@
-import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
-} from "react-router-dom";
+import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider,} from "react-router-dom";
 import Registration from "./Pages/Registration";
 import Congratulations from "./Pages/Congratulations";
 import Verification from "./Pages/Verification";
@@ -13,50 +8,50 @@ import ShopProfile from "./Pages/ShopProfile";
 import CustomerProfile from "./Pages/CustomerProfile";
 // import NewCoupon from "./Pages/CreateNewCoupon/old-index";
 import ViewAllCoupons from "./Pages/ViewAllCoupons";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { fetchTags } from "./API/lib/tags";
-import { setTags } from "./Store/tagSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {useEffect} from "react";
+import {fetchTags} from "./API/lib/tags";
+import {setTags} from "./Store/tagSlice";
 
 function AppRoutes() {
-  const dispatch = useDispatch();
-  const token = useSelector((state) => state.auth.access);
+    const dispatch = useDispatch();
+    const token = useSelector((state) => state.auth.access);
 
-  useEffect(() => {
-    if (token) {
-      getTags(token);
-    }
-  }, [token]);
+    useEffect(() => {
+        if (token) {
+            getTags(token);
+        }
+    }, [token]);
 
-  const getTags = async (token) => {
-    var config = {
-      method: "get",
-      maxBodyLength: Infinity,
-      url: "https://voucher-wallet.propulsion-learn.ch/backend/api/tag/tags/",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    const getTags = async (token) => {
+        var config = {
+            method: "get",
+            maxBodyLength: Infinity,
+            url: "https://voucher-wallet.propulsion-learn.ch/backend/api/tag/tags/",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        };
+
+        const response = await fetchTags(config); //user = email+password
+        dispatch(setTags(response.data));
     };
 
-    const response = await fetchTags(config); //user = email+password
-    dispatch(setTags(response.data));
-  };
-
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <>
-        {/* TODO:  Add new Routes here instead, this API allows to do some nice extra things more infos:
+    const router = createBrowserRouter(
+        createRoutesFromElements(
+            <>
+                {/* TODO:  Add new Routes here instead, this API allows to do some nice extra things more infos:
             https://reactrouter.com/en/main/routers/create-browser-router */}
-        <Route path="/" element={<Layout />}>
-          <Route path="login" element={<Login />} />
-          <Route path="registration" element={<Registration />} />
-          <Route path="congratulations" element={<Congratulations />} />
-          <Route path="verification" element={<Verification />} />
+                <Route path="/" element={<Layout/>}>
+                    <Route path="login" element={<Login/>}/>
+                    <Route path="registration" element={<Registration/>}/>
+                    <Route path="congratulations" element={<Congratulations/>}/>
+                    <Route path="verification" element={<Verification/>}/>
 
-          {/* <Route path="shopProfile/:shopId" element={<ShopProfile />} /> */}
+                    {/* <Route path="shopProfile/:shopId" element={<ShopProfile />} /> */}
 
-          <Route path="allCoupons" element={<ViewAllCoupons />} />
-          {/* <Route
+                    <Route path="allCoupons" element={<ViewAllCoupons/>}/>
+                    {/* <Route
             path="customerProfile/:customerId"
             element={<CustomerProfile />}
           /> */}
@@ -68,11 +63,11 @@ function AppRoutes() {
     )
   );
 
-  return (
-    <div className="App">
-      <RouterProvider router={router} />
-    </div>
-  );
+    return (
+        <div className="App">
+            <RouterProvider router={router}/>
+        </div>
+    );
 }
 
 export default AppRoutes;
