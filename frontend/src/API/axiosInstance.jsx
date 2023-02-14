@@ -2,10 +2,10 @@ import axios from "axios";
 import store from "../Store/rootStore";
 
 let baseUrl;
-
+//TODO: Switch url
 if (process.env.NODE_ENV === "development") {
-  // baseUrl = "http://localhost:8000/backend/api/";
-  baseUrl = 'https://voucher-wallet.propulsion-learn.ch/backend/api/'
+  baseUrl = "http://localhost:8000/backend/api/";
+  // baseUrl = 'https://voucher-wallet.propulsion-learn.ch/backend/api/'
 } else {
   baseUrl = "https://voucher-wallet.propulsion-learn.ch/backend/api/";
 }

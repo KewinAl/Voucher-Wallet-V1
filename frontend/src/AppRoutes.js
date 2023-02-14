@@ -14,27 +14,24 @@ import CustomerProfile from "./Pages/CustomerProfile";
 // import NewCoupon from "./Pages/CreateNewCoupon/old-index";
 import ViewAllCoupons from "./Pages/ViewAllCoupons";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { fetchTags } from "./API/lib/tags";
-import { setTags } from "./Store/tagSlice";
 import LandingPage from "./Pages/LandingPage";
 
 function AppRoutes() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.accesstoken);
 
-  useEffect(() => {
-    if (token) {
-      getTags();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
-
-  const getTags = async () => {
-    const response = await fetchTags(); //user = email+password
-    console.log("getTagsResponse: ", response.data);
-    dispatch(setTags(response.data));
-  };
+  // useEffect(() => {
+  // if (token) {
+  //   getTags();
+  // }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [token]);
+  //
+  // const getTags = async () => {
+  //   const response = await fetchTags(); //user = email+password
+  //   console.log("getTagsResponse: ", response.data);
+  //   dispatch(setTags(response.data));
+  // };
 
   const router = createBrowserRouter(
     createRoutesFromElements(
