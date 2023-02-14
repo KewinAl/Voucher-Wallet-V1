@@ -1,8 +1,8 @@
 import { useState } from "react";
-import DistributeCouponOverlay from "../DistributeCouponOverlay";
+import DistributeCouponOverlay from "../Overlays/DistributeOverlay";
 import CouponCard_Profile from "./CouponCard/index";
 import { Menu, MenuLeft, MenuRight, PageDiv } from "./ShopProfile.styles";
-import NewCouponOverlay from "../../Pages/CreateNewCoupon";
+import CreateCouponOverlay from "../Overlays/CreateCouponOverlay";
 import Overlay from "../Overlays/OverlayBase";
 
 const ShopProfileDiv = () => {
@@ -34,9 +34,6 @@ const ShopProfileDiv = () => {
   // const coupons = useSelector((store) => store.auth.access)
   // const token = useSelector((store) => store.auth.access)
   const [overlayVisibility, setOverlayVisibility] = useState(false);
-  const [distributionOverlayVisibility, setdistributionOverlayVisibility] =
-    useState(false);
-  const [analyticsVisibility, setanalyticsVisibility] = useState(false);
 
   //   useEffect(() => {
   //     getShopDetails();
@@ -60,14 +57,10 @@ const ShopProfileDiv = () => {
 
   return (
     <PageDiv>
-      {/* <NewCouponOverlay
-        visible={overlayVisibility}
-        exitFunction={setOverlayVisibility}
-      /> */}
-      <DistributeCouponOverlay
-        visible={distributionOverlayVisibility}
-        exitFunction={setdistributionOverlayVisibility}
-      />
+      <Overlay visibilityCondition={overlayVisibility} exitFunction={setOverlayVisibility}>
+        <CreateCouponOverlay/>
+      </Overlay>
+      
       <p>{name}</p>
       <Menu>
         <MenuLeft>
@@ -81,8 +74,6 @@ const ShopProfileDiv = () => {
           <div>
             <CouponCard_Profile
               coupon={exampleCoupons}
-              toggleVisibility={setdistributionOverlayVisibility}
-              toggleAnalytics={setanalyticsVisibility}
             />
             {/* {coupons.map((coupon => <CouponCard_Profile coupon={coupon} toggleVisibility={setdistributionOverlayVisibility} />))} */}
           </div>

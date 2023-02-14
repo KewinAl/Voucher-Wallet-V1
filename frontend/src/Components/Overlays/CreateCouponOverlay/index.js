@@ -8,11 +8,11 @@ import {
   OverlayDiv,
   OverlayMenu,
 } from "./NewCouponOverlay.stlyes";
-import Coupon from "../../Components/CouponCard/Coupon";
+import Coupon from "../../CouponCard/Coupon";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
-const NewCouponOverlay = (props) => {
+const CreateCouponOverlay = (props) => {
   const [title, setTitle] = useState("");
   const [description, setdescription] = useState("");
   const [tag, setTag] = useState("");
@@ -77,13 +77,6 @@ const NewCouponOverlay = (props) => {
   };
 
   return (
-    <OverlayDiv
-      id="overlay"
-      visible={props.visible}
-      onClick={(e) => {
-        checkIfExit(e);
-      }}
-    >
       <OverlayMenu>
         <CouponCreationMenu>
           <CouponCreationLeft>
@@ -158,8 +151,7 @@ const NewCouponOverlay = (props) => {
           </NewCouponButton>
         </NewCouponButtonsDiv>
       </OverlayMenu>
-    </OverlayDiv>
   );
 };
 
-export default NewCouponOverlay;
+export default CreateCouponOverlay;
