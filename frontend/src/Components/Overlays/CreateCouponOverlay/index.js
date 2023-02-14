@@ -14,14 +14,19 @@ import { addCoupon } from "../../../Store/couponSlice";
 import microsoftLogo from "../../../Assets/companyLogo.png";
 
 const CreateCouponOverlay = (props) => {
-  const [title, setTitle] = useState("");
-  const [description, setdescription] = useState("");
-  const [tag, setTag] = useState("");
-  const [link, setLink] = useState("");
-  const [redeem_limit, setredeem_limit] = useState("");
-  const [discount_type, setdiscount_type] = useState("");
-  const [discount, setdiscount] = useState("");
-  const [currency, setcurrency] = useState("");
+  const [title, setTitle] = useState("20% Off on all TV's");
+  const [description, setdescription] = useState(
+    "Get 20% discount on all new TVs"
+  );
+  const [tag, setTag] = useState({
+    id: 1,
+    name: "Summer Sale",
+  });
+  const [link, setLink] = useState("www.tv.ch");
+  const [redeem_limit, setredeem_limit] = useState(30);
+  const [discount_type, setdiscount_type] = useState("percent");
+  const [discount, setdiscount] = useState(20);
+  // const [currency, setcurrency] = useState("");
   const [image, setImage] = useState("");
   const [expiration_date, setexpiration_date] = useState("2024-12-31");
   const company = "whatever";
@@ -60,8 +65,9 @@ const CreateCouponOverlay = (props) => {
       times_redeemed: 0,
       redeem_limit: 30,
       discount: 20,
+      discount_type: "percent",
       companyLogo: microsoftLogo,
-      expiration_date: "2023-07-21",
+      expiration_date: "2023-06-01",
       link: "www.tv.ch",
       shop_profile: {
         id: 1,
@@ -73,20 +79,21 @@ const CreateCouponOverlay = (props) => {
       },
     };
     dispatch(addCoupon(newCoupon));
+    props.exitFunction(false);
   };
 
-  const checkIfExit = (e) => {
-    if (e.target.id == "overlay") {
-      props.exitFunction(!props.visible);
-      setTitle("");
-      setdescription("");
-      setredeem_limit("");
-      setTag("");
-      //setLink('')
-      setImage("");
-      setexpiration_date("2024-12-31");
-    }
-  };
+  // const checkIfExit = (e) => {
+  //   if (e.target.id == "overlay") {
+  //     props.exitFunction(!props.visible);
+  //     setTitle("");
+  //     setdescription("");
+  //     setredeem_limit("");
+  //     setTag("");
+  //     //setLink('')
+  //     setImage("");
+  //     setexpiration_date("2024-12-31");
+  //   }
+  // };
 
   return (
     <OverlayMenu>
@@ -115,6 +122,11 @@ const CreateCouponOverlay = (props) => {
             <option value={"percent"}>Percentage</option>
             <option value={"amount"}>Amount</option>
           </select>
+          <input
+            value={discount}
+            onChange={(e) => setdiscount(e.target.value)}
+            placeholder="discount numerical"
+          />
 
           {/* Selection for available tags */}
           <select value={tag} onChange={(e) => setTag(e.target.value)}>
