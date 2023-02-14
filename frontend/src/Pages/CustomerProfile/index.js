@@ -4,16 +4,16 @@ import {
   CustomerProfileContainerPage,
   NavigationContent,
 } from "./CustomerProfile.styles";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Coupon from "../../Components/CouponCard/Coupon";
 
 const CustomerProfile = () => {
-  const dispatch = useDispatch();
-  const token = useSelector((store) => store.auth.access);
-  const store = useSelector((store) => store);
+  // const dispatch = useDispatch();
+  // const token = useSelector((store) => store.auth.access);
+  // const store = useSelector((store) => store);
   const first_name = useSelector((store) => store.customer.firstname);
   const last_name = useSelector((store) => store.customer.lastname);
-  const gender = useSelector((store) => store.customer.gender);
+  // const gender = useSelector((store) => store.customer.gender);
   let coupons = useSelector((store) => store.coupons.coupons); //hardcoded
   // console.log("COUPONS:", coupons);
   // console.log("COUPONS 0:", coupons.map(coupon));
@@ -63,7 +63,7 @@ const CustomerProfile = () => {
         <NavigationContent>
           <CouponList>
             {coupons.map((coupon) => (
-              <Coupon details={coupon} />
+              <Coupon key={coupon.id} details={coupon} />
             ))}
           </CouponList>
         </NavigationContent>
