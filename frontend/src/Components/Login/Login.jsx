@@ -19,39 +19,32 @@ function Login() {
     setUser({ ...user, [e.target.id]: e.target.value });
   };
 
-  const checkProfileType = async (e) => {
-    // Fetch user profile
-    try {
-      const profileResponse = await fetchProfile();
-      console.log("profileResponse", profileResponse.data);
-      //dispatch(setProfile(profileResponse.data));
-      if (profileResponse.data) {
-        navigate(
-          profileResponse.data.customer_profile
-            ? "/me"
-            : profileResponse.data.shop_profile
-            ? "/myShop"
-            : "/"
-        );
-      } else {
-        // handle error or show message to the user
-        console.log("No User Profile");
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
   const loginUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await getAuthToken(user); //user = email+password
+      const response = await getAuthToken(user);
       console.log("getAuthToken:", response);
       dispatch(setAuth(response.data));
       dispatch(setEmail(user.email));
       localStorage.setItem("auth", JSON.stringify(response.data));
       localStorage.setItem("email", JSON.stringify(user.email));
-      checkProfileType();
+      try {
+        const profileResponse = await fetchProfile();
+        console.log("profileResponse", profileResponse.data);
+        if (profileResponse.data) {
+          navigate(
+            profileResponse.data.customer_profile
+              ? "/me"
+              : profileResponse.data.shop_profile
+              ? "/myShop"
+              : "/"
+          );
+        } else {
+          console.log("No User Profile");
+        }
+      } catch (e) {
+        console.error(e);
+      }
     } catch (error) {
       setError(error.response.data);
     }
