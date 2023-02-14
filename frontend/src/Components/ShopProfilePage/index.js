@@ -1,9 +1,11 @@
 import { useState } from "react";
 import DistributeCouponOverlay from "../Overlays/DistributeOverlay";
 import CouponCard_Profile from "./CouponCard/index";
-import { Menu, MenuLeft, MenuRight, PageDiv } from "./ShopProfile.styles";
+import { Menu, MenuLeft, MenuRight, PageDiv, NewCouponButton } from "./ShopProfile.styles";
 import CreateCouponOverlay from "../Overlays/CreateCouponOverlay";
 import Overlay from "../Overlays/OverlayBase";
+import ProfileButton from "../Buttons/ProfileButton";
+import ShopProfileOverlay from "../Overlays/ShopProfileOverlay";
 
 const ShopProfileDiv = () => {
   // const [description, setDescription] = useState("");
@@ -34,6 +36,7 @@ const ShopProfileDiv = () => {
   // const coupons = useSelector((store) => store.auth.access)
   // const token = useSelector((store) => store.auth.access)
   const [overlayVisibility, setOverlayVisibility] = useState(false);
+  const [profileOverlayVisibility, setProfileOverlayVisibility] = useState(false);
 
   //   useEffect(() => {
   //     getShopDetails();
@@ -60,15 +63,17 @@ const ShopProfileDiv = () => {
       <Overlay visibilityCondition={overlayVisibility} exitFunction={setOverlayVisibility}>
         <CreateCouponOverlay/>
       </Overlay>
+      <Overlay visibilityCondition={profileOverlayVisibility} exitFunction={setProfileOverlayVisibility}>
+        <ShopProfileOverlay/>
+      </Overlay>
       
       <p>{name}</p>
       <Menu>
         <MenuLeft>
-          <button onClick={() => setOverlayVisibility(!overlayVisibility)}>
+          <NewCouponButton onClick={() => setOverlayVisibility(true)}>
             Create New Coupon
-          </button>
-          <button>Edit Profile</button>
-          <button>Delete Account</button>
+          </NewCouponButton>
+          <ProfileButton onClick={() => setProfileOverlayVisibility(true)} />
         </MenuLeft>
         <MenuRight>
           <div>

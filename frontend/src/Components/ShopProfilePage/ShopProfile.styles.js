@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 
 export const PageDiv = styled.div`
-    max-height: 80%;
+    max-height: 90%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     align-items: center;
-    justify-content: start;
+
     >p {
         font-size: xx-large;
         padding: 10px 0px;
@@ -15,20 +15,23 @@ export const PageDiv = styled.div`
 `;
 export const Menu = styled.div`
     display: flex;
+    flex-direction: column; 
     width: 90%;
-    max-height: 80%;
+    max-height: 90%;
 `
 export const MenuLeft = styled.div`
-    width: 15%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 15px;
     gap: 25px;
-    padding: 20px 50px;
-
     >button {
         border-radius: 10px;
-        padding: 10px;
     }
+`
+export const NewCouponButton = styled.button`
+    width: 30%;
+    background-color: lightgreen;
 `
 export const MenuRight = styled.div`
     width: 100%;

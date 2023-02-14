@@ -4,9 +4,9 @@ import {
 } from './ProfileButton.styles'
 
 
-const ProfileButton = () => {
+const ProfileButton = (props) => {
     return (
-        <ProfileButtonBase>
+        <ProfileButtonBase onClick={() => { props.onClick() }}>
             <ProfileImage/>
         </ProfileButtonBase>
     )
