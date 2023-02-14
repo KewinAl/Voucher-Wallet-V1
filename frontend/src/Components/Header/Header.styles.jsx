@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 
@@ -29,7 +29,7 @@ export const MenuContainer = styled.div`
 
 `
 
-export const MenuItem = styled(NavLink)`
+export const MenuItem = styled(Link)`
     color: white;
     text-decoration: none;
     font-size: ${p=>p.theme.fontSizeM};
@@ -44,7 +44,6 @@ export const MenuItem = styled(NavLink)`
         font-weight: bold;
         border-bottom: 3px solid ${p=>p.theme.green};
     }
-
 `
 export const AuthenticationContainer = styled.div`
     height: 100%;
