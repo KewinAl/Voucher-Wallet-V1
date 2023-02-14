@@ -5,12 +5,13 @@ import {
   CouponPreview,
   NewCouponButton,
   NewCouponButtonsDiv,
-  OverlayDiv,
   OverlayMenu,
 } from "./NewCouponOverlay.stlyes";
 import Coupon from "../../CouponCard/Coupon";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import { addCoupon } from "../../../Store/couponSlice";
+import microsoftLogo from "../../../Assets/companyLogo.png";
 
 const CreateCouponOverlay = (props) => {
   const [title, setTitle] = useState("");
@@ -49,18 +50,29 @@ const CreateCouponOverlay = (props) => {
   //     },
   // };
 
+  const dispatch = useDispatch();
+
   const safeCoupon = () => {
-    const coupon = {
-      title,
-      description,
-      times_used: 0,
+    const newCoupon = {
+      id: 3,
+      title: "20% Off on all TV's",
+      description: "Get 20% discount on all new TVs",
       times_redeemed: 0,
-      redeem_limit,
-      discount_type,
-      discount,
-      currency,
-      expiration_date,
+      redeem_limit: 30,
+      discount: 20,
+      companyLogo: microsoftLogo,
+      expiration_date: "2023-07-21",
+      link: "www.tv.ch",
+      shop_profile: {
+        id: 1,
+        name: "Shop A",
+      },
+      tag: {
+        id: 1,
+        name: "Summer Sale",
+      },
     };
+    dispatch(addCoupon(newCoupon));
   };
 
   const checkIfExit = (e) => {
@@ -77,80 +89,80 @@ const CreateCouponOverlay = (props) => {
   };
 
   return (
-      <OverlayMenu>
-        <CouponCreationMenu>
-          <CouponCreationLeft>
-            <input
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Coupon Title"
-            />
-            <input
-              value={description}
-              onChange={(e) => setdescription(e.target.value)}
-              placeholder="Description"
-            />
-            <input
-              value={redeem_limit}
-              onChange={(e) => setredeem_limit(e.target.value)}
-              placeholder="Number of Coupons"
-            />
-            <select
-              value={discount_type}
-              onChange={(e) => setdiscount_type(e.target.value)}
-            >
-              <option value={""}>Type of discount</option>
-              <option value={"percent"}>Percentage</option>
-              <option value={"amount"}>Amount</option>
-            </select>
-
-            {/* Selection for available tags */}
-            <select value={tag} onChange={(e) => setTag(e.target.value)}>
-              <option value={""}>Select a tag</option>
-              {availableTags.map((tag) => (
-                <option key={tag} value={tag}>
-                  {tag}
-                </option>
-              ))}
-            </select>
-          </CouponCreationLeft>
-          <CouponCreationRight>
-            <input type="file" onChange={(e) => setImage(e.target.files[0])} />
-            <input
-              value={link}
-              onChange={(e) => setLink(e.target.value)}
-              type="text"
-              placeholder="Shop Link"
-            />
-            <label>
-              Expiration Date
-              <input
-                value={expiration_date}
-                onChange={(e) => setexpiration_date(e.target.value)}
-                type={"date"}
-              />
-            </label>
-          </CouponCreationRight>
-        </CouponCreationMenu>
-        <CouponPreview>
-          <h1>Preview</h1>
-          <Coupon
-            details={{
-              company,
-              title,
-              description,
-              link,
-              image,
-              expiration_date,
-            }}
+    <OverlayMenu>
+      <CouponCreationMenu>
+        <CouponCreationLeft>
+          <input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Coupon Title"
           />
-        </CouponPreview>
-        <NewCouponButtonsDiv>
-          <NewCouponButton color="lightgreen" onClick={() => safeCoupon()}>
-            Save
-          </NewCouponButton>
-        </NewCouponButtonsDiv>
-      </OverlayMenu>
+          <input
+            value={description}
+            onChange={(e) => setdescription(e.target.value)}
+            placeholder="Description"
+          />
+          <input
+            value={redeem_limit}
+            onChange={(e) => setredeem_limit(e.target.value)}
+            placeholder="Number of Coupons"
+          />
+          <select
+            value={discount_type}
+            onChange={(e) => setdiscount_type(e.target.value)}
+          >
+            <option value={""}>Type of discount</option>
+            <option value={"percent"}>Percentage</option>
+            <option value={"amount"}>Amount</option>
+          </select>
+
+          {/* Selection for available tags */}
+          <select value={tag} onChange={(e) => setTag(e.target.value)}>
+            <option value={""}>Select a tag</option>
+            {availableTags.map((tag) => (
+              <option key={tag} value={tag}>
+                {tag}
+              </option>
+            ))}
+          </select>
+        </CouponCreationLeft>
+        <CouponCreationRight>
+          <input type="file" onChange={(e) => setImage(e.target.files[0])} />
+          <input
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+            type="text"
+            placeholder="Shop Link"
+          />
+          <label>
+            Expiration Date
+            <input
+              value={expiration_date}
+              onChange={(e) => setexpiration_date(e.target.value)}
+              type={"date"}
+            />
+          </label>
+        </CouponCreationRight>
+      </CouponCreationMenu>
+      <CouponPreview>
+        <h1>Preview</h1>
+        <Coupon
+          details={{
+            company,
+            title,
+            description,
+            link,
+            image,
+            expiration_date,
+          }}
+        />
+      </CouponPreview>
+      <NewCouponButtonsDiv>
+        <NewCouponButton color="lightgreen" onClick={() => safeCoupon()}>
+          Save
+        </NewCouponButton>
+      </NewCouponButtonsDiv>
+    </OverlayMenu>
   );
 };
 
