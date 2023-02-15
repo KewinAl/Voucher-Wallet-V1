@@ -11,7 +11,7 @@ const couponSlice = createSlice({
       {
         id: 1,
         title: "10% Off on all products",
-        description: "Get 10% discount on all products",
+        description: "Get 10% discount",
         times_redeemed: 14,
         redeem_limit: 28,
         discount: 10,
