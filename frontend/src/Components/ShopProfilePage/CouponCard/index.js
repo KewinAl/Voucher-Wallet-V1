@@ -1,10 +1,11 @@
-import { CouponDiv, CouponActionButton, CouponButtonDiv, DetailsDiv, AnalyticsButton } from './CouponCard.styles'
+import { CouponDiv, CouponActionButton, CouponButtonDiv, DetailsDiv, AnalyticsButton, CouponDescription, Tag } from './CouponCard.styles'
 import { useState } from 'react';
 import { useSelector } from "react-redux";
 import AnalyticsOverlay from '../../Overlays/AnalyticsOverlay';
 import Overlay from '../../Overlays/OverlayBase';
 import DistributeCouponOverlay from '../../Overlays/DistributeOverlay/index'
- 
+
+
 
 
 const CouponCard_Profile = ({ coupon }) => {
@@ -22,25 +23,35 @@ const CouponCard_Profile = ({ coupon }) => {
             </Overlay>
 
             <Overlay visibilityCondition={distributionOverlayVisibility} exitFunction={setdistributionOverlayVisibility}>
-                <DistributeCouponOverlay/>
+                <DistributeCouponOverlay />
             </Overlay>
-            
+
             <h1>{coupon.title}</h1>
+                <Tag>
+                    {coupon.tag.name}
+                </Tag>
             <DetailsDiv>
-                <p> {coupon.expiration_date} </p>
-                <p> {coupon.times_redeemed} </p>
+                <div>
+                    <p>Expiration Date</p>
+                    <p>Times used</p>
+                </div>
+                <div >
+                    <p className='aligned-end'>{coupon.expiration_date}</p>
+                    <p className='aligned-end'>{coupon.times_redeemed}</p>
+                </div>
             </DetailsDiv>
-            <p>
+            <CouponDescription>
                 {coupon.description}
-            </p>
+            </CouponDescription>
+
             <CouponButtonDiv>
                 <AnalyticsButton color={'lightblue'} onClick={() => setanalyticsVisibility(true)}>Analytics</AnalyticsButton>
                 <div>
-                    <CouponActionButton color={'#99e699'} onClick={() => setdistributionOverlayVisibility(true)}>Distribute</CouponActionButton>
+                    <CouponActionButton color={"#06C076"} onClick={() => setdistributionOverlayVisibility(true)}>Distribute</CouponActionButton>
                     <CouponActionButton color={'#ff704d'}>DELETE</CouponActionButton>
                 </div>
             </CouponButtonDiv>
-            
+
         </CouponDiv>
     )
 }
