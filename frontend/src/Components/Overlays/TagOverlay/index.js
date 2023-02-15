@@ -9,35 +9,18 @@ import { useState } from 'react';
 const TagOverlay = () => {
 
     const tags = useSelector((store) => store.tags.tags)
-    const [preferences, setPreferences] = useState([
-        'Food', 
-        'Video Games', 
-        'Sports', 
-        'Fashion',
-    ]);
-    const [availableTags, setAvailableTags] = useState(tags.filter((tag => !preferences.includes(tag))))
+    const [selectedTags, setSelectedTags] = useState(tags.slice(0, 4));
+    const [availableTags, setAvailableTags] = useState(tags.slice(4));
 
-    const removePreference = (e) => {
-        let preferenceCopy = [...preferences];
-        let indexToRemove = preferenceCopy.indexOf(e.target.value)
-        let removedTag = preferenceCopy.splice(indexToRemove, 1)
-        setPreferences(preferenceCopy)
-
-        let availableTagsCopy = [...availableTags];
-        availableTagsCopy.push(removedTag)
-        setAvailableTags(availableTagsCopy)
-    }
-
-    const addPreference = (e) => {
-        let availableTagsCopy = [...availableTags];
-        let indexToRemove = availableTagsCopy.indexOf(e.target.value)
-        let removedTag = availableTagsCopy.splice(indexToRemove, 1)
-        setAvailableTags(availableTagsCopy)
-
-        let preferenceCopy = [...preferences];
-        preferenceCopy.push(removedTag)
-        setPreferences(preferenceCopy)
-    }
+    const handleTagClick = (tag) => {
+        if (selectedTags.includes(tag)) {
+            setSelectedTags(selectedTags.filter((t) => t !== tag));
+            setAvailableTags([...availableTags, tag]);
+        } else if (availableTags.includes(tag)) {
+            setAvailableTags(availableTags.filter((t) => t !== tag));
+            setSelectedTags([...selectedTags, tag]);
+        }
+    };
 
     return (
         <TagOverlayDiv>
@@ -45,13 +28,13 @@ const TagOverlay = () => {
                 <h1>Preferred Tags:</h1>
                 <div>
                     <TagDiv>
-                        {preferences.map((tag) => <TagButton onClick={(e) => { removePreference(e)}} key={tag} value={tag}>{tag}</TagButton>)}
+                        {selectedTags.map((tag) => <TagButton onClick={(e) => { handleTagClick(e.target.value)}} key={tag} value={tag}>{tag}</TagButton>)}
                     </TagDiv>
                 </div>
                 <h2>Available Tags:</h2>
                 <div>
                     <TagDiv>
-                        {availableTags.map((tag) => <TagButton onClick={(e) => { addPreference(e) }} key={tag}>{tag}</TagButton>)}
+                        {availableTags.map((tag) => <TagButton onClick={(e) => { handleTagClick(e.target.value) }} key={tag} value={tag}>{tag}</TagButton>)}
                     </TagDiv>
                 </div>
             </div>
