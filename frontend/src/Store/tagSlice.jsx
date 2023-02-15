@@ -3,12 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const tagSlice = createSlice({
   name: "tags",
   initialState: {
-    tags: ['Food', 
+    tags: [
+      'Food', 
       'Video Games', 
       'Sports', 
       'Fashion', 
       'Decoration', 
-      'Pets', 
       'Restaurants', 
       'Flowers', 
       'Beauty', 
@@ -23,15 +23,7 @@ const tagSlice = createSlice({
       'Music',
       'Movies and TV',
       'Health and Wellness',
-      'Pets',
-      'Jewelry and Accessories',
-      'Toys and Games',
-      'Office and School Supplies',
-      'Automotive',
-      'Art and Photography',
-      'Business and Finance',
-      'Children and Baby',
-      'Shoes and Footwear'],
+      'Pets'],
   },
   reducers: {
     setTags: (state, action) => {
