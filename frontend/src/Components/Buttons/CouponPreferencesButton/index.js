@@ -5,10 +5,10 @@ import {
 } from './CouponPreferencesButton.styles'
 
 
-const CouponPreferencesButton = ({filterFunction, exitFunction}) => {
+const CouponPreferencesButton = ({ filterFunction, exitFunction}) => {
     return (
         <PreferencesButton>
-            <button onClick={() => filterFunction(true)}>
+            <button onClick={() => filterFunction(false)}>
                 Preferred Coupons
             </button>
             <button onClick={() => exitFunction(true)}>

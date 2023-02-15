@@ -28,6 +28,31 @@ const CustomerProfile = () => {
   const [tagOverlayVisibility, setTagOverlayVisibility] = useState(false)
   const [customerOverlayVisibility, setcustomerOverlayVisibility] = useState(false)
 
+
+  const [fakeAllCoupons, setfakeAllCoupons] = useState(false)
+
+  const fakeCoupon = {
+    id: 2,
+    title: "Limited Special Offer",
+    description: "Applicable after 50$",
+    times_redeemed: 14,
+    redeem_limit: 28,
+    discount: 5,
+    discount_type: "amount",
+    companyLogo: '',
+    background_image: '',
+    expiration_date: "2023-12-31",
+    link: "www.aldi.de",
+    shop_profile: {
+      id: 2,
+      name: "Shop B",
+    },
+    tag: {
+      id: 2,
+      name: "Special Limited Edition",
+    },
+  }
+
   // console.log("COUPONS:", coupons);
   // console.log("COUPONS 0:", coupons.map(coupon));
 
@@ -59,6 +84,7 @@ const CustomerProfile = () => {
     coupons = [coupons];
   }
 
+
   return (
     <>
       <CustomerProfileContainerPage>
@@ -72,9 +98,9 @@ const CustomerProfile = () => {
         <CustomerNavigation>
           <h1>Your Coupons</h1>
           <section>
-            <CouponPreferencesButton exitFunction={setTagOverlayVisibility} filterFunction={setfilterTags} />
-            <button onClick={() => setfilterTags(false)}>All Coupons</button>
-            <ProfileButton onClick={() => setcustomerOverlayVisibility(true) } />
+            <CouponPreferencesButton exitFunction={setTagOverlayVisibility} filterFunction={setfakeAllCoupons} />
+            <button onClick={() => setfakeAllCoupons(true)}>All Coupons</button>
+            <ProfileButton onClick={() => setcustomerOverlayVisibility(true)}/>
           </section>
         </CustomerNavigation>
         <NavigationContent>
@@ -82,6 +108,7 @@ const CustomerProfile = () => {
             {coupons.map((coupon) => (
               <Coupon details={coupon} />
             ))}
+            {fakeAllCoupons && <Coupon details={fakeCoupon} />}
           </CouponList>
         </NavigationContent>
       </CustomerProfileContainerPage>
