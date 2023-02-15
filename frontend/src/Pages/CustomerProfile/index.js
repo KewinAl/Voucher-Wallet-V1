@@ -109,6 +109,8 @@ const CustomerProfile = () => {
               <Coupon details={coupon} />
             ))}
             {fakeAllCoupons && <Coupon details={fakeCoupon} />}
+            {fakeAllCoupons && <Coupon details={fakeCoupon} />}
+            {fakeAllCoupons && <Coupon details={fakeCoupon} />}
           </CouponList>
         </NavigationContent>
       </CustomerProfileContainerPage>

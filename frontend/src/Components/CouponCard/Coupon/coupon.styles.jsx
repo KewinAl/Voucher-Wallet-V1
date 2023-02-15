@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const CouponContainer = styled.div`
   display: flex;
-  height: 250px;
-  min-height: 220px;
+  flex: 0 0 270;
+
   width: 100%;
 `;
 
