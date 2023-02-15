@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const AnalyticsOverlayDiv = styled.div`
-    >div {
         width: 900px;
         height: 600px;
         background-color: white;

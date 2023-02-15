@@ -23,8 +23,7 @@ const DistributeCouponOverlay = (props) => {
     }
 
     return (
-        <OverlayDiv visible={props.visible} id='background' onClick={(e) => handleClose(e)}>
-            <div>
+        <OverlayDiv>
                 <h1>Select target group</h1>
                 <form>
                     <div>
@@ -107,8 +106,7 @@ const DistributeCouponOverlay = (props) => {
                 </form>
 
 
-            </div>
-        </OverlayDiv>
+            </OverlayDiv>
     )
 }
 export default DistributeCouponOverlay;
