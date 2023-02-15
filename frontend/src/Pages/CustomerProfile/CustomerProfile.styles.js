@@ -69,19 +69,21 @@ export const CustomerNavigation = styled.div`
 `
 
 export const NavigationContent = styled.div`
-  width: 80%;
+  width: 100%;
   height: 100%;
+  overflow-y: scroll;
+  display: flex; 
+  justify-content: center;
 `
 
 export const CouponList = styled.section`
   height: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4%;
   padding: 2%;
-
-  overflow: scroll;
 
   h2 {
     font-size: ${p => p.theme.fontSizeXL};
