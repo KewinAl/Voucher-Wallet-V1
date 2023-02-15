@@ -52,17 +52,17 @@ export const MenuRight = styled.div`
     width: 100%;
     height: 100%;
     overflow: hidden;
-    border-radius: 0px 30px 30px;
+    // border-radius: 0px 30px 30px;
 
     >div{
     width: 100%;
     height: 100%;
     min-height: 800px;
-    border: 2px solid #cccccc;
-    padding: 15px;
+    // border: 2px solid #cccccc;
+    padding: 15px 0px;
     box-sizing: border-box;
-    background-color: #e6e6e6;
-    box-shadow: inset 7px 5px 16px -5px rgba(0,0,0,0.44);
+    // background-color: #e6e6e6;
+    // box-shadow: inset 7px 5px 16px -5px rgba(0,0,0,0.44);
     display: flex;
     flex-wrap: wrap;
     gap: 30px;

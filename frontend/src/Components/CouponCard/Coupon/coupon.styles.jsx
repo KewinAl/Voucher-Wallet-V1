@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+export const CouponContainer = styled.div`
+  display: flex;
+  height: 250px;
+  min-height: 220px;
+  width: 100%;
+`;
+
 export const RedeemButton = styled.button`
   background-color: orange;
   color: white;
@@ -9,12 +16,6 @@ export const RedeemButton = styled.button`
   font-size: 1rem;
   height: 50%;
   width: 60%;
-`;
-export const CouponContainer = styled.div`
-  display: flex;
-  height: 250px;
-  min-height: 220px;
-  width: 100%;
 `;
 
 export const LeftContainer = styled.div`

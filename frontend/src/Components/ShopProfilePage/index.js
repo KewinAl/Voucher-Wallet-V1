@@ -6,8 +6,7 @@ import CreateCouponOverlay from "../Overlays/CreateCouponOverlay";
 import Overlay from "../Overlays/OverlayBase";
 import ProfileButton from "../Buttons/ProfileButton";
 import ShopProfileOverlay from "../Overlays/ShopProfileOverlay";
-import CustomerProfileOverlay from '../Overlays/CustomerProfileOverlay'
-import TagOverlay from '../Overlays/TagOverlay'
+import Coupon from "../CouponCard/Coupon";
 
 const ShopProfileDiv = () => {
   // const [description, setDescription] = useState("");
@@ -52,8 +51,6 @@ const ShopProfileDiv = () => {
         <CreateCouponOverlay exitFunction={setOverlayVisibility} />
       </Overlay>
       <Overlay visibilityCondition={profileOverlayVisibility} exitFunction={setProfileOverlayVisibility}>
-        {/* <TagOverlay /> */}
-        {/* <CustomerProfileOverlay/> */}
         <ShopProfileOverlay />
       </Overlay>
       
