@@ -20,14 +20,13 @@ export const CustomerProfileContainerPage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: start;
-  border: solid red;
   align-items: center;
   padding: 20px;
 `
 
 export const CustomerNavigation = styled.div`
   height: 80px;
-  width: 70%;
+  width: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,7 +45,7 @@ export const CustomerNavigation = styled.div`
     align-items: center;
     gap: 20px;
 
-    button {
+    >button {
       height: 45px;
       display: flex;
       justify-content: space-between;

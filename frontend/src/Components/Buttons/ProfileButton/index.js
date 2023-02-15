@@ -6,9 +6,11 @@ import {
 
 const ProfileButton = (props) => {
     return (
-        <ProfileButtonBase onClick={() => { props.onClick() }}>
+        <div>
+            <ProfileButtonBase onClick={() => { props.onClick() }}>
             <ProfileImage/>
-        </ProfileButtonBase>
+            </ProfileButtonBase>
+        </div>
     )
 }
 export default ProfileButton;

@@ -31,7 +31,22 @@ export const MenuLeft = styled.div`
 `
 export const NewCouponButton = styled.button`
     width: 30%;
-    background-color: lightgreen;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    gap: 10px;
+    border: solid 2px ${p => p.theme.green};
+    border-radius: 5px;
+    color: ${p => p.theme.green};
+    background: none;
+    
+    &:hover {
+    border: transparent solid 2px;
+    background: ${p => p.theme.green};
+    cursor: pointer;
+    color: white;
 `
 export const MenuRight = styled.div`
     width: 100%;
