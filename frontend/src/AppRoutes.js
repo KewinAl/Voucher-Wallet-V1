@@ -12,6 +12,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useEffect} from "react";
 import {fetchTags} from "./API/lib/tags";
 import {setTags} from "./Store/tagSlice";
+import LandingPage from "./Pages/LandingPage.jsx";
 
 function AppRoutes() {
     const dispatch = useDispatch();
@@ -57,7 +58,7 @@ function AppRoutes() {
           /> */}
                     <Route path="myShop" element={<ShopProfile/>}/>
                     <Route path="me" element={<CustomerProfile/>}/>
-                    {/*<Route path="*" element={<LandingPage/>}/>*/}
+                    {<Route path="landing" element={<LandingPage/>}/>}
                 </Route>
             </>
         )
