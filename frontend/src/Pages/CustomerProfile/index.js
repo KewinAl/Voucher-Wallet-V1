@@ -9,20 +9,10 @@ import { RxGear } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import Coupon from "../../Components/CouponCard/Coupon";
 import ProfileButton from '../../Components/Buttons/ProfileButton'
-
-const GearIcon = styled(RxGear)`
-  border-left: solid ${(p) => p.theme.green} 1px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 30px;
-  padding-left: 10px;
-
-  &:hover {
-    border-left: solid white 1px;
-  }
-`;
+import CouponPreferencesButton from "../../Components/Buttons/CouponPreferencesButton";
+import { useState } from "react";
+import Overlay from "../../Components/Overlays/OverlayBase";
+import TagOverlay from "../../Components/Overlays/TagOverlay";
 
 const CustomerProfile = () => {
   const dispatch = useDispatch();
@@ -32,6 +22,10 @@ const CustomerProfile = () => {
   const last_name = useSelector((store) => store.customer.lastname);
   const gender = useSelector((store) => store.customer.gender);
   let coupons = useSelector((store) => store.coupons.coupons); //hardcoded
+
+  const [tagOverlayVisibility, setTagOverlayVisibility] = useState(false)
+  const [filterTags, setfilterTags] = useState(false)
+
   // console.log("COUPONS:", coupons);
   // console.log("COUPONS 0:", coupons.map(coupon));
 
@@ -66,15 +60,14 @@ const CustomerProfile = () => {
   return (
     <>
       <CustomerProfileContainerPage>
+        <Overlay visibilityCondition={tagOverlayVisibility} exitFunction={setTagOverlayVisibility}>
+          <TagOverlay/>
+        </Overlay>
         <CustomerNavigation>
           <h1>Your Coupons</h1>
           <section>
-            {/* TODO: change Button */}
-            <button>
-              Preferred Coupons
-              <GearIcon />
-            </button>
-            <button>All Coupons</button>
+            <CouponPreferencesButton exitFunction={setTagOverlayVisibility} filterFunction={setfilterTags} />
+            <button onClick={() => setfilterTags(false)}>All Coupons</button>
             <ProfileButton/>
           </section>
         </CustomerNavigation>
