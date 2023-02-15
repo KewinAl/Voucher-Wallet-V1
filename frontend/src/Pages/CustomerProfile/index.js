@@ -13,6 +13,7 @@ import CouponPreferencesButton from "../../Components/Buttons/CouponPreferencesB
 import { useState } from "react";
 import Overlay from "../../Components/Overlays/OverlayBase";
 import TagOverlay from "../../Components/Overlays/TagOverlay";
+import CustomerProfileOverlay from "../../Components/Overlays/CustomerProfileOverlay";
 
 const CustomerProfile = () => {
   const dispatch = useDispatch();
@@ -23,8 +24,9 @@ const CustomerProfile = () => {
   const gender = useSelector((store) => store.customer.gender);
   let coupons = useSelector((store) => store.coupons.coupons); //hardcoded
 
-  const [tagOverlayVisibility, setTagOverlayVisibility] = useState(false)
   const [filterTags, setfilterTags] = useState(false)
+  const [tagOverlayVisibility, setTagOverlayVisibility] = useState(false)
+  const [customerOverlayVisibility, setcustomerOverlayVisibility] = useState(false)
 
   // console.log("COUPONS:", coupons);
   // console.log("COUPONS 0:", coupons.map(coupon));
@@ -63,12 +65,16 @@ const CustomerProfile = () => {
         <Overlay visibilityCondition={tagOverlayVisibility} exitFunction={setTagOverlayVisibility}>
           <TagOverlay/>
         </Overlay>
+        <Overlay visibilityCondition={customerOverlayVisibility} exitFunction={setcustomerOverlayVisibility}>
+          <CustomerProfileOverlay/>
+        </Overlay>
+
         <CustomerNavigation>
           <h1>Your Coupons</h1>
           <section>
             <CouponPreferencesButton exitFunction={setTagOverlayVisibility} filterFunction={setfilterTags} />
             <button onClick={() => setfilterTags(false)}>All Coupons</button>
-            <ProfileButton/>
+            <ProfileButton onClick={() => setcustomerOverlayVisibility(true) } />
           </section>
         </CustomerNavigation>
         <NavigationContent>
