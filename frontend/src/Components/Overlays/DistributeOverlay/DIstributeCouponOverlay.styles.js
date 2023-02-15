@@ -9,9 +9,10 @@ export const OverlayDiv = styled.div`
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
+        padding: 20px;
         >h1 {
-            font-size: 70px;
-            border-bottom: 2px solid gray;
+            font-size: xx-large;
+            
         }
         >form{
             display: flex;
