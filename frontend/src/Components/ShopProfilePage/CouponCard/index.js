@@ -11,12 +11,15 @@ import { useState } from "react";
 import AnalyticsOverlay from "../../Overlays/AnalyticsOverlay";
 import Overlay from "../../Overlays/OverlayBase";
 import DistributeCouponOverlay from "../../Overlays/DistributeOverlay/index";
+import { useDispatch } from "react-redux";
+import { deleteCoupon } from "../../../Store/couponSlice";
 
 const CouponCard_Profile = ({ coupon }) => {
   const [analyticsVisibility, setanalyticsVisibility] = useState(false);
   const [distributionOverlayVisibility, setdistributionOverlayVisibility] =
     useState(false);
-
+  const dispatch = useDispatch();
+  console.log(coupon.id);
   return (
     <CouponDiv>
       <Overlay
@@ -67,7 +70,12 @@ const CouponCard_Profile = ({ coupon }) => {
           >
             Distribute
           </CouponActionButton>
-          <CouponActionButton color={"#ff704d"}>DELETE</CouponActionButton>
+          <CouponActionButton
+            color={"#ff704d"}
+            onClick={() => dispatch(deleteCoupon(coupon.id))}
+          >
+            DELETE
+          </CouponActionButton>
         </div>
       </CouponButtonDiv>
     </CouponDiv>
