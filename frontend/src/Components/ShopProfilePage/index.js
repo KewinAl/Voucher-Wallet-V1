@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import CouponCard_Profile from "./CouponCard/index";
-import { Menu, MenuLeft, MenuRight, PageDiv, NewCouponButton } from "./ShopProfile.styles";
+import {
+  Menu,
+  MenuLeft,
+  MenuRight,
+  NewCouponButton,
+  PageDiv,
+} from "./ShopProfile.styles";
 import CreateCouponOverlay from "../Overlays/CreateCouponOverlay";
 import Overlay from "../Overlays/OverlayBase";
 import ProfileButton from "../Buttons/ProfileButton";
 import ShopProfileOverlay from "../Overlays/ShopProfileOverlay";
-import Coupon from "../CouponCard/Coupon";
 
 const ShopProfileDiv = () => {
   // const [description, setDescription] = useState("");
@@ -15,12 +20,13 @@ const ShopProfileDiv = () => {
   const couponsState = useSelector((store) => store.coupons.coupons);
   // const store = useSelector((store) => store);
   console.log("couponsState", couponsState);
-  const [name] = useState("Shop A");
+  const [name] = useState("The Cats Shop");
 
   // const coupons = useSelector((store) => store.auth.access)
   // const token = useSelector((store) => store.auth.access)
   const [overlayVisibility, setOverlayVisibility] = useState(false);
-  const [profileOverlayVisibility, setProfileOverlayVisibility] = useState(false);
+  const [profileOverlayVisibility, setProfileOverlayVisibility] =
+    useState(false);
 
   //   useEffect(() => {
   //     getShopDetails();
@@ -50,10 +56,13 @@ const ShopProfileDiv = () => {
       >
         <CreateCouponOverlay exitFunction={setOverlayVisibility} />
       </Overlay>
-      <Overlay visibilityCondition={profileOverlayVisibility} exitFunction={setProfileOverlayVisibility}>
+      <Overlay
+        visibilityCondition={profileOverlayVisibility}
+        exitFunction={setProfileOverlayVisibility}
+      >
         <ShopProfileOverlay />
       </Overlay>
-      
+
       <p>{name}</p>
       <Menu>
         <MenuLeft>

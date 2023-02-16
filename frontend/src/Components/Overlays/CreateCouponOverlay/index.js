@@ -80,7 +80,7 @@ const CreateCouponOverlay = (props) => {
         name: "Summer Sale",
       },
       analytics: {
-        averageAge: "N/A",
+        averageAge: 0,
         male: "N/A",
         female: "N/A",
         other: "N/A",
