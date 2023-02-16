@@ -1,5 +1,5 @@
-import { OverlayDiv } from "./DIstributeCouponOverlay.styles"
-import { useState } from 'react'
+import {OverlayDiv} from "./DIstributeCouponOverlay.styles"
+import {useState} from 'react'
 
 const DistributeCouponOverlay = (props) => {
     const [formData, setFormData] = useState({
@@ -24,9 +24,9 @@ const DistributeCouponOverlay = (props) => {
 
     return (
         <OverlayDiv>
-                <h1>Select target group</h1>
-                <form>
-                    <div>
+            <h1>Select target group</h1>
+            <form>
+                <div>
                     <label htmlFor="ageFrom">Age (From):</label>
                     <input
                         type="number"
@@ -44,8 +44,8 @@ const DistributeCouponOverlay = (props) => {
                         value={formData.ageTo}
                         onChange={handleChange}
                     />
-                    </div>
-                    <div>
+                </div>
+                <div>
                     <label htmlFor="gender">Gender:</label>
                     <div>
                         <input
@@ -66,7 +66,8 @@ const DistributeCouponOverlay = (props) => {
                             value="female"
                             onChange={handleChange}
                             checked={formData.gender === 'female'}
-                            />
+                        />
+
                         <label htmlFor="female">Female</label>
                     </div>
                     <div>
@@ -88,25 +89,26 @@ const DistributeCouponOverlay = (props) => {
                             value=""
                             onChange={handleChange}
                             checked={formData.gender === ''}
-                            />
+                        />
                         <label htmlFor="none">No Selection</label>
                     </div>
-                    </div>
-                    <div>
+                </div>
+                <div>
                     <label htmlFor="location">Location:</label>
                     <input
+                        placeholder="Enter your location..."
                         type="text"
                         id="location"
                         name="location"
                         value={formData.location}
                         onChange={handleChange}
-                        />
-                    </div>
-                    <button>distribute</button>
-                </form>
+                    />
+                </div>
+                <button>Distribute your Coupon</button>
+            </form>
 
 
-            </OverlayDiv>
+        </OverlayDiv>
     )
 }
 export default DistributeCouponOverlay;
