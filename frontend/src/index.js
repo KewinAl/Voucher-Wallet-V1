@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import rootStore from "./Store/rootStore";
+import { persistor, rootStore } from "./Store/rootStore";
 import { setAuth } from "./Store/authSlice";
 import { Provider } from "react-redux";
 import AppRoutes from "./AppRoutes";
 import "./index.css";
 import { GlobalStyle, theme } from "./styles";
 import { ThemeProvider } from "styled-components";
+import { PersistGate } from "redux-persist/integration/react";
 
 const getAuthFromLocalStorage = () => {
   let authData = {};
@@ -28,8 +29,10 @@ root.render(
   <>
     <ThemeProvider theme={theme}>
       <Provider store={rootStore}>
-        <GlobalStyle />
-        <AppRoutes />
+        <PersistGate loading={null} persistor={persistor}>
+          <GlobalStyle />
+          <AppRoutes />
+        </PersistGate>
       </Provider>
     </ThemeProvider>
   </>
