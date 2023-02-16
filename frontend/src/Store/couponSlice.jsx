@@ -28,13 +28,22 @@ const couponSlice = createSlice({
           id: 1,
           name: "Summer Sale",
         },
+        analytics: {
+          averageAge: 45,
+          male: 10,
+          female: 80,
+          other: 10,
+          zurich: 60,
+          basel: 15,
+          bern: 25,
+        },
       },
       {
         id: 2,
         title: "Limited Special Offer",
         description: "Applicable after 50$",
-        times_redeemed: 14,
-        redeem_limit: 28,
+        times_redeemed: 20,
+        redeem_limit: 40,
         discount: 5,
         discount_type: "amount",
         companyLogo: aldiLogo,
@@ -49,6 +58,15 @@ const couponSlice = createSlice({
           id: 2,
           name: "Special Limited Edition",
         },
+        analytics: {
+          averageAge: 21,
+          male: 90,
+          female: 8,
+          other: 2,
+          zurich: 87,
+          basel: 12,
+          bern: 1,
+        },
       },
     ],
   },
@@ -56,9 +74,23 @@ const couponSlice = createSlice({
     addCoupon: (state, action) => {
       state.coupons.push(action.payload);
     },
+    changeCouponData: (state, action) => {
+      const { couponId, data } = action.payload;
+
+      const couponIndex = state.coupons.findIndex(
+        (coupon) => coupon.id === couponId
+      );
+
+      if (couponIndex !== -1) {
+        state.coupons[couponIndex] = {
+          ...state.coupons[couponIndex],
+          ...data,
+        };
+      }
+    },
   },
 });
 
-export const { addCoupon } = couponSlice.actions;
+export const { addCoupon, changeCouponData } = couponSlice.actions;
 
 export default couponSlice.reducer;
