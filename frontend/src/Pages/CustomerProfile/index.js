@@ -13,6 +13,17 @@ import Overlay from "../../Components/Overlays/OverlayBase";
 import TagOverlay from "../../Components/Overlays/TagOverlay";
 import CustomerProfileOverlay from "../../Components/Overlays/CustomerProfileOverlay";
 import tropical from "../../Assets/tropical.jpg";
+import coupon1 from "../../Assets/coupon1.png";
+import coupon2 from "../../Assets/coupon2.png";
+import coupon3 from "../../Assets/coupon3.png";
+import coupon4 from "../../Assets/coupon4.png";
+import coupon5 from "../../Assets/coupon5.png";
+import coupon6 from "../../Assets/coupon6.png";
+import coupon7 from "../../Assets/coupon7.png";
+import coupon8 from "../../Assets/coupon8.png";
+import coupon9 from "../../Assets/coupon9.png";
+import coupon10 from "../../Assets/coupon10.png";
+import microsoftLogo from "../../Assets/companyLogo.png";
 
 const CustomerProfile = () => {
   const dispatch = useDispatch();
@@ -89,6 +100,8 @@ const CustomerProfile = () => {
       discount: 50,
       discount_type: "percent",
       tag: "Fashion",
+      background_image: coupon1,
+      companyLogo: microsoftLogo,
     },
     {
       title: "10 dollars off",
@@ -96,6 +109,8 @@ const CustomerProfile = () => {
       discount: 10,
       discount_type: "amount",
       tag: "Electronics",
+      background_image: coupon2,
+      companyLogo: microsoftLogo,
     },
     {
       title: "20% off shoes",
@@ -103,6 +118,8 @@ const CustomerProfile = () => {
       discount: 20,
       discount_type: "percent",
       tag: "Clothing",
+      background_image: coupon3,
+      companyLogo: microsoftLogo,
     },
     {
       title: "Buy one, get one free",
@@ -110,6 +127,8 @@ const CustomerProfile = () => {
       discount: 100,
       discount_type: "percent",
       tag: "Restaurants",
+      background_image: coupon4,
+      companyLogo: microsoftLogo,
     },
     {
       title: "30% off",
@@ -117,6 +136,8 @@ const CustomerProfile = () => {
       discount: 30,
       discount_type: "percent",
       tag: "Sports and Outdoors",
+      background_image: coupon5,
+      companyLogo: microsoftLogo,
     },
     {
       title: "15 dollars off",
@@ -124,6 +145,8 @@ const CustomerProfile = () => {
       discount: 15,
       discount_type: "amount",
       tag: "Electronics",
+      background_image: coupon6,
+      companyLogo: microsoftLogo,
     },
     {
       title: "25% off jewelry",
@@ -131,6 +154,8 @@ const CustomerProfile = () => {
       discount: 25,
       discount_type: "percent",
       tag: "Fashion",
+      background_image: coupon7,
+      companyLogo: microsoftLogo,
     },
     {
       title: "Free shipping",
@@ -138,6 +163,8 @@ const CustomerProfile = () => {
       discount: 100,
       discount_type: "percent",
       tag: "Electronics",
+      background_image: coupon8,
+      companyLogo: microsoftLogo,
     },
     {
       title: "20 dollars off",
@@ -145,6 +172,8 @@ const CustomerProfile = () => {
       discount: 20,
       discount_type: "amount",
       tag: "Home and Garden",
+      background_image: coupon9,
+      companyLogo: microsoftLogo,
     },
     {
       title: "40% off",
@@ -152,8 +181,11 @@ const CustomerProfile = () => {
       discount: 40,
       discount_type: "percent",
       tag: "Beauty and Personal Care",
+      background_image: coupon10,
+      companyLogo: microsoftLogo,
     },
   ];
+
   const datasetcoupons = [];
   for (let i = 0; i < 10; i++) {
     const data = datasets[i];
@@ -165,8 +197,8 @@ const CustomerProfile = () => {
       redeem_limit: 100,
       discount: data.discount,
       discount_type: data.discount_type,
-      companyLogo: "microsoftLogo",
-      background_image: tropical,
+      companyLogo: data.companyLogo,
+      background_image: data.background_image,
       expiration_date: "2023-12-31",
       link: "www.aldi.de",
       shop_profile: {
