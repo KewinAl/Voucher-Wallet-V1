@@ -4,24 +4,27 @@ export const AnalyticsOverlayDiv = styled.div`
   width: 900px;
   height: 600px;
   background-color: white;
-  border: 1px solid #cccccc;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   padding: 20px;
+  border-radius: 25px;
+
 
   h1 {
     font-size: x-large;
-    color: blueviolet;
+    color: #06C076;
 
   }
 
   h2 {
     font-size: x-large;
     text-align: center;
-    color: blueviolet;
-    border: 2px dotted orange;
+    color: white;
+    border: 2px solid #522fbc;
+    border-radius: 25px;
+    background-color: #522fbc;
     padding: 10px;
 
   }
@@ -38,26 +41,27 @@ export const AnalyticsDiv = styled.div`
     width: 100;
     display: flex;
     justify-content: space-between;
-    color: darkgoldenrod;
+    color: black;
 
   }
 
 
   > div.CouponsRedeemed {
     margin-top: 50px;
-    background: lightblue;
+    background: white;
     border-radius: 25px;
     padding: 15px;
   }
 
   > div.UserAnalytics {
-    background-color: #d8f8d8;
+    background-color: white;
     height: 50%;
     padding: 15px;
     display: flex;
     flex-direction: column;
     justify-items: space-between;
     border-radius: 15px;
+    border: 2px solid black;
 
 
     > div {
