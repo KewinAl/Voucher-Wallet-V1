@@ -79,6 +79,15 @@ const CreateCouponOverlay = (props) => {
         id: 1,
         name: "Summer Sale",
       },
+      analytics: {
+        averageAge: "N/A",
+        male: "N/A",
+        female: "N/A",
+        other: "N/A",
+        zurich: "N/A",
+        basel: "N/A",
+        bern: "N/A",
+      },
     };
     dispatch(addCoupon(newCoupon));
     props.exitFunction(false);
