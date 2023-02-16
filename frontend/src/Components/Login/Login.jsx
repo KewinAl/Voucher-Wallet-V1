@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { fetchProfile, getAuthToken } from "../../API/lib/auth";
 import { setAuth, setEmail } from "../../Store/authSlice";
 import { ForgotLink, LoginButton, LoginForm } from "./login.style";
+import microsoftLogo from "../../Assets/companyLogo.png";
+import tropical from "../../Assets/tropical.jpg";
+import aldiLogo from "../../Assets/AldiLogo.png";
+import background2 from "../../Assets/couponPic1.jpg";
+import { addCoupon } from "../../Store/couponSlice";
 
 function Login() {
   const [user, setUser] = useState({
@@ -14,6 +19,67 @@ function Login() {
   const [error, setError] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  let coupon1 = {
+    id: 1,
+    title: "10% Off on all products",
+    description: "Get 10% discount",
+    times_redeemed: 14,
+    redeem_limit: 28,
+    discount: 10,
+    discount_type: "percent",
+    companyLogo: microsoftLogo,
+    background_image: tropical,
+    expiration_date: "2023-06-30",
+    link: "www.cats.ch",
+    shop_profile: {
+      id: 1,
+      name: "Shop A",
+    },
+    tag: {
+      id: 1,
+      name: "Summer Sale",
+    },
+    analytics: {
+      averageAge: 45,
+      male: 10,
+      female: 80,
+      other: 10,
+      zurich: 60,
+      basel: 15,
+      bern: 25,
+    },
+  };
+  let coupon2 = {
+    id: 2,
+    title: "Limited Special Offer",
+    description: "Applicable after 50$",
+    times_redeemed: 20,
+    redeem_limit: 40,
+    discount: 5,
+    discount_type: "amount",
+    companyLogo: aldiLogo,
+    background_image: background2,
+    expiration_date: "2023-12-31",
+    link: "www.aldi.de",
+    shop_profile: {
+      id: 2,
+      name: "Shop B",
+    },
+    tag: {
+      id: 2,
+      name: "Special Limited Edition",
+    },
+    analytics: {
+      averageAge: 21,
+      male: 90,
+      female: 8,
+      other: 2,
+      zurich: 87,
+      basel: 12,
+      bern: 1,
+    },
+  };
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.id]: e.target.value });
@@ -26,6 +92,8 @@ function Login() {
       console.log("getAuthToken:", response);
       dispatch(setAuth(response.data));
       dispatch(setEmail(user.email));
+      dispatch(addCoupon(coupon1));
+      dispatch(addCoupon(coupon2));
       localStorage.setItem("auth", JSON.stringify(response.data));
       localStorage.setItem("email", JSON.stringify(user.email));
       try {
