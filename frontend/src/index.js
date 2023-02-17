@@ -38,4 +38,4 @@ root.render(
   </>
 );
 // reset the store:
-persistor.purge();
+// persistor.purge();
