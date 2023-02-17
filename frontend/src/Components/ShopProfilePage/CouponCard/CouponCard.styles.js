@@ -24,12 +24,12 @@ export const CouponDiv = styled.div`
     background-image: url(${(p) => p.backgroundimage});
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 1;
+    opacity: 0.2;
     transition: opacity 0.3s ease-in-out;
   }
 
   &:hover::before {
-    opacity: 0.5;
+    opacity: 0.7;
     box-shadow: 5px 7px 14px -3px rgba(0, 0, 0, 0.8); /* increase the box shadow on hover */
   }
 
