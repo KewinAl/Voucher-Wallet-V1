@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchProfile, getAuthToken } from "../../API/lib/auth";
 import { setAuth, setEmail } from "../../Store/authSlice";
@@ -19,7 +19,7 @@ function Login() {
   const [error, setError] = useState({});
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const coupons = useSelector((store) => store.coupons.coupons);
   let coupon1 = {
     id: 1,
     title: "10% Off on all products",
@@ -81,6 +81,15 @@ function Login() {
     },
   };
 
+  const addCouponsIfNotExist = () => {
+    if (!coupons.some((coupon) => coupon.id === coupon1.id)) {
+      dispatch(addCoupon(coupon1));
+    }
+    if (!coupons.some((coupon) => coupon.id === coupon2.id)) {
+      dispatch(addCoupon(coupon2));
+    }
+  };
+
   const handleChange = (e) => {
     setUser({ ...user, [e.target.id]: e.target.value });
   };
@@ -92,8 +101,7 @@ function Login() {
       console.log("getAuthToken:", response);
       dispatch(setAuth(response.data));
       dispatch(setEmail(user.email));
-      dispatch(addCoupon(coupon1));
-      dispatch(addCoupon(coupon2));
+      addCouponsIfNotExist();
       localStorage.setItem("auth", JSON.stringify(response.data));
       localStorage.setItem("email", JSON.stringify(user.email));
       try {
