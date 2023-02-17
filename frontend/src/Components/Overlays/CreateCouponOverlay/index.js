@@ -175,6 +175,7 @@ const CreateCouponOverlay = (props) => {
             company,
             title,
             description,
+            discount,
             link,
             image,
             expiration_date,
