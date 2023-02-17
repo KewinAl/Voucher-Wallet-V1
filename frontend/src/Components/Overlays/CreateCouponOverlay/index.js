@@ -71,6 +71,7 @@ const CreateCouponOverlay = (props) => {
       background_image: couponPic2,
       expiration_date: "2023-06-01",
       link: "www.tv.ch",
+      color: "#0000FF",
       shop_profile: {
         id: 1,
         name: "Shop A",

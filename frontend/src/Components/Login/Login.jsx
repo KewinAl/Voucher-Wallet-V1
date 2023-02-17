@@ -7,7 +7,7 @@ import { ForgotLink, LoginButton, LoginForm } from "./login.style";
 import microsoftLogo from "../../Assets/companyLogo.png";
 import tropical from "../../Assets/tropical.jpg";
 import aldiLogo from "../../Assets/AldiLogo.png";
-import background2 from "../../Assets/couponPic1.jpg";
+import background2 from "../../Assets/coupon9.png";
 import { addCoupon } from "../../Store/couponSlice";
 
 function Login() {
@@ -32,6 +32,7 @@ function Login() {
     background_image: tropical,
     expiration_date: "2023-06-30",
     link: "www.cats.ch",
+    color: "#00FF00",
     shop_profile: {
       id: 1,
       name: "Shop A",
@@ -62,6 +63,7 @@ function Login() {
     background_image: background2,
     expiration_date: "2023-12-31",
     link: "www.aldi.de",
+    color: "#FF0000",
     shop_profile: {
       id: 2,
       name: "Shop B",

@@ -19,66 +19,68 @@ const CouponCard_Profile = ({ coupon }) => {
   const [distributionOverlayVisibility, setdistributionOverlayVisibility] =
     useState(false);
   const dispatch = useDispatch();
-  console.log(coupon.id);
   return (
-    <CouponDiv>
-      <Overlay
-        visibilityCondition={analyticsVisibility}
-        exitFunction={setanalyticsVisibility}
-      >
-        <AnalyticsOverlay
-          visible={analyticsVisibility}
-          exitFunction={setanalyticsVisibility}
-          redeemed={coupon.times_redeemed}
-          redeemable={coupon.redeem_limit}
-          analytics={coupon.analytics}
-        />
-      </Overlay>
-
-      <Overlay
-        visibilityCondition={distributionOverlayVisibility}
-        exitFunction={setdistributionOverlayVisibility}
-      >
-        <DistributeCouponOverlay />
-      </Overlay>
-
-      <h1>{coupon.title}</h1>
-      <Tag>{coupon.tag.name}</Tag>
-      <DetailsDiv>
-        <div>
-          <p>Expiration Date</p>
-          <p>Times used</p>
-        </div>
-        <div>
-          <p className="aligned-end">{coupon.expiration_date}</p>
-          <p className="aligned-end">{coupon.times_redeemed}</p>
-        </div>
-      </DetailsDiv>
-      <CouponDescription>{coupon.description}</CouponDescription>
-
-      <CouponButtonDiv>
-        <AnalyticsButton
-          color={"lightblue"}
-          onClick={() => setanalyticsVisibility(true)}
-        >
-          Analytics
-        </AnalyticsButton>
-        <div>
-          <CouponActionButton
-            color={"#06C076"}
-            onClick={() => setdistributionOverlayVisibility(true)}
+    <div style={{ backgroundImage: "url(background-image-url)" }}>
+      <div style={{ position: "relative" }}>
+        <CouponDiv backgroundimage={coupon.background_image}>
+          <Overlay
+            visibilityCondition={analyticsVisibility}
+            exitFunction={setanalyticsVisibility}
           >
-            Distribute
-          </CouponActionButton>
-          <CouponActionButton
-            color={"#ff704d"}
-            onClick={() => dispatch(deleteCoupon(coupon.id))}
+            <AnalyticsOverlay
+              visible={analyticsVisibility}
+              exitFunction={setanalyticsVisibility}
+              redeemed={coupon.times_redeemed}
+              redeemable={coupon.redeem_limit}
+              analytics={coupon.analytics}
+            />
+          </Overlay>
+
+          <Overlay
+            visibilityCondition={distributionOverlayVisibility}
+            exitFunction={setdistributionOverlayVisibility}
           >
-            DELETE
-          </CouponActionButton>
-        </div>
-      </CouponButtonDiv>
-    </CouponDiv>
+            <DistributeCouponOverlay />
+          </Overlay>
+          <h1>{coupon.title}</h1>
+          <Tag>{coupon.tag.name}</Tag>
+          <DetailsDiv>
+            <div>
+              <p>Expiration Date</p>
+              <p>Times used</p>
+            </div>
+            <div>
+              <p className="aligned-end">{coupon.expiration_date}</p>
+              <p className="aligned-end">{coupon.times_redeemed}</p>
+            </div>
+          </DetailsDiv>
+          <CouponDescription>{coupon.description}</CouponDescription>
+
+          <CouponButtonDiv>
+            <AnalyticsButton
+              color={"lightblue"}
+              onClick={() => setanalyticsVisibility(true)}
+            >
+              Analytics
+            </AnalyticsButton>
+            <div>
+              <CouponActionButton
+                color={"#06C076"}
+                onClick={() => setdistributionOverlayVisibility(true)}
+              >
+                Distribute
+              </CouponActionButton>
+              <CouponActionButton
+                color={"#ff704d"}
+                onClick={() => dispatch(deleteCoupon(coupon.id))}
+              >
+                DELETE
+              </CouponActionButton>
+            </div>
+          </CouponButtonDiv>
+        </CouponDiv>
+      </div>
+    </div>
   );
 };
 export default CouponCard_Profile;
